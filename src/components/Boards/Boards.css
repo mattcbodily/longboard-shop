@@ -29,6 +29,14 @@
     margin-top: 10px;
 }
 
+.custom-card {
+    height: 335px;
+    width: 90%;
+    text-align: center;
+    border: 1px solid lightgray; 
+    border-radius: 10px
+}
+
 .card-btn-group {
     width: 100%;
 }

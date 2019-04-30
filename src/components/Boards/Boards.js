@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
@@ -32,7 +33,7 @@ class Boards extends Component {
                     </DropdownButton>
                 </ButtonGroup>
                 <div className='boardsflex'>
-                    <Card style={{ height: '335px', width: '330px', textAlign: 'center', border: '1px solid lightgray', borderRadius: '10px'}}>
+                    <Card bsPrefix='custom-card'>
                         <Card.Img variant="top" src={testpicture} style={{height: '165px', borderRadius: '10px 10px 0px 0px'}} />
                         <Card.Body>
                             <Card.Title>Board Title, Board Price</Card.Title>
@@ -40,7 +41,7 @@ class Boards extends Component {
                                 Brief description of the longboard and it's specs go here goes here.
                             </Card.Text>
                             <ButtonGroup bsPrefix='card-btn-group'>
-                                <Button bsPrefix='boards-custom-btn1'>More Info</Button>
+                                <Link to='/board/:boardname'><Button bsPrefix='boards-custom-btn1'>More Info</Button></Link>
                                 <Button bsPrefix='boards-custom-btn2'>Add to Cart</Button>
                             </ButtonGroup>
                         </Card.Body>
