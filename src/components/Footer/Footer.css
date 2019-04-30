@@ -1,4 +1,6 @@
-.Footer {
+.custom-navbar {
+    height: 40px;
+    color: #343A40;
     text-align: center;
 }
 

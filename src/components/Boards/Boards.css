@@ -1,5 +1,50 @@
 .Boards {
     min-height: 100vh;
     box-sizing: border-box;
-    padding-top: 40px;
+    padding: 40px 0px;
+    text-align: left;
+}
+
+.Filterby {
+    height: 30px;
+    width: 25vw;
+    box-sizing: border-box;
+    padding-top: 1px;
+    background-color: whitesmoke;
+    border: 1px solid rgb(186, 186, 186);
+    text-align: center;
+}
+
+.Filter-dropdownbutton {
+    height: 30px;
+    width: 25vw;
+    background-color: whitesmoke;
+}
+
+.boardsflex {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.card-btn-group {
+    width: 100%;
+}
+
+.boards-custom-btn1 {
+    height: 32px;
+    width: 48%;
+    background-color: lightgray;
+    border: 1px solid gray;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.boards-custom-btn2 {
+    height: 32px;
+    width: 48%;
+    background-color: lightgray;
+    border: 1px solid gray;
+    border-radius: 0px 5px 5px 0px;
 }

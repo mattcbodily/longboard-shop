@@ -1,5 +1,42 @@
-.Landing{
+h4 {
+    padding-top: 70px;
+}
+
+.Landing {
     min-height: 100vh;
     box-sizing: border-box;
-    padding-top: 40px;
+    padding: 40px 0px;
+}
+
+.Carouselimage {
+    height: 200px;
+    width: 100%;
+    background-image: url("./placeholder.jpg")
+}
+
+.custom-btn-group {
+    width: 100%;
+}
+
+.custom-btn {
+    height: 38px;
+    width: 50%;
+    background-color: #343A40;
+    color: white;
+    border: .5px solid black;
+}
+
+.custom-btn:hover {
+    background-color: #2A2A2A;
+    outline-color: #2A2A2A;
+}
+
+.Landinglinks {
+    display: none;
+}
+
+.Landingimage {
+    height: 175px;
+    width: 100%;
+    background-image: url("./placeholder.jpg")
 }

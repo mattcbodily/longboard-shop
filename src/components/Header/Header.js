@@ -27,14 +27,14 @@ class Header extends Component {
             {!this.state.showDrawer
             ? (<div>
                     <Navbar bg='dark' fixed='top'>
-                    <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
-                    <span>Logo</span>
+                        <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
+                        <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>
                     </Navbar>
                 </div>) 
             : (<div>
                     <Navbar bg='dark' fixed='top'>
                         <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
-                        <span>Logo</span>
+                        <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>                    
                     </Navbar>
                     <div className='Dropdownmenu'>
                         <Link to='/' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Home</p></Link>
