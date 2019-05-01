@@ -5,6 +5,10 @@ import About from './components/About/About';
 import Boards from './components/Boards/Boards';
 import SelectedBoard from './components/Boards/SelectedBoard';
 import Design from './components/Custom/Design';
+import BoardSize from './components/Custom/BoardSize';
+import Trucks from './components/Custom/Trucks';
+import Wheels from './components/Custom/Wheels';
+import Pictures from './components/Custom/Pictures';
 
 export default (
     <Switch>
@@ -13,5 +17,9 @@ export default (
         <Route path = '/boards' component = {Boards}/>
         <Route path = '/board/:boardname' component = {SelectedBoard}/>
         <Route path = '/customize' component = {Design}/>
+        <Route path = '/boardsize' component = {BoardSize}/>
+        <Route path = '/trucks' component = {Trucks}/>
+        <Route path = '/wheels' component = {Wheels}/>
+        <Route path = '/graphics' component = {Pictures}/>
     </Switch>
 )

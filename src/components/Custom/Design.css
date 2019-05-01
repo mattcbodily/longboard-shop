@@ -3,3 +3,38 @@
     box-sizing: border-box;
     padding-top: 40px;
 }
+
+.customize-step-prompt {
+    height: 40px;
+    width: 20vw;
+    box-sizing: border-box;
+    padding-top: 6px;
+    background-color: whitesmoke;
+    border: 1px solid rgb(186, 186, 186);
+}
+
+.active-customize-step-btn {
+    height: 40px;
+    width: 16vw;
+    background-color: #494949;
+    border: 1px solid rgb(186, 186, 186);
+}
+
+.customize-step-btn {
+    height: 40px;
+    width: 16vw;
+    background-color: whitesmoke;
+    border: 1px solid rgb(186, 186, 186);
+}
+
+.custom-board-image-div {
+    height: 55vh;
+    box-sizing: border-box;
+    padding-top: 5px;
+    background-color: gray;
+}
+
+.custom-step-name {
+    font-size: 24px;
+    color: white;
+}
