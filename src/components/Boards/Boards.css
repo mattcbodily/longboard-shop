@@ -56,3 +56,49 @@
     border: 1px solid gray;
     border-radius: 0px 5px 5px 0px;
 }
+
+.selected-board-price {
+    height: 40px;
+    width: 27vw;
+    background-color: gray;
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding-top: 7px;
+}
+
+.selected-board-dropdownbutton {
+    height: 40px;
+    width: 23vw;
+    background-color: #343A40;
+    color: white;
+    border: 1px solid black;
+}
+
+.selected-board-btn {
+    height: 40px;
+    width: 50vw;
+    background-color: #343A40;
+    color: white;
+    border: 1px solid black;
+}
+
+.customize-board-btn {
+    height: 40px;
+    width: 100vw;
+    background-color: #343A40;
+    border: 1px solid black;
+    color: white;
+}
+
+.mobile-customize-board-btn {
+    display: none;
+}
+
+.selected-board-description {
+    box-sizing: border-box;
+    padding-top: 10px;
+    text-align: center;
+}
