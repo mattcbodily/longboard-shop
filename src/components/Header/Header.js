@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Navbar from 'react-bootstrap/Navbar';
 import {Link} from 'react-router-dom';
 import './Header.css';
 import {library} from '@fortawesome/fontawesome-svg-core'
@@ -26,16 +25,16 @@ class Header extends Component {
             <div>
             {!this.state.showDrawer
             ? (<div>
-                    <Navbar bg='dark' fixed='top'>
+                    <div className='Header'>
                         <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
                         <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>
-                    </Navbar>
+                    </div>
                 </div>) 
             : (<div>
-                    <Navbar bg='dark' fixed='top'>
+                    <div className='Header'>
                         <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
                         <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>                    
-                    </Navbar>
+                    </div>
                     <div className='Dropdownmenu'>
                         <Link to='/' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Home</p></Link>
                         <Link to='/boards' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Our Boards</p></Link>

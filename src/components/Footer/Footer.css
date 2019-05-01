@@ -1,7 +1,9 @@
-.custom-navbar {
+.Footer {
     height: 40px;
-    color: #343A40;
-    text-align: center;
+    width: 100vw;
+    box-sizing: border-box;
+    padding-top: 8px;
+    background-color: #343A40;
 }
 
 .Copyright {
