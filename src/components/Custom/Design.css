@@ -41,6 +41,13 @@ h5 {
     border-bottom: 2px solid #343A40;
 }
 
+.custom-board-graphics-div {
+    height: calc(60vh - 40px);
+    box-sizing: border-box;
+    padding-top: 5px;
+    background-color: gray;
+}
+
 .custom-step-name {
     font-size: 24px;
     color: white;

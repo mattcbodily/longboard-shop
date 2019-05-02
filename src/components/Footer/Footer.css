@@ -4,6 +4,8 @@
     box-sizing: border-box;
     padding-top: 8px;
     background-color: #343A40;
+    position: relative;
+    z-index: 20;
 }
 
 .Copyright {

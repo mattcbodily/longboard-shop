@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom';
 import './Header.css';
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faBars} from '@fortawesome/free-solid-svg-icons';
-library.add(faBars)
+import {faBars, faShoppingCart, faUser} from '@fortawesome/free-solid-svg-icons';
+library.add(faBars, faShoppingCart, faUser)
 
 class Header extends Component {
     constructor(){
@@ -26,14 +26,26 @@ class Header extends Component {
             {!this.state.showDrawer
             ? (<div>
                     <div className='Header'>
-                        <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
-                        <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>
+                        <div>
+                            <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
+                            <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>
+                        </div>
+                        <div>
+                            <Link to='/user/:id'><FontAwesomeIcon icon="user" className="user-icon"/></Link>
+                            <FontAwesomeIcon icon="shopping-cart" className="shopping-cart"/>
+                        </div>
                     </div>
                 </div>) 
             : (<div>
                     <div className='Header'>
-                        <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
-                        <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>                    
+                        <div>
+                            <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
+                            <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>
+                        </div>
+                        <div>
+                            <Link to='/user/:id'><FontAwesomeIcon icon="user" className="user-icon"/></Link>
+                            <FontAwesomeIcon icon="shopping-cart" className="shopping-cart"/>
+                        </div>               
                     </div>
                     <div className='Dropdownmenu'>
                         <Link to='/' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Home</p></Link>

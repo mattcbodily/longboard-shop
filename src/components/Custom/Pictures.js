@@ -17,8 +17,14 @@ class Pictures extends Component {
                     <Link to='/wheels'><Button bsPrefix='customize-step-btn'>4</Button></Link>
                     <Button bsPrefix='active-customize-step-btn'>5</Button>
                 </ButtonGroup>
-                <div className='custom-board-image-div'>
+                <div className='custom-board-graphics-div'>
                     <h5 className='custom-step-name'>Graphics</h5>
+                </div>
+                <div className='custom-board-buttons-div'>
+                    <ButtonGroup bsPrefix='custom-btn-group'>
+                        <Button bsPrefix='custom-btn'>Upload Photo</Button>
+                        <Button bsPrefix='custom-btn'>Add to Cart</Button>
+                    </ButtonGroup>
                 </div>
                 <div className='custom-board-parts-div'>
                     <div className='custom-parts-card'>

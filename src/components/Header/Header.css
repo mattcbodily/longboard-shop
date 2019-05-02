@@ -6,8 +6,9 @@
     position: fixed;
     z-index: 20;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding-left: 10px;
+    padding: 0px 10px;
 }
 
 .Bars {
@@ -19,12 +20,25 @@
 .Logotext:link {
     text-decoration: none;
     color: white;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .Logotext:visited {
     text-decoration: none;
     color: white;
+}
+
+.user-icon {
+    color: white;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.shopping-cart {
+    color: white;
+    font-size: 20px;
+
 }
 
 .Dropdownmenu{
