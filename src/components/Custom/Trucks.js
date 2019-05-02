@@ -20,6 +20,17 @@ class Trucks extends Component {
                 <div className='custom-board-image-div'>
                     <h5 className='custom-step-name'>Trucks</h5>
                 </div>
+                <div className='custom-board-parts-div'>
+                    <div className='custom-parts-card'>
+                        
+                    </div>
+                    <div className='custom-parts-card'>
+
+                    </div>
+                    <div className='custom-parts-card'>
+
+                    </div>
+                </div>
             </div>
         )
     }

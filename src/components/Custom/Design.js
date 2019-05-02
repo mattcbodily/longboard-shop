@@ -23,16 +23,28 @@ class Design extends Component {
                 </div>
                 <div className='custom-board-parts-div'>
                     <div className='custom-parts-card'>
-
+                        <div className='custom-part-image'>
+                            This is where the part image goes
+                        </div>
+                        <div className='custom-part-info'>
+                            This is where the part information goes
+                        </div>
                     </div>
                     <div className='custom-parts-card'>
-                        
+                        <div className='custom-part-image'>
+                            This is where the part image goes
+                        </div>
+                        <div className='custom-part-info'>
+                            This is where the part information goes
+                        </div>
                     </div>
                     <div className='custom-parts-card'>
-                        
-                    </div>
-                    <div className='custom-parts-card'>
-                        
+                        <div className='custom-part-image'>
+                            This is where the part image goes
+                        </div>
+                        <div className='custom-part-info'>
+                            This is where the part information goes
+                        </div>
                     </div>
                 </div>
             </div>

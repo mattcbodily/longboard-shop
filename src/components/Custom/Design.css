@@ -22,6 +22,7 @@ h5 {
     height: 40px;
     width: 16vw;
     background-color: #494949;
+    color: white;
     border: 1px solid rgb(186, 186, 186);
 }
 
@@ -33,10 +34,11 @@ h5 {
 }
 
 .custom-board-image-div {
-    height: 55vh;
+    height: 60vh;
     box-sizing: border-box;
     padding-top: 5px;
     background-color: gray;
+    border-bottom: 2px solid #343A40;
 }
 
 .custom-step-name {
@@ -45,19 +47,39 @@ h5 {
 }
 
 .custom-board-parts-div {
-    height: 24vh;
+    height: calc(100vh - 60vh - 120px);
     max-width: 100vw;
     box-sizing: border-box;
-    padding: 1vh;
+    padding: 5px 5px 5px 5px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: white;
-    overflow-x: auto;
+    overflow: auto;
 }
 
 .custom-parts-card {
-    height: 98%;
-    min-width: 125px;
+    min-height: 110px;
+    min-width: 98%;
+    background-color: white;
+    border-bottom: 2px solid gray;
+    box-sizing: border-box;
+    margin: 5px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* below are placeholders for the custom parts div placement */
+
+.custom-part-image {
+    height: 100px;
+    width: 40%;
     background-color: gray;
-    border-radius: 5px;
-    margin-right: 10px;
+    color: white;
+}
+
+.custom-part-info {
+    height: 100px;
+    width: 55%;
+    border: 1px solid gray;
 }
