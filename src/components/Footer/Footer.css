@@ -3,10 +3,9 @@
     width: 100vw;
     box-sizing: border-box;
     padding-top: 8px;
-    /* background-color: #343A40; */
     background-color: #02258C;
-    /* position: relative;
-    z-index: 20; */
+    position: relative;
+    z-index: 20;
 }
 
 .Copyright {

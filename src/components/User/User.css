@@ -1,5 +1,63 @@
+h6 {
+    padding-top: 5px;
+}
+
 .user {
     min-height: calc(100vh - 40px);
     box-sizing: border-box;
     padding-top: 40px;
+}
+
+.user-information {
+    height: 100px;
+    background-color: gray;
+}
+
+.order-history {
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 10px 0px;
+    margin: 0px 10px;
+    border-bottom: 1px solid gray;
+}
+
+.order-history-picture {
+    height: 90px;
+    width: 35%;
+    background-color: gray;
+}
+
+.order-history-information {
+    height: 90px;
+    width: 60%;
+    background-color: gray;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-history-longboard-title {
+    height: 35%;
+    border-bottom: 1px solid black;
+}
+
+.order-history-flexed-information {
+    height: 65%;
+    display: flex;
+}
+
+.order-history-price {
+    height: 100%;
+    width: 50%;
+    border-right: 1px solid black;
+}
+
+.order-qty-date {
+    height: 100%;
+    width: 50%;
+}
+
+.order-history-qty {
+    height: 50%;
+    border-bottom: 1px solid black;
 }

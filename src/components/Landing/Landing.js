@@ -9,7 +9,7 @@ class Landing extends Component {
     render(){
         return(
             <div className='Landing'>
-                <Carousel interval='5000'>
+                <Carousel interval='10000'>
                     <Carousel.Item>
                         <div className='Carouselimage-one'/>
                     <Carousel.Caption>

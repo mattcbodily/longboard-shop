@@ -2,7 +2,6 @@
     height: 40px;
     width: 100vw;
     box-sizing: border-box;
-    /* background-color: #343A40; */
     background-color: #02258C;
     position: fixed;
     z-index: 20;
@@ -10,6 +9,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0px 10px;
+    border-bottom: 1px solid #011D6E;
 }
 
 .Bars {
@@ -48,7 +48,6 @@
     box-sizing: border-box;
     position: fixed;
     padding-top: 40px;
-    /* background-color: #343A40; */
     background-color: #02258C;
     color: white;
     animation: expand .2s;
