@@ -51,6 +51,7 @@ class Header extends Component {
                         <Link to='/' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Home</p></Link>
                         <Link to='/boards' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Our Boards</p></Link>
                         <Link to='/customize' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Build Your Own</p></Link>
+                        <Link to='/user/:id' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Order History</p></Link>
                         <Link to='/about' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>About/Contact</p></Link>
                     </div>
                 </div>

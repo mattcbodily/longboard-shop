@@ -8,16 +8,16 @@ import Dropdown from 'react-bootstrap/Dropdown';
 class SelectedBoard extends Component {
     render(){
         return(
-            <div className='Boards'>
+            <div className='selected-boards'>
                 <Carousel interval='60000'>
                     <Carousel.Item>
-                        <div className='Carouselimage'/>
+                        <div className='Carouselimage-one'/>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <div className='Carouselimage'/>
+                        <div className='Carouselimage-two'/>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <div className='Carouselimage'/>
+                        <div className='Carouselimage-three'/>
                     </Carousel.Item>
                 </Carousel>
                 <ButtonGroup>

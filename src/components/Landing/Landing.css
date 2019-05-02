@@ -8,10 +8,25 @@ h4 {
     padding-top: 40px;
 }
 
-.Carouselimage {
+.Carouselimage-one {
     height: 200px;
     width: 100%;
-    background-image: url("./placeholder.jpg")
+    background-image: url("./drew-hays-161811-unsplash.jpg");
+    background-size: cover;
+}
+
+.Carouselimage-two {
+    height: 200px;
+    width: 100%;
+    background-image: url("./sasha-bond-52826-unsplash.jpg");
+    background-size: cover;
+}
+
+.Carouselimage-three {
+    height: 200px;
+    width: 100%;
+    background-image: url("./jevgenij-voronov-63310-unsplash.jpg");
+    background-size: cover;
 }
 
 .custom-btn-group {
@@ -21,7 +36,8 @@ h4 {
 .custom-btn {
     height: 38px;
     width: 50%;
-    background-color: #343A40;
+    /* background-color: #343A40; */
+    background-color: #0367BF;
     color: white;
     border: .5px solid black;
 }
@@ -35,8 +51,22 @@ h4 {
     display: none;
 }
 
-.Landingimage {
+.Landingimage-one {
     height: 175px;
     width: 100%;
-    background-image: url("./placeholder.jpg")
+    background-image: url("./drew-hays-161811-unsplash.jpg");
+}
+
+.Landingimage-two {
+    height: 175px;
+    width: 100%;
+    background-image: url("./sasha-bond-52826-unsplash.jpg");
+    background-size: cover;
+}
+
+.Landingimage-three {
+    height: 175px;
+    width: 100%;
+    background-image: url("./jevgenij-voronov-63310-unsplash.jpg");
+    background-size: cover;
 }

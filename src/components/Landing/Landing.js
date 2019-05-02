@@ -11,19 +11,19 @@ class Landing extends Component {
             <div className='Landing'>
                 <Carousel interval='5000'>
                     <Carousel.Item>
-                        <div className='Carouselimage'/>
+                        <div className='Carouselimage-one'/>
                     <Carousel.Caption>
                         <h3>First slide label</h3>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <div className='Carouselimage'/>
+                        <div className='Carouselimage-two'/>
                     <Carousel.Caption>
                         <h3>Second slide label</h3>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
-                        <div className='Carouselimage'/>
+                        <div className='Carouselimage-three'/>
                     <Carousel.Caption>
                         <h3>Third slide label</h3>
                     </Carousel.Caption>
@@ -35,7 +35,7 @@ class Landing extends Component {
                 </ButtonGroup>
                 <p className='Landinglinks'>Ready to get started? <Link to='/boards'>View our boards</Link> or <Link to='/customize'>build your own</Link></p>
                 <div className='Landingblurb'>
-                    <div className='Landingimage'>
+                    <div className='Landingimage-one'>
                         <h4>About Us</h4>
                     </div>
                     <p>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
@@ -44,7 +44,7 @@ class Landing extends Component {
                     strip steak ball tip jowl.</p>
                 </div>
                 <div className='Landingblurb'>
-                    <div className='Landingimage'>
+                    <div className='Landingimage-two'>
                         <h4>Why Our Boards?</h4>
                     </div>
                     <p>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
@@ -53,7 +53,7 @@ class Landing extends Component {
                     strip steak ball tip jowl.</p>
                 </div>                
                 <div className='Landingblurb'>
-                    <div className='Landingimage'>
+                    <div className='Landingimage-three'>
                         <h4>Get Started</h4>
                     </div>
                     <p>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
