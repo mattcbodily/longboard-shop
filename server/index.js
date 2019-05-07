@@ -13,6 +13,8 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 app.get('/api/standard-boards', ctrl.getBoards);
+app.get('/api/boards-price-filter-low', ctrl.filterLowestPrice);
+app.get('/api/boards-price-filter-high', ctrl.filterHighestPrice);
 
 const port = SERVER_PORT || 4400;
 app.listen(port, () => console.log(`Coding is happening on port ${port}`));

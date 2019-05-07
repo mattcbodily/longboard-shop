@@ -21,8 +21,26 @@ class Boards extends Component {
         this.handleGetBoards();
     }
 
-    handleGetBoards(){
+    handleGetBoards = () => {
         axios.get('/api/standard-boards')
+        .then(res => {
+            this.setState({
+                boards: res.data
+            })
+        })
+    }
+
+    handleFilterPriceLow = () => {
+        axios.get('/api/boards-price-filter-low')
+        .then(res => {
+            this.setState({
+                boards: res.data
+            })
+        })
+    }
+
+    handleFilterPriceHigh = () => {
+        axios.get('/api/boards-price-filter-high')
         .then(res => {
             this.setState({
                 boards: res.data
@@ -41,7 +59,7 @@ class Boards extends Component {
                             {board.longboard_description}
                         </Card.Text>
                         <ButtonGroup bsPrefix='card-btn-group'>
-                            <Link to='/board/:boardname'><Button bsPrefix='boards-custom-btn1'>More Info</Button></Link>
+                            <Link to={`/board/${board.longboard_title}`}><Button bsPrefix='boards-custom-btn1'>More Info</Button></Link>
                             <Button bsPrefix='boards-custom-btn2'>Add to Cart</Button>
                         </ButtonGroup>
                     </Card.Body>
@@ -66,9 +84,9 @@ class Boards extends Component {
                         <Dropdown.Item>Option 2</Dropdown.Item>
                     </DropdownButton>
                     <DropdownButton alignRight title='Price' bsPrefix='Filter-dropdownbutton'>
-                        <Dropdown.Item>High to Low</Dropdown.Item>
+                        <Dropdown.Item onClick={this.handleFilterPriceHigh}>High to Low</Dropdown.Item>
                         <Dropdown.Divider />
-                        <Dropdown.Item>Low to High</Dropdown.Item>
+                        <Dropdown.Item onClick={this.handleFilterPriceLow}>Low to High</Dropdown.Item>
                     </DropdownButton>
                 </ButtonGroup>
                 </div>
