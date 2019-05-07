@@ -10,7 +10,8 @@ class SelectedBoard extends Component {
     constructor(props){
         super(props);
         this.state = {
-            board: []
+            board: [],
+            qty: 1
         }
     }
 
@@ -27,18 +28,30 @@ class SelectedBoard extends Component {
         })
     }
 
+    handleQtyUp = () => {
+        this.setState({
+            qty: 2
+        })
+    }
+
+    handleQtyDown = () => {
+        this.setState({
+            qty: 1
+        })
+    }
+ 
     render(){
         const mappedBoard = this.state.board.map((board, i) => {
             return(
-                <div>
+                <div key={i}>
                 <ButtonGroup>
                 <div className='selected-board-price'>
-                    ${board.price}
+                    ${(board.price * this.state.qty)}
                 </div>
-                <DropdownButton title = 'Qty: ' bsPrefix='selected-board-dropdownbutton'>
-                    <Dropdown.Item>1</Dropdown.Item>
+                <DropdownButton title = {`Qty: ${this.state.qty}`} bsPrefix='selected-board-dropdownbutton'>
+                    <Dropdown.Item onClick={this.handleQtyDown}>1</Dropdown.Item>
                     <Dropdown.Divider/>
-                    <Dropdown.Item>2</Dropdown.Item>
+                    <Dropdown.Item onClick={this.handleQtyUp}>2</Dropdown.Item>
                 </DropdownButton>
                 <Button bsPrefix='selected-board-btn'>Add to Cart</Button>
                 <Button bsPrefix='mobile-customize-board-btn'>Customize</Button>

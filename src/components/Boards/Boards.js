@@ -48,6 +48,15 @@ class Boards extends Component {
         })
     }
 
+    handleFilterSizeSmall = () => {
+        axios.get('/api/boards-size-small')
+        .then(res => {
+            this.setState({
+                boards: res.data
+            })
+        })
+    }
+
     render(){
         const mappedBoards = this.state.boards.map((board, i) => {
             return(
@@ -79,9 +88,11 @@ class Boards extends Component {
                             <Dropdown.Item>Option 2</Dropdown.Item>
                     </DropdownButton>
                     <DropdownButton alignRight title='Size' bsPrefix='Filter-dropdownbutton'>
-                        <Dropdown.Item>Option 1</Dropdown.Item>
+                        <Dropdown.Item onClick={this.handleFilterSizeSmall}>Small: 33"-36"</Dropdown.Item>
                         <Dropdown.Divider />
-                        <Dropdown.Item>Option 2</Dropdown.Item>
+                        <Dropdown.Item>Medium: 37"-44"</Dropdown.Item>
+                        <Dropdown.Divider />
+                        <Dropdown.Item>Large: 45"-52"</Dropdown.Item>
                     </DropdownButton>
                     <DropdownButton alignRight title='Price' bsPrefix='Filter-dropdownbutton'>
                         <Dropdown.Item onClick={this.handleFilterPriceHigh}>High to Low</Dropdown.Item>

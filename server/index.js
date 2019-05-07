@@ -12,10 +12,11 @@ massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
 })
 
-app.get('/api/standard-boards', ctrl.getBoards);
-app.get('/api/boards-price-filter-low', ctrl.filterLowestPrice);
-app.get('/api/boards-price-filter-high', ctrl.filterHighestPrice);
-app.get('/api/selected-board/:title', ctrl.getSelectedBoard);
+app.get('/api/standard-boards', ctrl.getBoards); //found in the boards component
+app.get('/api/boards-price-filter-low', ctrl.filterLowestPrice); //found in the boards component
+app.get('/api/boards-price-filter-high', ctrl.filterHighestPrice); //found in the boards component
+app.get('/api/boards-size-small', ctrl.filterSizeSmall); //found in the boards component
+app.get('/api/selected-board/:title', ctrl.getSelectedBoard); //found in the boards component
 
 const port = SERVER_PORT || 4400;
 app.listen(port, () => console.log(`Coding is happening on port ${port}`));

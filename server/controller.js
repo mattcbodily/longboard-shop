@@ -14,6 +14,11 @@ module.exports = {
         .then(boards => res.status(200).send(boards))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
+    filterSizeSmall: (req, res) => {
+        req.app.get('db').filter_size_small()
+        .then(boards => res.status(200).send(boards))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
     getSelectedBoard: (req, res) => {
         const {title} = req.params;
         req.app.get('db').get_selected_board(title)
