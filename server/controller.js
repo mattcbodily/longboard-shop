@@ -1,33 +1,40 @@
 module.exports = {
     getBoards: (req, res) => {
-        req.app.get('db').get_standard_boards()
+        req.app.get('db').standard_boards.get_standard_boards()
         .then(boards => res.status(200).send(boards))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
     getBoardByDesign: (req, res) => {
         const {design} = req.params;
-        req.app.get('db').get_board_by_design(design)
+        req.app.get('db').standard_boards.get_board_by_design(design)
         .then(boards => res.status(200).send(boards))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
     filterLowestPrice: (req, res) => {
-       req.app.get('db').filter_lowest_price()
+       req.app.get('db').standard_boards.filter_lowest_price()
        .then(boards => res.status(200).send(boards))
        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err))) 
     },
-    filterHighestPrice: (req, res) => {
-        req.app.get('db').filter_highest_price()
+    filterLowestPriceByDesign: (req, res) => {
+        const {design} = req.params;
+        req.app.get('db').standard_boards.filter_price_by_design_low(design)
         .then(boards => res.status(200).send(boards))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
-    filterSizeSmall: (req, res) => {
-        req.app.get('db').filter_size_small()
+    filterHighestPriceByDesign: (req, res) => {
+        const {design} = req.params;
+        req.app.get('db').standard_boards.filter_price_by_design_high(design)
+        .then(boards => res.status(200).send(boards))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    filterHighestPrice: (req, res) => {
+        req.app.get('db').standard_boards.filter_highest_price()
         .then(boards => res.status(200).send(boards))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
     getSelectedBoard: (req, res) => {
         const {title} = req.params;
-        req.app.get('db').get_selected_board(title)
+        req.app.get('db').standard_boards.get_selected_board(title)
         .then(board => res.status(200).send(board))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }

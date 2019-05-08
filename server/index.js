@@ -13,10 +13,11 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 app.get('/api/standard-boards', ctrl.getBoards); //found in the boards component
-app.get('/api/boards-by-design/:design', ctrl.getBoardByDesign); //found in the board design component, takes the design name of the board
+app.get('/api/boards-by-design/:design', ctrl.getBoardByDesign); //found in the pintail design and drop design components, takes the design name of the board
 app.get('/api/boards-price-filter-low', ctrl.filterLowestPrice); //found in the boards component
 app.get('/api/boards-price-filter-high', ctrl.filterHighestPrice); //found in the boards component
-app.get('/api/boards-size-small', ctrl.filterSizeSmall); //found in the boards component
+app.get('/api/boards-low-price-filter/:design', ctrl.filterLowestPriceByDesign); //found in the pintail design and drop design components, takes in the design name of the board
+app.get('/api/boards-high-price-filter/:design', ctrl.filterHighestPriceByDesign); //found in the pintail design and drop design components, takes in the design name of the board
 app.get('/api/selected-board/:title', ctrl.getSelectedBoard); //found in the boards component
 
 const port = SERVER_PORT || 4400;

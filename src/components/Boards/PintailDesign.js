@@ -31,7 +31,7 @@ class Boards extends Component {
     }
 
     handleFilterPriceLow = () => {
-        axios.get('/api/boards-price-filter-low')
+        axios.get(`/api/boards-low-price-filter/Pintail`)
         .then(res => {
             this.setState({
                 boards: res.data
@@ -40,16 +40,7 @@ class Boards extends Component {
     }
 
     handleFilterPriceHigh = () => {
-        axios.get('/api/boards-price-filter-high')
-        .then(res => {
-            this.setState({
-                boards: res.data
-            })
-        })
-    }
-
-    handleFilterSizeSmall = () => {
-        axios.get('/api/boards-size-small')
+        axios.get(`/api/boards-high-price-filter/Pintail`)
         .then(res => {
             this.setState({
                 boards: res.data
@@ -82,17 +73,10 @@ class Boards extends Component {
                     <div className='Filterby'>
                         Filter by:
                     </div>
-                    <DropdownButton title='Design' bsPrefix='Filter-dropdownbutton'>
+                    <DropdownButton alignRight title='Design' bsPrefix='Filter-dropdownbutton'>
                             <div><Link to='/pintail-boards'>Pintail</Link></div>
                             <Dropdown.Divider />
                             <div><Link to='/drop-boards'>Drop</Link></div>
-                    </DropdownButton>
-                    <DropdownButton alignRight title='Size' bsPrefix='Filter-dropdownbutton'>
-                        <Dropdown.Item onClick={this.handleFilterSizeSmall}>Small: 33"-36"</Dropdown.Item>
-                        <Dropdown.Divider />
-                        <Dropdown.Item>Medium: 37"-44"</Dropdown.Item>
-                        <Dropdown.Divider />
-                        <Dropdown.Item>Large: 45"-52"</Dropdown.Item>
                     </DropdownButton>
                     <DropdownButton alignRight title='Price' bsPrefix='Filter-dropdownbutton'>
                         <Dropdown.Item onClick={this.handleFilterPriceHigh}>High to Low</Dropdown.Item>
