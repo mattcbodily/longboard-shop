@@ -4,6 +4,12 @@ module.exports = {
         .then(boards => res.status(200).send(boards))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
+    getBoardByDesign: (req, res) => {
+        const {design} = req.params;
+        req.app.get('db').get_board_by_design(design)
+        .then(boards => res.status(200).send(boards))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
     filterLowestPrice: (req, res) => {
        req.app.get('db').filter_lowest_price()
        .then(boards => res.status(200).send(boards))

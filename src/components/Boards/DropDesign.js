@@ -22,7 +22,7 @@ class Boards extends Component {
     }
 
     handleGetBoards = () => {
-        axios.get('/api/standard-boards')
+        axios.get(`/api/boards-by-design/Drop`)
         .then(res => {
             this.setState({
                 boards: res.data

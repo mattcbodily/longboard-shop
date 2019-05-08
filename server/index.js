@@ -13,6 +13,7 @@ massive(CONNECTION_STRING).then(db => {
 })
 
 app.get('/api/standard-boards', ctrl.getBoards); //found in the boards component
+app.get('/api/boards-by-design/:design', ctrl.getBoardByDesign); //found in the board design component, takes the design name of the board
 app.get('/api/boards-price-filter-low', ctrl.filterLowestPrice); //found in the boards component
 app.get('/api/boards-price-filter-high', ctrl.filterHighestPrice); //found in the boards component
 app.get('/api/boards-size-small', ctrl.filterSizeSmall); //found in the boards component
