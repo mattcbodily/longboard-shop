@@ -31,6 +31,16 @@
     background-color: whitesmoke;
 }
 
+.Dropdown-option-div {
+    text-align: center;
+    color: black;
+}
+
+.Design-links {
+    text-decoration: none;
+    color: black;
+}
+
 .boardsflex {
     display: flex;
     flex-direction: column;

@@ -2,16 +2,29 @@ require('dotenv').config();
 const express = require('express');
 const {json} = require('body-parser');
 const massive = require('massive');
-const sessions = require('express-session');
+const session = require('express-session');
 const ctrl = require('./controller');
-const {SERVER_PORT, CONNECTION_STRING} = process.env;
+const ac = require('./authcontroller');
+const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
 const app = express();
 app.use(json());
+
+app.use(session({
+    secret: SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
 })
 
+//authorization endpoints
+app.post('/auth/register', ac.register);
+app.post('/auth/login', ac.login);
+app.post('/auth/logout', ac.logout);
+
+//data endpoints
 app.get('/api/standard-boards', ctrl.getBoards); //found in the boards component
 app.get('/api/boards-by-design/:design', ctrl.getBoardByDesign); //found in the pintail design and drop design components, takes the design name of the board
 app.get('/api/boards-price-filter-low', ctrl.filterLowestPrice); //found in the boards component

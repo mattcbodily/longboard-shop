@@ -74,14 +74,14 @@ class Boards extends Component {
                         Filter by:
                     </div>
                     <DropdownButton alignRight title='Design' bsPrefix='Filter-dropdownbutton'>
-                            <div><Link to='/pintail-boards'>Pintail</Link></div>
+                            <div className='Dropdown-option-div'><Link to='/pintail-boards' className='Design-links'>Pintail</Link></div>
                             <Dropdown.Divider />
-                            <div><Link to='/drop-boards'>Drop</Link></div>
+                            <div className='Dropdown-option-div'><Link to='/drop-boards' className='Design-links'>Drop</Link></div>
                     </DropdownButton>
                     <DropdownButton alignRight title='Price' bsPrefix='Filter-dropdownbutton'>
-                        <Dropdown.Item onClick={this.handleFilterPriceHigh}>High to Low</Dropdown.Item>
+                        <div onClick={this.handleFilterPriceHigh} className='Dropdown-option-div'>High to Low</div>
                         <Dropdown.Divider />
-                        <Dropdown.Item onClick={this.handleFilterPriceLow}>Low to High</Dropdown.Item>
+                        <div onClick={this.handleFilterPriceLow} className='Dropdown-option-div'>Low to High</div>
                     </DropdownButton>
                 </ButtonGroup>
                 </div>
