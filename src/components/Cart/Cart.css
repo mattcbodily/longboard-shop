@@ -1,0 +1,5 @@
+.cart {
+    min-height: calc(100vh - 40px);
+    box-sizing: border-box;
+    padding-top: 40px;
+}

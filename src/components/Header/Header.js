@@ -32,7 +32,7 @@ class Header extends Component {
                         </div>
                         <div>
                             <Link to='/order-history' onClick={this.handleModalToggle}><FontAwesomeIcon icon="user" className="user-icon"/></Link>
-                            <FontAwesomeIcon icon="shopping-cart" className="shopping-cart"/>
+                            <Link to='/cart'><FontAwesomeIcon icon="shopping-cart" className="shopping-cart"/></Link>
                         </div>
                     </div>
                 </div>) 
@@ -44,7 +44,7 @@ class Header extends Component {
                         </div>
                         <div>
                             <Link to='/order-history'><FontAwesomeIcon icon="user" className="user-icon"/></Link>
-                            <FontAwesomeIcon icon="shopping-cart" className="shopping-cart"/>
+                            <Link to='/cart'><FontAwesomeIcon icon="shopping-cart" className="shopping-cart"/></Link>
                         </div>               
                     </div>
                     <div className='Dropdownmenu'>
