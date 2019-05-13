@@ -14,16 +14,12 @@ class User extends Component {
     }
 
     componentDidMount(){
-        if(this.state.user.user_id){
-
-        } else {
-            axios.get('/auth/get-session-user')
-            .then(res => {
-                this.setState({
-                    user: res.data
-                })
+        axios.get('/auth/get-session-user')
+        .then(res => {
+            this.setState({
+                user: res.data
             })
-        }    
+        })  
     }
 
     handleEmailInput(val){
@@ -49,8 +45,6 @@ class User extends Component {
     }
 
     render(){
-        // console.log(this.props)
-        // console.log(this.state.user)
         return(
             <div className='user'>
             {this.state.user.user_id

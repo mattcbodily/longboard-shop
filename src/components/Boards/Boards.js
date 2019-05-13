@@ -13,11 +13,21 @@ class Boards extends Component {
     constructor(props){
         super(props);
         this.state = {
-            boards: []
+            boards: [],
+            user: {},
+            email: '',
+            password: '',
+            showModal: false
         }
     }
 
     componentDidMount(){
+        axios.get('/auth/get-session-user')
+        .then(res => {
+            this.setState({
+                user: res.data
+            })
+        }) 
         this.handleGetBoards();
     }
 
