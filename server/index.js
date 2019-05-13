@@ -23,6 +23,7 @@ massive(CONNECTION_STRING).then(db => {
 app.post('/auth/register', ac.register);
 app.post('/auth/login', ac.login);
 app.post('/auth/logout', ac.logout);
+app.get('/auth/get-session-user', ac.getSessionUser);
 
 //data endpoints
 app.get('/api/standard-boards', ctrl.getBoards); //found in the boards component

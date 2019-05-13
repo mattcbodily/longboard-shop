@@ -39,5 +39,14 @@ module.exports = {
     logout: (req, res) => {
         req.session.destroy();
         res.sendStatus(200);
+    },
+    getSessionUser: (req, res) => {
+        const {user} = req.session;
+
+        if(user){
+            res.send(user)
+        } else {
+            res.status(400).send('Could not find user')
+        }
     }
 }

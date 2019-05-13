@@ -12,6 +12,7 @@ import Trucks from './components/Custom/Trucks';
 import Wheels from './components/Custom/Wheels';
 import Pictures from './components/Custom/Pictures';
 import User from './components/User/User';
+import Register from './components/User/Register';
 
 export default (
     <Switch>
@@ -26,6 +27,7 @@ export default (
         <Route path = '/trucks' component = {Trucks}/>
         <Route path = '/wheels' component = {Wheels}/>
         <Route path = '/graphics' component = {Pictures}/>
-        <Route path = '/user/:id' component = {User}/>
+        <Route path = '/order-history' component = {User}/>
+        <Route path = '/register' component = {Register}/>
     </Switch>
 )
