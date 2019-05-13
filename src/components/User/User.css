@@ -1,5 +1,6 @@
 h6 {
     padding-top: 5px;
+    margin: 0px;
 }
 
 .user {
@@ -60,4 +61,8 @@ h6 {
 .order-history-qty {
     height: 50%;
     border-bottom: 1px solid black;
+}
+
+.register-link {
+    margin: 0px;
 }

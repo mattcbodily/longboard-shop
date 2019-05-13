@@ -39,7 +39,7 @@ class User extends Component {
         console.log(this.state.user)
         return(
             <div className='user'>
-            {this.state.user.id
+            {this.state.user.user_id
             ? (<div> 
                 <div className='user-information'>
                     Basic, editable user information goes here
@@ -71,7 +71,7 @@ class User extends Component {
             </div>) : (
                 <div>
                     <h6>Please sign in to view your order history</h6>
-                    <p>Don't have an account? <Link to='/register'>Register here</Link></p>
+                    <p className='register-link'>Don't have an account? <Link to='/register'>Register here</Link></p>
                     <div>
                         <input 
                             placeholder='Email'
@@ -82,6 +82,7 @@ class User extends Component {
                     <div>
                         <input 
                             placeholder='Password'
+                            type='password'
                             value={this.state.password}
                             maxLength='40'
                             onChange={(e) => this.handlePasswordInput(e.target.value)}/>
