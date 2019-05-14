@@ -49,7 +49,7 @@ module.exports = {
         if(user){
             res.send(user)
         } else {
-            // res.status(400).send('Could not find user')
+            res.send('')
         }
     }
 }

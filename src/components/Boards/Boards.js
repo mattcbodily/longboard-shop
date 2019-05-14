@@ -4,9 +4,7 @@ import axios from 'axios';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import testpicture from './the-nigmatic-263109-unsplash.jpg';
+import BoardsDisplay from './BoardsDisplay'
 import AuthModal from './AuthModal';
 import './Boards.css';
 
@@ -21,19 +19,38 @@ class Boards extends Component {
     }
 
     componentDidMount(){
+        this.handleGetSessionUser();
+        this.handleGetBoards();
+    }
+
+    handleGetSessionUser = () => {
         axios.get('/auth/get-session-user')
         .then(res => {
             this.setState({
                 user: res.data
             })
         }) 
-        this.handleGetBoards();
     }
 
     handleToggle = () => {
         this.setState({
             showModal: !this.state.showModal
         })
+    }
+
+    handleAddToCart = (boardID, price) => {
+        if(this.state.user.user_id) {
+            const orderItem = {
+                order_id: this.state.user.order_id,
+                standard_product: boardID,
+                quantity: 1,
+                price
+            }
+            axios.post('/api/add-to-cart-standard', orderItem)
+            //add an alert to let the customer know their product was added
+        } else {
+            this.handleToggle()
+        }
     }
 
     handleLogin = (data) => {
@@ -72,19 +89,10 @@ class Boards extends Component {
     render(){
         const mappedBoards = this.state.boards.map((board, i) => {
             return(
-                <Card bsPrefix='custom-card' key={i}>
-                    <Card.Img variant="top" src={testpicture} style={{height: '165px', borderRadius: '10px 10px 0px 0px'}} />
-                    <Card.Body>
-                        <Card.Title>{board.longboard_title}, {board.price}</Card.Title>
-                        <Card.Text>
-                            {board.longboard_description}
-                        </Card.Text>
-                        <ButtonGroup bsPrefix='card-btn-group'>
-                            <Link to={`/board/${board.longboard_title}`}><Button bsPrefix='boards-custom-btn1'>More Info</Button></Link>
-                            <Button bsPrefix='boards-custom-btn2' onClick={this.handleToggle}>Add to Cart</Button>
-                        </ButtonGroup>
-                    </Card.Body>
-                </Card>
+                <BoardsDisplay 
+                    key={i}
+                    board={board}
+                    addToCart={this.handleAddToCart}/>
             )
         })
         return(
