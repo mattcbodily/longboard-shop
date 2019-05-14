@@ -23,7 +23,7 @@ class Cart extends Component {
     }
 
     handleGetUserCart = () => {
-        axios.get(`/api/user-cart/${this.state.user.order_id}`)
+        axios.get(`/api/user-cart/${this.state.user.user_id}`)
         .then(res => {
             console.log(res)
             this.setState({
@@ -33,7 +33,7 @@ class Cart extends Component {
     }
 
     render(){
-        console.log(this.state.user.order_id)
+        console.log(this.state.user)
         console.log(this.state.orderItems)
         return(
             <div className='cart'>
