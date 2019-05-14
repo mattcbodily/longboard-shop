@@ -43,5 +43,11 @@ module.exports = {
         req.app.get('db').cart.add_to_cart_standard_product(order_id, standard_product, quantity, price)
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    getUserCart: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').cart.get_user_cart(id)
+        .then(cartItems => res.status(200).send(cartItems))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

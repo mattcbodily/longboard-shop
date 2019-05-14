@@ -33,6 +33,7 @@ app.get('/api/boards-price-filter-high', ctrl.filterHighestPrice); //found in th
 app.get('/api/boards-low-price-filter/:design', ctrl.filterLowestPriceByDesign); //found in the pintail design and drop design components, takes in the design name of the board
 app.get('/api/boards-high-price-filter/:design', ctrl.filterHighestPriceByDesign); //found in the pintail design and drop design components, takes in the design name of the board
 app.get('/api/selected-board/:title', ctrl.getSelectedBoard); //found in the boards component
+app.get('/api/user-cart/:id', ctrl.getUserCart); //this is found in the cart component, takes the order id
 
 app.post('/api/add-to-cart-standard', ctrl.addToCartStandardProduct); //found in the boards component, taking a req.body with the order_id, board_id, quantity, and price
 
