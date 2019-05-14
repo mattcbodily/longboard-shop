@@ -124,3 +124,15 @@
     padding-top: 10px;
     text-align: center;
 }
+
+.authentication-modal {
+    height: 335px;
+    width: 90%;
+    background-color: white;
+    position: fixed;
+    top: 13%;
+    left: 50%;
+    margin-left: -45%;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+}

@@ -7,6 +7,7 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import testpicture from './the-nigmatic-263109-unsplash.jpg';
+import AuthModal from './AuthModal';
 import './Boards.css';
 
 class Boards extends Component {
@@ -15,8 +16,6 @@ class Boards extends Component {
         this.state = {
             boards: [],
             user: {},
-            email: '',
-            password: '',
             showModal: false
         }
     }
@@ -29,6 +28,18 @@ class Boards extends Component {
             })
         }) 
         this.handleGetBoards();
+    }
+
+    handleToggle = () => {
+        this.setState({
+            showModal: !this.state.showModal
+        })
+    }
+
+    handleLogin = (data) => {
+        this.setState({
+            user: data
+        })
     }
 
     handleGetBoards = () => {
@@ -70,34 +81,63 @@ class Boards extends Component {
                         </Card.Text>
                         <ButtonGroup bsPrefix='card-btn-group'>
                             <Link to={`/board/${board.longboard_title}`}><Button bsPrefix='boards-custom-btn1'>More Info</Button></Link>
-                            <Button bsPrefix='boards-custom-btn2'>Add to Cart</Button>
+                            <Button bsPrefix='boards-custom-btn2' onClick={this.handleToggle}>Add to Cart</Button>
                         </ButtonGroup>
                     </Card.Body>
                 </Card>
             )
         })
         return(
-            <div className='Boards'>
-                <div className='Filter-group'>
-                <ButtonGroup>
+            <div>
+                {!this.state.showModal
+                ? (<div className='Boards'>
+                    <div className='Filter-group'>
+                    <ButtonGroup>
+                        <div className='Filterby'>
+                            Filter by:
+                        </div>
+                        <DropdownButton alignRight title='Design' bsPrefix='Filter-dropdownbutton'>
+                            <div className='Dropdown-option-div'><Link to='/pintail-boards' className='Design-links'>Pintail</Link></div>
+                            <Dropdown.Divider />
+                            <div className='Dropdown-option-div'><Link to='/drop-boards' className='Design-links'>Drop</Link></div>
+                        </DropdownButton>
+                        <DropdownButton alignRight title='Price' bsPrefix='Filter-dropdownbutton'>
+                            <div onClick={this.handleFilterPriceHigh} className='Dropdown-option-div'>High to Low</div>
+                            <Dropdown.Divider />
+                            <div onClick={this.handleFilterPriceLow} className='Dropdown-option-div'>Low to High</div>
+                        </DropdownButton>
+                    </ButtonGroup>
+                    </div>
+                    <div className='boardsflex'>
+                        {mappedBoards}
+                    </div>
+                </div>) : (
+                <div className='Boards'>
+                    <div className='Filter-group'>
+                    <ButtonGroup>
                     <div className='Filterby'>
                         Filter by:
                     </div>
                     <DropdownButton alignRight title='Design' bsPrefix='Filter-dropdownbutton'>
-                            <div className='Dropdown-option-div'><Link to='/pintail-boards' className='Design-links'>Pintail</Link></div>
-                            <Dropdown.Divider />
-                            <div className='Dropdown-option-div'><Link to='/drop-boards' className='Design-links'>Drop</Link></div>
+                        <div className='Dropdown-option-div'><Link to='/pintail-boards' className='Design-links'>Pintail</Link></div>
+                        <Dropdown.Divider />
+                        <div className='Dropdown-option-div'><Link to='/drop-boards' className='Design-links'>Drop</Link></div>
                     </DropdownButton>
                     <DropdownButton alignRight title='Price' bsPrefix='Filter-dropdownbutton'>
                         <div onClick={this.handleFilterPriceHigh} className='Dropdown-option-div'>High to Low</div>
                         <Dropdown.Divider />
                         <div onClick={this.handleFilterPriceLow} className='Dropdown-option-div'>Low to High</div>
                     </DropdownButton>
-                </ButtonGroup>
+                    </ButtonGroup>
+                    </div>
+                    <AuthModal 
+                        login={this.handleLogin}
+                        toggle={this.handleToggle}/>
+                    <div className='boardsflex'>
+                        {mappedBoards}
+                    </div>
                 </div>
-                <div className='boardsflex'>
-                    {mappedBoards}
-                </div>
+                )}
             </div>
         )
     }
