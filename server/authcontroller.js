@@ -15,7 +15,9 @@ module.exports = {
         let newUser = await db.user.register(email, hash, address, city, state, zipcode);
         newUser = newUser[0];
         delete newUser.password;
-        await db.user.create_user_cart(newUser.user_id);
+        let userCart = await db.user.create_user_cart(newUser.user_id);
+        userCart = userCart[0]
+        newUser = {...newUser, ...userCart}
         session.user = newUser;
         res.status(201).send(session.user);
     },

@@ -4,4 +4,5 @@ insert into orders (
 ) values (
     $1,
     false
-);
+)
+returning order_id, paid;
