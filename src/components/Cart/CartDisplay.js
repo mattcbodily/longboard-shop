@@ -13,7 +13,8 @@ library.add(faTimes)
 class CartDisplay extends Component {
     handleQuantityUp = () => {
         const quantityObj = {
-            quantity: 2
+            quantity: 2,
+            price: this.props.cart.price * 2
         }
         axios.put(`/api/update-item-quantity/${this.props.cart.order_item_id}`, quantityObj)
         .then(res => {
@@ -23,7 +24,8 @@ class CartDisplay extends Component {
 
     handleQuantityDown = () => {
         const quantityObj = {
-            quantity: 1
+            quantity: 1,
+            price: this.props.cart.price
         }
         axios.put(`/api/update-item-quantity/${this.props.cart.order_item_id}`, quantityObj)
         .then(res => {
@@ -53,10 +55,10 @@ class CartDisplay extends Component {
                         </div>
                         <div className='order-history-flexed-information'>
                             <div className='order-history-price'>
-                                <p className='order-information'>${this.props.cart.price * this.props.cart.quantity}</p>
+                                <p className='order-information'>${this.props.cart.order_item_price}</p>
                             </div>
                             <div className='order-qty-date'>
-                                <DropdownButton title={`Qty: ${this.props.cart.quantity}`} bsPrefix='qty-dropdownbutton'>
+                                <DropdownButton alignRight title={`Qty: ${this.props.cart.quantity}`} bsPrefix='qty-dropdownbutton'>
                                     <p onClick={this.handleQuantityDown}>1</p>
                                     <Dropdown.Divider />
                                     <p onClick={this.handleQuantityUp}>2</p>

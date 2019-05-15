@@ -2,7 +2,7 @@ insert into order_item (
     order_id,
     standard_product,
     quantity,
-    price
+    order_item_price
 ) values (
     $1,
     $2,

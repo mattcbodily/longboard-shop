@@ -52,8 +52,8 @@ module.exports = {
     },
     updateItemQuantity: (req, res) => {
         const {id} = req.params;
-        const {quantity} = req.body;
-        req.app.get('db').cart.update_item_quantity(quantity, id)
+        const {quantity, price} = req.body;
+        req.app.get('db').cart.update_item_quantity(quantity, price, id)
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },

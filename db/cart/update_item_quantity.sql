@@ -1,3 +1,3 @@
 update order_item
-set quantity = $1
-where order_item_id = $2;
+set (quantity, order_item_price) = ($1, $2)
+where order_item_id = $3;
