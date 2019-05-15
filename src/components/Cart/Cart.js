@@ -32,10 +32,6 @@ class Cart extends Component {
         })
     }
 
-    handleQuantity = () => {
-
-    }
-
     render(){
         const mappedCart = this.state.orderItems.map((item, i) => {
             return (

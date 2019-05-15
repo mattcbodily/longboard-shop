@@ -36,6 +36,7 @@ app.get('/api/selected-board/:title', ctrl.getSelectedBoard); //found in the boa
 app.get('/api/user-cart/:id', ctrl.getUserCart); //this is found in the cart component, takes the order id
 
 app.post('/api/add-to-cart-standard', ctrl.addToCartStandardProduct); //found in the boards component, taking a req.body with the order_id, board_id, quantity, and price
+app.put('/api/update-item-quantity', ctrl.updateItemQuantity); //found in the cart display component
 
 app.delete('/api/delete-cart-item/:id', ctrl.deleteCartItem); //this is found in the cart display component, taking the order item id in params
 

@@ -9,6 +9,23 @@ library.add(faTimes)
 
 
 class CartDisplay extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            quantity: this.props.cart.quantity
+        }
+    }
+    
+    handleQuantity = () => {
+        const quantityObj = {
+            quantity: this.state.quantity
+        }
+        axios.put(`/api/update-item-quantity${this.props.cart.order_item_id}`, quantityObj)
+        .then(res => {
+            this.props.getCart();
+        })
+    }
+
     handleDeleteItem = () => {
         axios.delete(`/api/delete-cart-item/${this.props.cart.order_item_id}`)
         .then(res => {
