@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
 import testpicture from './../Boards/the-nigmatic-263109-unsplash.jpg';
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
@@ -9,18 +11,21 @@ library.add(faTimes)
 
 
 class CartDisplay extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            quantity: this.props.cart.quantity
-        }
-    }
-    
-    handleQuantity = () => {
+    handleQuantityUp = () => {
         const quantityObj = {
-            quantity: this.state.quantity
+            quantity: 2
         }
-        axios.put(`/api/update-item-quantity${this.props.cart.order_item_id}`, quantityObj)
+        axios.put(`/api/update-item-quantity/${this.props.cart.order_item_id}`, quantityObj)
+        .then(res => {
+            this.props.getCart();
+        })
+    }
+
+    handleQuantityDown = () => {
+        const quantityObj = {
+            quantity: 1
+        }
+        axios.put(`/api/update-item-quantity/${this.props.cart.order_item_id}`, quantityObj)
         .then(res => {
             this.props.getCart();
         })
@@ -51,7 +56,11 @@ class CartDisplay extends Component {
                                 <p className='order-information'>${this.props.cart.price * this.props.cart.quantity}</p>
                             </div>
                             <div className='order-qty-date'>
-                                <p className='order-information'>Qty: {this.props.cart.quantity}</p>
+                                <DropdownButton title={`Qty: ${this.props.cart.quantity}`} bsPrefix='qty-dropdownbutton'>
+                                    <p onClick={this.handleQuantityDown}>1</p>
+                                    <Dropdown.Divider />
+                                    <p onClick={this.handleQuantityUp}>2</p>
+                                </DropdownButton>
                             </div>
                         </div>
                     </div>

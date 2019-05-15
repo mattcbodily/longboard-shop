@@ -3,3 +3,9 @@
     box-sizing: border-box;
     padding-top: 40px;
 }
+
+.qty-dropdown-menu {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+}
