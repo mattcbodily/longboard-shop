@@ -55,8 +55,8 @@ class User extends Component {
                 </div>
                 <h6>Your Order History</h6>
                 <div className='order-history'>
-                    <div className='order-history-picture'>
-
+                    <div className='order-history-picture-div'>
+                        
                     </div>
                     <div className='order-history-information'>
                         <div className='order-history-longboard-title'>

@@ -37,5 +37,7 @@ app.get('/api/user-cart/:id', ctrl.getUserCart); //this is found in the cart com
 
 app.post('/api/add-to-cart-standard', ctrl.addToCartStandardProduct); //found in the boards component, taking a req.body with the order_id, board_id, quantity, and price
 
+app.delete('/api/delete-cart-item/:id', ctrl.deleteCartItem); //this is found in the cart display component, taking the order item id in params
+
 const port = SERVER_PORT || 4400;
 app.listen(port, () => console.log(`Coding is happening on port ${port}`));

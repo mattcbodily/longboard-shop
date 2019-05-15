@@ -23,23 +23,28 @@ h6 {
     border-bottom: 1px solid gray;
 }
 
-.order-history-picture {
+.order-history-picture-div {
     height: 90px;
     width: 35%;
     background-color: gray;
 }
 
+.order-item-picture {
+    height: 90px;
+    width: 100%;
+}
+
 .order-history-information {
     height: 90px;
     width: 60%;
-    background-color: gray;
     display: flex;
     flex-direction: column;
 }
 
 .order-history-longboard-title {
     height: 35%;
-    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .order-history-flexed-information {
@@ -64,5 +69,9 @@ h6 {
 }
 
 .register-link {
+    margin: 0px;
+}
+
+.order-information {
     margin: 0px;
 }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import CartDisplay from './CartDisplay';
 import './Cart.css';
 
 class Cart extends Component {
@@ -25,19 +26,29 @@ class Cart extends Component {
     handleGetUserCart = () => {
         axios.get(`/api/user-cart/${this.state.user.user_id}`)
         .then(res => {
-            console.log(res)
             this.setState({
                 orderItems: res.data
             })
         })
     }
 
+    handleQuantity = () => {
+
+    }
+
     render(){
-        console.log(this.state.user)
-        console.log(this.state.orderItems)
+        const mappedCart = this.state.orderItems.map((item, i) => {
+            return (
+                <CartDisplay 
+                    key={i}
+                    cart={item}
+                    getCart={this.handleGetUserCart} />
+            )
+        })
         return(
             <div className='cart'>
                 <h6>Your Total: ${this.state.total}</h6>
+                {mappedCart}
             </div>
         )
     }

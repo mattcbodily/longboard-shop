@@ -49,5 +49,11 @@ module.exports = {
         req.app.get('db').cart.get_user_cart(id)
         .then(cartItems => res.status(200).send(cartItems))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    deleteCartItem: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').cart.delete_cart_item(id)
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }
