@@ -23,12 +23,18 @@ class Cart extends Component {
         })
     }
 
-    handleGetUserCart = () => {
-        axios.get(`/api/user-cart/${this.state.user.user_id}`)
+    handleGetUserCart = async() => {
+        await axios.get(`/api/user-cart/${this.state.user.user_id}`)
         .then(res => {
             this.setState({
                 orderItems: res.data
             })
+        })
+        let sum = this.state.orderItems.reduce((acc, curr) => {
+            return acc + parseFloat(curr.order_item_price)
+        }, 0)
+        this.setState({
+            total: Math.round(sum * 100) / 100
         })
     }
 

@@ -20,6 +20,7 @@ class CartDisplay extends Component {
         .then(res => {
             this.props.getCart();
         })
+        this.props.getCart();
     }
 
     handleQuantityDown = () => {
