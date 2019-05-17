@@ -1,3 +1,6 @@
+const {SECRET_KEY} = process.env
+const stripe = require('stripe')(SECRET_KEY)
+
 module.exports = {
     getBoards: (req, res) => {
         req.app.get('db').standard_boards.get_standard_boards()
@@ -62,5 +65,20 @@ module.exports = {
         req.app.get('db').cart.delete_cart_item(id)
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    chargeCustomer: (req, res) => {
+        const {amount, token} = req.body;
+        console.log(req.body)
+        const charge = stripe.charges.create({
+            amount: amount,
+            currency: 'usd',
+            source: token.id,
+            description: 'Test charge'
+        }, function(err, charge) {
+            if(err){
+                return res.sendStatus(500)
+            }
+            return res.sendStatus(200)
+        })
     }
 }

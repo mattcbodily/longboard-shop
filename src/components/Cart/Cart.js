@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import StripeCheckout from 'react-stripe-checkout';
 import CartDisplay from './CartDisplay';
 import './Cart.css';
+const {PUBLIC_KEY} = process.env;
 
 class Cart extends Component {
     constructor(){
@@ -38,6 +40,14 @@ class Cart extends Component {
         })
     }
 
+    onToken = (token) => {
+        token.card = void 0;
+        axios.post('/api/payment', {token, amount: Math.round(this.state.total * 100)})
+        .then(res => {
+            
+        })
+    }
+
     render(){
         const mappedCart = this.state.orderItems.map((item, i) => {
             return (
@@ -50,6 +60,13 @@ class Cart extends Component {
         return(
             <div className='cart'>
                 <h6>Your Total: ${this.state.total}</h6>
+                <StripeCheckout 
+                    label="Proceed to Checkout"
+                    token={this.onToken}
+                    stripeKey={'pk_test_3w9I5R57sN1cSXpoTtYhF8tR00x2mEnQXV'}
+                    amount={Math.round(this.state.total * 100)}
+                    shippingAddress={true}
+                    billingAddress={true}/>
                 {mappedCart}
             </div>
         )

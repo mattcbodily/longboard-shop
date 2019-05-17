@@ -40,5 +40,8 @@ app.put('/api/update-item-quantity/:id', ctrl.updateItemQuantity); //found in th
 
 app.delete('/api/delete-cart-item/:id', ctrl.deleteCartItem); //this is found in the cart display component, taking the order item id in params
 
+//stripe endpoint
+app.post('/api/payment', ctrl.chargeCustomer);
+
 const port = SERVER_PORT || 4400;
 app.listen(port, () => console.log(`Coding is happening on port ${port}`));
