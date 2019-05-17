@@ -16,6 +16,7 @@ class User extends Component {
             orders: [],
             email: '',
             password: '',
+            verPassword: '',
             editEmail: false,
             editPassword: false
         }
@@ -25,15 +26,9 @@ class User extends Component {
         this.handleGetUser()
     }
 
-    handleEmailInput(val){
+    handleInput(prop, val){
         this.setState({
-            email: val
-        })
-    }
-
-    handlePasswordInput(val){
-        this.setState({
-            password: val
+            [prop]: val
         })
     }
 
@@ -92,11 +87,16 @@ class User extends Component {
     }
 
     handlePasswordUpdate = () => {
-        axios.put(`/auth/update-password/${this.state.user.user_id}`, {password: this.state.password})
-        .then(res => {
+        const {password, verPassword, user} = this.state;
+        if(password !== verPassword){
+            alert('Passwords Do Not Match')
+        } else {
+            axios.put(`/auth/update-password/${user.user_id}`, {password: password})
+            .then(res => {
 
-        })
-        this.handlePasswordToggle();
+            })
+            this.handlePasswordToggle();
+        }
     }
 
     render(){
@@ -120,7 +120,7 @@ class User extends Component {
                             <input 
                                 placeholder='Enter New Email'
                                 value={this.state.email}
-                                onChange={(e) => this.handleEmailInput(e.target.value)}
+                                onChange={(e) => this.handleInput('email', e.target.value)}
                                 maxLength='250'/>
                             <FontAwesomeIcon icon="check" onClick={this.handleEmailUpdate}/>
                             <FontAwesomeIcon icon="times" onClick={this.handleEmailToggle}/>
@@ -134,8 +134,14 @@ class User extends Component {
                                 placeholder='Enter New Password'
                                 type='password'
                                 value={this.state.password}
-                                onChange={(e) => this.handlePasswordInput(e.target.value)}
+                                onChange={(e) => this.handleInput('password', e.target.value)}
                                 maxLength='40' />
+                            <input 
+                                placeholder='Verify Password'
+                                type='password'
+                                value={this.state.verPassword}
+                                onChange={(e) => this.handleInput('verPassword', e.target.value)}
+                                maxLength='40'/>
                             <FontAwesomeIcon icon="check" onClick={this.handlePasswordUpdate}/>
                             <FontAwesomeIcon icon="times" onClick={this.handlePasswordToggle}/>
                         </div>
@@ -152,7 +158,7 @@ class User extends Component {
                             placeholder='Email'
                             value={this.state.email}
                             maxLength='250'
-                            onChange={(e) => this.handleEmailInput(e.target.value)}/>
+                            onChange={(e) => this.handleInput('email', e.target.value)}/>
                     </div>
                     <div>
                         <input 
@@ -160,7 +166,7 @@ class User extends Component {
                             type='password'
                             value={this.state.password}
                             maxLength='40'
-                            onChange={(e) => this.handlePasswordInput(e.target.value)}/>
+                            onChange={(e) => this.handleInput('password', e.target.value)}/>
                     </div>
                     <button onClick={this.handleLogin}>Login</button>
                 </div>
