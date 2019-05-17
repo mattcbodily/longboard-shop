@@ -3,7 +3,7 @@
 -- so that the customer will always have an open cart
 
 update orders
-set paid = true
+set (paid, date) = (true, $3)
 where order_id = $1;
 
 insert into orders (

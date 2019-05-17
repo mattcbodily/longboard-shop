@@ -24,6 +24,8 @@ app.post('/auth/register', ac.register);
 app.post('/auth/login', ac.login);
 app.post('/auth/logout', ac.logout);
 app.get('/auth/get-session-user', ac.getSessionUser);
+app.put('/auth/update-email/:id', ac.updateEmail); //found in the user component, takes the user_id and new email
+app.put('/auth/update-password/:id', ac.updatePassword); //found in the user component, takes the user_id, and new password
 
 //data endpoints
 app.get('/api/standard-boards', ctrl.getBoards); //found in the boards component
@@ -33,7 +35,8 @@ app.get('/api/boards-price-filter-high', ctrl.filterHighestPrice); //found in th
 app.get('/api/boards-low-price-filter/:design', ctrl.filterLowestPriceByDesign); //found in the pintail design and drop design components, takes in the design name of the board
 app.get('/api/boards-high-price-filter/:design', ctrl.filterHighestPriceByDesign); //found in the pintail design and drop design components, takes in the design name of the board
 app.get('/api/selected-board/:title', ctrl.getSelectedBoard); //found in the boards component
-app.get('/api/user-cart/:id', ctrl.getUserCart); //this is found in the cart component, takes the order id
+app.get('/api/user-cart/:id', ctrl.getUserCart); //this is found in the cart component, takes the user id
+app.get('/api/order-history/:id', ctrl.getOrderHistory); ;//this is found in the user component, takes the user id
 
 app.post('/api/add-to-cart-standard', ctrl.addToCartStandardProduct); //found in the boards component, taking a req.body with the order_id, board_id, quantity, and price
 app.put('/api/update-item-quantity/:id', ctrl.updateItemQuantity); //found in the cart display component

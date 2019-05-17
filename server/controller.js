@@ -67,7 +67,7 @@ module.exports = {
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
     chargeCustomer: (req, res) => {
-        const {amount, token, order_id, user_id} = req.body;
+        const {amount, token, order_id, user_id, date} = req.body;
         const charge = stripe.charges.create({
             amount: amount,
             currency: 'usd',
@@ -79,6 +79,12 @@ module.exports = {
             }
             res.sendStatus(200)
         })
-        req.app.get('db').cart.complete_order(order_id, user_id)
+        req.app.get('db').cart.complete_order(order_id, user_id, date)
+    },
+    getOrderHistory: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').user.get_order_history(id)
+        .then(orders => res.status(200).send(orders))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

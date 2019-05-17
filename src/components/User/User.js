@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import OrderHistory from './OrderHistory';
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faEdit, faTimes, faCheck} from '@fortawesome/free-solid-svg-icons';
 import './User.css';
+library.add(faEdit, faTimes, faCheck)
 
 class User extends Component {
     constructor(props){
@@ -10,17 +15,14 @@ class User extends Component {
             user: {},
             orders: [],
             email: '',
-            password: ''
+            password: '',
+            editEmail: false,
+            editPassword: false
         }
     }
 
     componentDidMount(){
-        axios.get('/auth/get-session-user')
-        .then(res => {
-            this.setState({
-                user: res.data
-            })
-        })  
+        this.handleGetUser()
     }
 
     handleEmailInput(val){
@@ -35,48 +37,112 @@ class User extends Component {
         })
     }
 
-    handleLogin = () => {
-        const {email, password} = this.state;
-        axios.post('/auth/login', {email, password})
+    handleEmailToggle = () => {
+        this.setState({
+            editEmail: !this.state.editEmail
+        })
+    }
+
+    handlePasswordToggle = () => {
+        this.setState({
+            editPassword: !this.state.editPassword
+        })
+    }
+
+    handleGetUser = async() => {
+        await axios.get('/auth/get-session-user')
         .then(res => {
             this.setState({
                 user: res.data
             })
         })
+        this.handleOrderHistory()  
+    }
+
+    handleLogin = async() => {
+        const {email, password} = this.state;
+        await axios.post('/auth/login', {email, password})
+        .then(res => {
+            this.setState({
+                user: res.data
+            })
+        })
+        this.handleOrderHistory();
+        this.setState({
+            email: '',
+            password: ''
+        })
+    }
+
+    handleOrderHistory = () => {
+        axios.get(`/api/order-history/${this.state.user.user_id}`)
+        .then(res => {
+            this.setState({
+                orders: res.data
+            })
+        })
+    }
+
+    handleEmailUpdate = () => {
+        axios.put(`/auth/update-email/${this.state.user.user_id}`, {email: this.state.email})
+        .then(res => {
+            
+        })
+        this.handleEmailToggle();
+    }
+
+    handlePasswordUpdate = () => {
+        axios.put(`/auth/update-password/${this.state.user.user_id}`, {password: this.state.password})
+        .then(res => {
+
+        })
+        this.handlePasswordToggle();
     }
 
     render(){
+        const mappedOrders = this.state.orders.map((order, i) => {
+            return (
+                <OrderHistory 
+                    key={i}
+                    order={order}/>
+            )
+        })
         return(
             <div className='user'>
             {this.state.user.user_id
             ? (<div> 
                 <div className='user-information'>
-                    Basic, editable user information goes here
+                    {!this.state.editEmail
+                    ? ( <div>
+                            <p>Email: {this.state.user.email} <FontAwesomeIcon icon="edit" onClick={this.handleEmailToggle}/></p>
+                        </div>)
+                    : ( <div>
+                            <input 
+                                placeholder='Enter New Email'
+                                value={this.state.email}
+                                onChange={(e) => this.handleEmailInput(e.target.value)}
+                                maxLength='250'/>
+                            <FontAwesomeIcon icon="check" onClick={this.handleEmailUpdate}/>
+                            <FontAwesomeIcon icon="times" onClick={this.handleEmailToggle}/>
+                        </div>)}
+                    {!this.state.editPassword
+                    ? ( <div>
+                            <p>Password: Password Not Shown <FontAwesomeIcon icon="edit" onClick={this.handlePasswordToggle}/></p>
+                        </div>)
+                    : ( <div>
+                            <input 
+                                placeholder='Enter New Password'
+                                type='password'
+                                value={this.state.password}
+                                onChange={(e) => this.handlePasswordInput(e.target.value)}
+                                maxLength='40' />
+                            <FontAwesomeIcon icon="check" onClick={this.handlePasswordUpdate}/>
+                            <FontAwesomeIcon icon="times" onClick={this.handlePasswordToggle}/>
+                        </div>
+                    )}
                 </div>
                 <h6>Your Order History</h6>
-                <div className='order-history'>
-                    <div className='order-history-picture-div'>
-                        
-                    </div>
-                    <div className='order-history-information'>
-                        <div className='order-history-longboard-title'>
-                            Longboard Title
-                        </div>
-                        <div className='order-history-flexed-information'>
-                            <div className='order-history-price'>
-                                Price
-                            </div>
-                            <div className='order-qty-date'>
-                                <div className='order-history-qty'>
-                                    Qty
-                                </div>
-                                <div className='order-history-date'>
-                                    Date
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {mappedOrders}
             </div>) : (
                 <div>
                     <h6>Please sign in to view your order history</h6>

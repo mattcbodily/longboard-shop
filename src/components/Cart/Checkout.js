@@ -5,7 +5,12 @@ import axios from 'axios';
 class Checkout extends Component {
     onToken = async(token) => {
         token.card = void 0;
-        await axios.post('/api/payment', {token, amount: Math.round(this.props.total), order_id: this.props.order, user_id: this.props.user})
+        let today = new Date();
+        let dd = today.getDate();
+        let mm = today.getMonth()+1;
+        let yyyy = today.getFullYear();
+        today = mm + '/' + dd + '/' + yyyy;
+        await axios.post('/api/payment', {token, amount: Math.round(this.props.total), order_id: this.props.order, user_id: this.props.user, date: today})
         .then(res => {
             this.props.getUser()
         })

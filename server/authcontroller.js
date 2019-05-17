@@ -51,5 +51,20 @@ module.exports = {
         } else {
             res.send('')
         }
+    },
+    updateEmail: (req, res) => {
+        const {id} = req.params;
+        const {email} = req.body;
+        req.app.get('db').user.update_email(email, id)
+        .then(email => res.status(200).send(email))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    updatePassword: (req, res) => {
+        const {id} = req.params;
+        const {password} = req.body;
+        const salt = bcrypt.genSaltSync(10);
+        const hash = bcrypt.hashSync(password, salt)
+        req.app.get('db').user.update_password(hash, id)
+        res.sendStatus(200)
     }
 }
