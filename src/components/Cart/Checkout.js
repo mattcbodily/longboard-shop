@@ -3,11 +3,11 @@ import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios';
 
 class Checkout extends Component {
-    onToken = (token) => {
+    onToken = async(token) => {
         token.card = void 0;
-        axios.post('/api/payment', {token, amount: Math.round(this.props.total)})
+        await axios.post('/api/payment', {token, amount: Math.round(this.props.total), order_id: this.props.order, user_id: this.props.user})
         .then(res => {
-            
+            this.props.getUser()
         })
     }
 

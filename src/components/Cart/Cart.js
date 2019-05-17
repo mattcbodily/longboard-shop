@@ -15,13 +15,7 @@ class Cart extends Component {
     }
 
     componentDidMount(){
-        axios.get('/auth/get-session-user')
-        .then(res => {
-            this.setState({
-                user: res.data
-            })
-            this.handleGetUserCart();
-        })
+        this.handleGetUser();
     }
 
     handleGetUserCart = async() => {
@@ -39,20 +33,13 @@ class Cart extends Component {
         })
     }
 
-    handleCompleteOrder = () => {
-        const orderObj = {
-            order_id: this.state.user.order_id,
-            user_id: this.state.user.user_id
-        }
-        axios.post('/api/complete-order', orderObj)
+    handleGetUser = () => {
+        axios.get('/auth/get-session-user')
         .then(res => {
-            axios.get('/auth/get-session-user')
-            .then(res => {
-                this.setState({
-                    user: res.data
-                })
-                this.handleGetUserCart();
+            this.setState({
+                user: res.data
             })
+            this.handleGetUserCart();
         })
     }
 
@@ -61,8 +48,7 @@ class Cart extends Component {
             return (
                 <CartDisplay 
                     key={i}
-                    cart={item}
-                    getCart={this.handleGetUserCart} />
+                    cart={item} />
             )
         })
         return(
@@ -70,7 +56,10 @@ class Cart extends Component {
                 <h6>Your Total: ${this.state.total}</h6>
                 <div onClick={this.handleCompleteOrder}>
                     <Checkout 
-                        total={Math.round(this.state.total * 100)}/>
+                        total={Math.round(this.state.total * 100)}
+                        getUser={this.handleGetUser} 
+                        order={this.state.user.order_id}
+                        user={this.state.user.user_id} />
                 </div>
                 {mappedCart}
             </div>
