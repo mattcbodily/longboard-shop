@@ -48,7 +48,8 @@ class Cart extends Component {
             return (
                 <CartDisplay 
                     key={i}
-                    cart={item} />
+                    cart={item}
+                    getCart={this.handleGetUserCart} />
             )
         })
         return(
