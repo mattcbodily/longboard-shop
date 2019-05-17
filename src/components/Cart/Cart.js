@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import StripeCheckout from 'react-stripe-checkout';
 import CartDisplay from './CartDisplay';
+import Checkout from './Checkout';
 import './Cart.css';
-const {PUBLIC_KEY} = process.env;
 
 class Cart extends Component {
     constructor(){
@@ -40,11 +39,20 @@ class Cart extends Component {
         })
     }
 
-    onToken = (token) => {
-        token.card = void 0;
-        axios.post('/api/payment', {token, amount: Math.round(this.state.total * 100)})
+    handleCompleteOrder = () => {
+        const orderObj = {
+            order_id: this.state.user.order_id,
+            user_id: this.state.user.user_id
+        }
+        axios.post('/api/complete-order', orderObj)
         .then(res => {
-            
+            axios.get('/auth/get-session-user')
+            .then(res => {
+                this.setState({
+                    user: res.data
+                })
+                this.handleGetUserCart();
+            })
         })
     }
 
@@ -60,13 +68,10 @@ class Cart extends Component {
         return(
             <div className='cart'>
                 <h6>Your Total: ${this.state.total}</h6>
-                <StripeCheckout 
-                    label="Proceed to Checkout"
-                    token={this.onToken}
-                    stripeKey={'pk_test_3w9I5R57sN1cSXpoTtYhF8tR00x2mEnQXV'}
-                    amount={Math.round(this.state.total * 100)}
-                    shippingAddress={true}
-                    billingAddress={true}/>
+                <div onClick={this.handleCompleteOrder}>
+                    <Checkout 
+                        total={Math.round(this.state.total * 100)}/>
+                </div>
                 {mappedCart}
             </div>
         )

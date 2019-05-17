@@ -68,7 +68,6 @@ module.exports = {
     },
     chargeCustomer: (req, res) => {
         const {amount, token} = req.body;
-        console.log(req.body)
         const charge = stripe.charges.create({
             amount: amount,
             currency: 'usd',
@@ -80,5 +79,12 @@ module.exports = {
             }
             return res.sendStatus(200)
         })
+
+    },
+    completeOrder: (req, res) => {
+        const {order_id, user_id} = req.body;
+        req.app.get('db').cart.complete_order(order_id, user_id)
+        .then(res.sendStatus(200))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }
