@@ -37,7 +37,8 @@ h5 {
     height: 60vh;
     box-sizing: border-box;
     padding-top: 5px;
-    background-color: gray;
+    background-image: url('https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/graphpaper.png');
+    background-size: contain;
     border-bottom: 2px solid #343A40;
 }
 
