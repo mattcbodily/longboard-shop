@@ -1,11 +1,42 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+import PartDisplay from './PartDisplay';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import './Design.css';
 
 class Design extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            designs: [],
+            selectedDesignName: '',
+            boardSize: ''
+        }
+    }
+
+    componentDidMount(){
+        this.handleGetDesigns()
+    }
+
+    handleGetDesigns = () => {
+        axios.get('/api/board-design')
+        .then(res => {
+            this.setState({
+                designs: res.data
+            })
+        })
+    }
+
     render(){
+        const mappedParts = this.state.designs.map((design, i) => {
+            return(
+                <PartDisplay 
+                    key = {i}
+                    part = {design} />
+            )
+        })
         return (
             <div className='Design'>
                 <ButtonGroup>
@@ -22,30 +53,7 @@ class Design extends Component {
                     <h5 className='custom-step-name'>Design</h5>
                 </div>
                 <div className='custom-board-parts-div'>
-                    <div className='custom-parts-card'>
-                        <div className='custom-part-image'>
-                            This is where the part image goes
-                        </div>
-                        <div className='custom-part-info'>
-                            This is where the part information goes
-                        </div>
-                    </div>
-                    <div className='custom-parts-card'>
-                        <div className='custom-part-image'>
-                            This is where the part image goes
-                        </div>
-                        <div className='custom-part-info'>
-                            This is where the part information goes
-                        </div>
-                    </div>
-                    <div className='custom-parts-card'>
-                        <div className='custom-part-image'>
-                            This is where the part image goes
-                        </div>
-                        <div className='custom-part-info'>
-                            This is where the part information goes
-                        </div>
-                    </div>
+                    {mappedParts}
                 </div>
             </div>
         )

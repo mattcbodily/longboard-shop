@@ -86,5 +86,10 @@ module.exports = {
         req.app.get('db').user.get_order_history(id)
         .then(orders => res.status(200).send(orders))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    getBoardDesigns: (req, res) => {
+        req.app.get('db').custom_boards.get_designs()
+        .then(designs => res.status(200).send(designs))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }
