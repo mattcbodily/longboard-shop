@@ -44,7 +44,8 @@ app.put('/api/update-item-quantity/:id', ctrl.updateItemQuantity); //found in th
 app.delete('/api/delete-cart-item/:id', ctrl.deleteCartItem); //this is found in the cart display component, taking the order item id in params
 
 //custom board endpoints
-app.get('/api/board-design', ctrl.getBoardDesigns); //this is found in the design component in the custom folder.
+app.get('/api/board-design', ctrl.getBoardDesigns); //this is found in the design component in the custom folder
+app.get('/api/board-grip', ctrl.getBoardGrips); //this is found in the board grip component in the custom foler
 
 //stripe endpoint
 app.post('/api/payment', ctrl.chargeCustomer);

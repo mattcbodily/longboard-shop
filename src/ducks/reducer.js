@@ -36,6 +36,27 @@ export function updateDesign(designObj){
     }
 }
 
+export function updateGrip(gripObj){
+    return {
+        type: UPDATE_GRIP,
+        payload: gripObj
+    }
+}
+
+export function updateTrucks(trucksObj){
+    return {
+        type: UPDATE_TRUCKS,
+        payload: trucksObj
+    }
+}
+
+export function updateWheels(wheelsObj){
+    return {
+        type: UPDATE_WHEELS,
+        payload: wheelsObj
+    }
+}
+
 export default function reducer(state = initialState, action){
     const {type, payload} = action;
     switch(type){
@@ -46,8 +67,28 @@ export default function reducer(state = initialState, action){
                 price: payload.price
             }
             return {...state, design};
-            
-            default:
-                return state;
+        case UPDATE_GRIP:
+            let grip = {
+                name: payload.name,
+                image: payload.image,
+                price: payload.price
+            }
+            return {...state, grip}
+        case UPDATE_TRUCKS:
+            let trucks = {
+                name: payload.name,
+                image: payload.image,
+                price: payload.price
+            }
+            return {...state, trucks}
+        case UPDATE_WHEELS:
+            let wheels = {
+                color: payload.color,
+                image: payload.image,
+                price: payload.price
+            }
+            return {...state, wheels}
+        default:
+            return state;
     }
 }

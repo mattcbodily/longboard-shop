@@ -49,7 +49,7 @@ class Design extends Component {
                         Step:
                     </div>
                     <Button bsPrefix='active-customize-step-btn'>1</Button>
-                    <Link to='/boardsize'><Button bsPrefix='customize-step-btn'>2</Button></Link>
+                    <Link to='/board-grip'><Button bsPrefix='customize-step-btn'>2</Button></Link>
                     <Link to='/trucks'><Button bsPrefix='customize-step-btn'>3</Button></Link>
                     <Link to='/wheels'><Button bsPrefix='customize-step-btn'>4</Button></Link>
                     <Link to='/graphics'><Button bsPrefix='customize-step-btn'>5</Button></Link>
@@ -59,13 +59,11 @@ class Design extends Component {
                         ? (<div>
                             <h5 className='custom-step-name'>{this.props.design.name} Design</h5>
                             <img src={this.props.design.image} alt='design' className={`selected-board`}/>
-                        </div>)
-                        : (
-                            <div>
+                          </div>)
+                        :  (<div>
                                 <h5 className='custom-step-name'>Select a Design</h5>
-                            </div>
-                        )
-                    }
+                            </div>)
+                        }
                 </div>
                 <div className='custom-board-parts-div'>
                     {mappedParts}

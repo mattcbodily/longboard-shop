@@ -12,7 +12,7 @@ class Wheels extends Component {
                         Step:
                     </div>
                     <Link to='/customize'><Button bsPrefix='customize-step-btn'>1</Button></Link>
-                    <Link to='/boardsize'><Button bsPrefix='customize-step-btn'>2</Button></Link>
+                    <Link to='/board-grip'><Button bsPrefix='customize-step-btn'>2</Button></Link>
                     <Link to='/trucks'><Button bsPrefix='customize-step-btn'>3</Button></Link>
                     <Button bsPrefix='active-customize-step-btn'>4</Button>
                     <Link to='/graphics'><Button bsPrefix='customize-step-btn'>5</Button></Link>
