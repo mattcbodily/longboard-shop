@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 import axios from 'axios';
 import PartDisplay from './PartDisplay';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
+import {updateDesign} from './../../ducks/reducer';
 import './Design.css';
 
 class Design extends Component {
     constructor(props){
         super(props);
         this.state = {
-            designs: [],
-            selectedDesignName: '',
-            boardSize: ''
+            designs: []
         }
     }
 
@@ -29,12 +29,17 @@ class Design extends Component {
         })
     }
 
+    handleSelectedItem = (e, name, image, price) => {
+        this.props.updateDesign({name: name, image: image, price: price})
+    }
+
     render(){
         const mappedParts = this.state.designs.map((design, i) => {
             return(
                 <PartDisplay 
                     key = {i}
-                    part = {design} />
+                    part = {design}
+                    selectPart = {this.handleSelectedItem} />
             )
         })
         return (
@@ -50,7 +55,17 @@ class Design extends Component {
                     <Link to='/graphics'><Button bsPrefix='customize-step-btn'>5</Button></Link>
                 </ButtonGroup>
                 <div className='custom-board-image-div'>
-                    <h5 className='custom-step-name'>Design</h5>
+                    {this.props.design.name
+                        ? (<div>
+                            <h5 className='custom-step-name'>{this.props.design.name} Design</h5>
+                            <img src={this.props.design.image} alt='design' className={`selected-board`}/>
+                        </div>)
+                        : (
+                            <div>
+                                <h5 className='custom-step-name'>Select a Design</h5>
+                            </div>
+                        )
+                    }
                 </div>
                 <div className='custom-board-parts-div'>
                     {mappedParts}
@@ -60,4 +75,15 @@ class Design extends Component {
     }
 }
 
-export default Design;
+const mapStateToProps = reduxState => {
+    const {design} = reduxState
+    return {
+        design
+    }
+}
+
+const mapDispatchToProps = {
+    updateDesign
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Design);

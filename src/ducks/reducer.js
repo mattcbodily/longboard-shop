@@ -24,6 +24,30 @@ const initialState = {
     total: 0.00
 }
 
-export default function reducer(state = initialState, action){
+const UPDATE_DESIGN = 'UPDATE_DESIGN';
+const UPDATE_GRIP = 'UPDATE_GRIP';
+const UPDATE_TRUCKS = 'UPDATE_TRUCKS';
+const UPDATE_WHEELS = 'UPDATE_WHEELS';
 
+export function updateDesign(designObj){
+    return {
+        type: UPDATE_DESIGN,
+        payload: designObj
+    }
+}
+
+export default function reducer(state = initialState, action){
+    const {type, payload} = action;
+    switch(type){
+        case UPDATE_DESIGN:
+            let design = {
+                name: payload.name,
+                image: payload.image,
+                price: payload.price
+            }
+            return {...state, design};
+            
+            default:
+                return state;
+    }
 }
