@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
-import PartDisplay from './PartDisplay';
+import GripDisplay from './GripDisplay';
 import {updateGrip} from './../../ducks/reducer';
 
 class BoardSize extends Component {
@@ -35,7 +35,7 @@ class BoardSize extends Component {
     render(){
         const mappedParts = this.state.grips.map((grip, i) => {
             return(
-                <PartDisplay
+                <GripDisplay
                     key = {i}
                     part = {grip}
                     selectPart = {this.handleSelectedItem}/>
@@ -58,7 +58,7 @@ class BoardSize extends Component {
                     ?  (<div>
                           <h5 className='custom-step-name'>Select a Grip</h5>
                           <img src={this.props.design.image} alt='design' className='selected-board'/>
-                          <img src={this.props.grip.image} alt='grip' className='selected-grip'/>
+                          <img src={`https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_${this.props.grip.name}.png`} alt='grip' className='selected-grip'/>
                         </div>)
                     :  (<div>
                           <h5 className='custom-step-name'>Select a Grip</h5>
