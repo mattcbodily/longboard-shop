@@ -96,5 +96,10 @@ module.exports = {
         req.app.get('db').custom_boards.get_grips()
         .then(grips => res.status(200).send(grips))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    getBoardTrucks: (req, res) => {
+        req.app.get('db').custom_boards.get_trucks()
+        .then(trucks => res.status(200).send(trucks))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

@@ -29,7 +29,7 @@ class BoardSize extends Component {
     }
 
     handleSelectedItem = (e, name, image, price) => {
-        this.props.updateGrip({name: name, image: image, price: price})
+        this.props.updateGrip({name, image, price})
     }
 
     render(){
@@ -56,7 +56,7 @@ class BoardSize extends Component {
                 <div className='custom-board-image-div'>
                     {this.props.grip.name
                     ?  (<div>
-                          <h5 className='custom-step-name'>Select a Grip</h5>
+                          <h5 className='custom-step-name'>{this.props.grip.name}</h5>
                           <img src={this.props.design.image} alt='design' className='selected-board'/>
                           <img src={`https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_${this.props.grip.name}.png`} alt='grip' className='selected-grip'/>
                         </div>)

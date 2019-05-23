@@ -5,7 +5,7 @@ import axios from 'axios';
 import PartDisplay from './PartDisplay';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
-import {updateDesign} from './../../ducks/reducer';
+import {updateDesign, updateGrip} from './../../ducks/reducer';
 import './Design.css';
 
 class Design extends Component {
@@ -29,8 +29,9 @@ class Design extends Component {
         })
     }
 
-    handleSelectedItem = (e, name, image, price) => {
-        this.props.updateDesign({name: name, image: image, price: price})
+    handleSelectedItem = async(e, name, image, price) => {
+        await this.props.updateDesign({name, image, price})
+        this.props.updateGrip({name: this.props.grip.name, image: `https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_${this.props.grip.name}.png`, price: this.props.grip.price})
     }
 
     render(){
@@ -74,14 +75,16 @@ class Design extends Component {
 }
 
 const mapStateToProps = reduxState => {
-    const {design} = reduxState
+    const {design, grip} = reduxState
     return {
-        design
+        design,
+        grip
     }
 }
 
 const mapDispatchToProps = {
-    updateDesign
+    updateDesign,
+    updateGrip
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Design);
