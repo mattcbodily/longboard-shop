@@ -3,9 +3,10 @@ const express = require('express');
 const {json} = require('body-parser');
 const massive = require('massive');
 const session = require('express-session');
+const aws = require('aws-sdk');
 const ctrl = require('./controller');
 const ac = require('./authcontroller');
-const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env;
+const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, S3_BUCKET, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY} = process.env;
 const app = express();
 app.use(json());
 
@@ -17,6 +18,39 @@ app.use(session({
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db);
+})
+
+//amazon s3 will be implemented for custom board graphics, with react dropzone?, and react-avatar-editor
+
+app.get('/api/signs3', (req, res) => {
+    aws.config = {
+        region: 'us-west-1',
+        accessKeyId: AWS_ACCESS_KEY_ID,
+        secretAccessKey: AWS_SECRET_ACCESS_KEY
+    };
+
+    const s3 = new aws.S3();
+    const fileName = req.query['file-name'];
+    const fileType = req.query['file-type'];
+    const s3Params = {
+        Bucket: S3_BUCKET,
+        Key: fileName,
+        ContentType: fileType,
+        ACL: 'public-read'
+    };
+
+    s3.getSignedUrl('putObject', s3Params, (err, data) => {
+        if (err) {
+            console.log(err);
+            return res.end();
+        }
+        const returnData = {
+            signedRequest: data,
+            url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`,
+        };
+
+        return res.send(returnData);
+    })
 })
 
 //authorization endpoints

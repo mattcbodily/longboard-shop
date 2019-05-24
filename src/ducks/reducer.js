@@ -28,6 +28,7 @@ const UPDATE_DESIGN = 'UPDATE_DESIGN';
 const UPDATE_GRIP = 'UPDATE_GRIP';
 const UPDATE_TRUCKS = 'UPDATE_TRUCKS';
 const UPDATE_WHEELS = 'UPDATE_WHEELS';
+const UPDATE_GRAPHIC = 'UPDATE_GRAPHIC';
 
 export function updateDesign(designObj){
     return {
@@ -54,6 +55,13 @@ export function updateWheels(wheelsObj){
     return {
         type: UPDATE_WHEELS,
         payload: wheelsObj
+    }
+}
+
+export function updateGraphic(graphicObj){
+    return {
+        type: UPDATE_GRAPHIC,
+        payload: graphicObj
     }
 }
 
@@ -88,6 +96,9 @@ export default function reducer(state = initialState, action){
                 price: payload.price
             }
             return {...state, wheels}
+        case UPDATE_GRAPHIC:
+            let graphic = payload.graphic; 
+            return {...state, graphic}
         default:
             return state;
     }
