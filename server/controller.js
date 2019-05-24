@@ -101,5 +101,10 @@ module.exports = {
         req.app.get('db').custom_boards.get_trucks()
         .then(trucks => res.status(200).send(trucks))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    getBoardWheels: (req, res) => {
+        req.app.get('db').custom_boards.get_wheels()
+        .then(wheels => res.status(200).send(wheels))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     }
 }

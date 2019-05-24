@@ -47,6 +47,7 @@ app.delete('/api/delete-cart-item/:id', ctrl.deleteCartItem); //this is found in
 app.get('/api/board-design', ctrl.getBoardDesigns); //this is found in the design component in the custom folder
 app.get('/api/board-grip', ctrl.getBoardGrips); //this is found in the board grip component in the custom foler
 app.get('/api/board-trucks', ctrl.getBoardTrucks); //this is found in trucks component in the custom folder
+app.get('/api/board-wheels', ctrl.getBoardWheels); //this is found in the wheels component in the custom folder
 
 //stripe endpoint
 app.post('/api/payment', ctrl.chargeCustomer);
