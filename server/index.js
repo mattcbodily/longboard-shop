@@ -57,7 +57,7 @@ app.get('/api/signs3', (req, res) => {
 app.post('/auth/register', ac.register);
 app.post('/auth/login', ac.login);
 app.post('/auth/logout', ac.logout);
-app.get('/auth/get-session-user', ac.getSessionUser);
+app.get('/auth/session-user', ac.getSessionUser);
 app.put('/auth/update-email/:id', ac.updateEmail); //found in the user component, takes the user_id and new email
 app.put('/auth/update-password/:id', ac.updatePassword); //found in the user component, takes the user_id, and new password
 
@@ -72,10 +72,11 @@ app.get('/api/selected-board/:title', ctrl.getSelectedBoard); //found in the boa
 app.get('/api/user-cart/:id', ctrl.getUserCart); //this is found in the cart component, takes the user id
 app.get('/api/order-history/:id', ctrl.getOrderHistory); ;//this is found in the user component, takes the user id
 
-app.post('/api/add-to-cart-standard', ctrl.addToCartStandardProduct); //found in the boards component, taking a req.body with the order_id, board_id, quantity, and price
-app.put('/api/update-item-quantity/:id', ctrl.updateItemQuantity); //found in the cart display component
+app.post('/api/standard-cart-item', ctrl.addToCartStandardProduct); //found in the boards component, taking a req.body with the order_id, board_id, quantity, and price
+app.post('/api/custom-cart-item')
+app.put('/api/item-quantity/:id', ctrl.updateItemQuantity); //found in the cart display component
 
-app.delete('/api/delete-cart-item/:id', ctrl.deleteCartItem); //this is found in the cart display component, taking the order item id in params
+app.delete('/api/cart-item/:id', ctrl.deleteCartItem); //this is found in the cart display component, taking the order item id in params
 
 //custom board endpoints
 app.get('/api/board-design', ctrl.getBoardDesigns); //this is found in the design component in the custom folder

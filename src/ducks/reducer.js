@@ -21,7 +21,7 @@ const initialState = {
         price: 0.00
     },
     graphic: '',
-    total: 0.00
+    total: 89.99
 }
 
 const UPDATE_DESIGN = 'UPDATE_DESIGN';

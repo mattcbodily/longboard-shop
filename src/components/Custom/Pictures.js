@@ -6,20 +6,73 @@ import {v4 as randomString} from 'uuid';
 import Dropzone from 'react-dropzone';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
+import AuthModal from './../Boards/AuthModal';
 import {updateGraphic} from './../../ducks/reducer';
 
 class Pictures extends Component {
     constructor(props){
         super(props);
         this.state = {
-            isUploading: false
+            isUploading: false,
+            showModal: false,
+            user: {}
         }
     }
 
+    componentDidMount(){
+        this.handleGetUser();
+    }
+
+    //grabs the user from sessions, if one is logged in
+    handleGetUser = () => {
+        axios.get('/auth/session-user')
+        .then(res => {
+            this.setState({
+                user: res.data
+            })
+        })  
+    }
+
+    //handles login functionality
+    handleLogin = async(data) => {
+        await this.setState({
+            user: data
+        })
+        this.handleAddToCart();
+    }
+
+    //toggle set up to show the authentication modal when value is true
+    handleToggle = () => {
+        this.setState({
+            showModal: !this.state.showModal
+        })
+    }
+
+    handleAddToCart = (design, grip, trucks, wheels, graphic, total) => {
+        if(this.state.user.user_id) {
+            const orderItem = {
+                order_id: this.state.user.order_id,
+                quantity: 1,
+                design,
+                grip,
+                trucks,
+                wheels,
+                graphic,
+                total
+            }
+            
+            //add an alert to let the customer know their product was added
+        } else {
+            this.handleToggle()
+        }
+    }
+
+    //puts the url of the uploaded image onto redux state
     handleGraphic = (url) => {
         this.props.updateGraphic({graphic: url})
     }
 
+    //this and uploadFile handle putting the image into s3 bucket, as well as invoke the handleGraphic function(in uploadFile)
     getSignedRequest = ([file]) => {
         this.setState({ isUploading: true });
         const fileName = `${randomString()}-${file.name.replace(/\s/g, '-')}`;
@@ -60,80 +113,147 @@ class Pictures extends Component {
             }
           });
       };
-
-      setEditorRef = (editor) => this.editor = editor
     
+    //conditional rendering for the authentication modal, as well as for whether an image has been uploaded or not
     render(){
         const{isUploading} = this.state;
         return (
             <div className='Design'>
-                <ButtonGroup>
-                    <div className='customize-step-prompt'>
-                        Step:
-                    </div>
-                    <Link to='/customize'><Button bsPrefix='customize-step-btn'>1</Button></Link>
-                    <Link to='/board-grip'><Button bsPrefix='customize-step-btn'>2</Button></Link>
-                    <Link to='/trucks'><Button bsPrefix='customize-step-btn'>3</Button></Link>
-                    <Link to='/wheels'><Button bsPrefix='customize-step-btn'>4</Button></Link>
-                    <Button bsPrefix='active-customize-step-btn'>5</Button>
-                </ButtonGroup>
-                <div className='custom-board-image-div'>
-                    {!this.props.graphic
-                    ?(<div>
-                          <h5 className='custom-step-name'>Upload a Graphic</h5>
-                          <img src={this.props.design.image} alt='design' className='selected-board-top' />
-                          <img src={this.props.design.image} alt='design' className='selected-board-bottom' />
-                          <img src={this.props.grip.image} alt='grip' className='selected-board-top' />
-                          <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-front-${this.props.design.name}`} />
-                          <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-back-${this.props.design.name}`} />
-                          <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-front-${this.props.design.name}`} />
-                          <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-back-${this.props.design.name}`} />
-                          <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-front-${this.props.design.name}`} />
-                          <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-back-${this.props.design.name}`} />
-                          <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-front-${this.props.design.name}`} />
-                          <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-back-${this.props.design.name}`} />
-                      </div>)
-                    :(<div>
-                          <h5 className='custom-step-name'>Graphic</h5>
-                          <div>
-                              <img src={this.props.design.image} alt='design' className='selected-board' />
-                              <img src={this.props.graphic} alt='graphic' className='uploaded-graphic'/>
-                              <img src={`https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_board_outline.png`} alt='outline' className='board-outline'/>
-                          </div>
-                          <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-front-${this.props.design.name}`} />
-                          <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-back-${this.props.design.name}`} />
-                          <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-front-${this.props.design.name}`} />
-                          <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-back-${this.props.design.name}`} />
-                      </div>)
-                    }
-                </div>
-                <div className='custom-board-buttons-div'>
-                    <ButtonGroup bsPrefix='custom-btn-group'>
-                        <Dropzone
-                            onDropAccepted={this.getSignedRequest}
-                            accept="image/*"
-                            multiple={false}>
-                            {({getRootProps, getInputProps}) => (
-                            <Button bsPrefix='custom-btn' {...getRootProps()}>
-                                <input {...getInputProps()} />
-                                {isUploading ? <span>Loading...</span> : <span>Upload Graphic</span>}
-                            </Button>
-                        )}
-                        </Dropzone>
-                        <Button bsPrefix='custom-btn'>Add to Cart</Button>
+                {!this.state.showModal
+                ?(<div>
+                    <ButtonGroup>
+                        <div className='customize-step-prompt'>
+                            Step:
+                        </div>
+                        <Link to='/customize'><Button bsPrefix='customize-step-btn'>1</Button></Link>
+                        <Link to='/board-grip'><Button bsPrefix='customize-step-btn'>2</Button></Link>
+                        <Link to='/trucks'><Button bsPrefix='customize-step-btn'>3</Button></Link>
+                        <Link to='/wheels'><Button bsPrefix='customize-step-btn'>4</Button></Link>
+                        <Button bsPrefix='active-customize-step-btn'>5</Button>
                     </ButtonGroup>
-                </div>
-                <p>*Note that all images may not fit onto the the longboard surface. It is recommended that you use images that have been cropped to work with your
-                    selected longboard shape.
-                </p>
+                    <div className='custom-board-image-div'>
+                        {!this.props.graphic
+                        ?(<div>
+                              <h5 className='custom-step-name'>Upload a Graphic</h5>
+                              <img src={this.props.design.image} alt='design' className='selected-board-top' />
+                              <img src={this.props.design.image} alt='design' className='selected-board-bottom' />
+                              <img src={this.props.grip.image} alt='grip' className='selected-board-top' />
+                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-front-${this.props.design.name}`} />
+                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-back-${this.props.design.name}`} />
+                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-front-${this.props.design.name}`} />
+                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-back-${this.props.design.name}`} />
+                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-front-${this.props.design.name}`} />
+                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-back-${this.props.design.name}`} />
+                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-front-${this.props.design.name}`} />
+                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-back-${this.props.design.name}`} />
+                        </div>)
+                        :(<div>
+                              <h5 className='custom-step-name'>Graphic</h5>
+                            <div>
+                                  <img src={this.props.design.image} alt='design' className='selected-board' />
+                                  <img src={this.props.graphic} alt='graphic' className='uploaded-graphic'/>
+                                  <img src={`https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_board_outline.png`} alt='outline' className='board-outline'/>
+                            </div>
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-front-${this.props.design.name}`} />
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-back-${this.props.design.name}`} />
+                            <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-front-${this.props.design.name}`} />
+                            <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-back-${this.props.design.name}`} />
+                        </div>)
+                        }
+                    </div>
+                    <div className='custom-board-buttons-div'>
+                        <ButtonGroup bsPrefix='custom-btn-group'>
+                            <Dropzone
+                                onDropAccepted={this.getSignedRequest}
+                                accept="image/*"
+                                multiple={false}>
+                                {({getRootProps, getInputProps}) => (
+                                <Button bsPrefix='custom-btn' {...getRootProps()}>
+                                    <input {...getInputProps()} />
+                                    {isUploading ? <span>Loading...</span> : <span>Upload Graphic</span>}
+                                </Button>
+                            )}
+                            </Dropzone>
+                            <Button bsPrefix='custom-btn'>Add to Cart</Button>
+                        </ButtonGroup>
+                    </div>
+                    <p>*Note that all images may not fit onto the the longboard surface. It is recommended that you use images that have been cropped to work with your
+                        selected longboard shape.
+                    </p>
+                </div>)
+                :(<div>
+                                        <ButtonGroup>
+                        <div className='customize-step-prompt'>
+                            Step:
+                        </div>
+                        <Link to='/customize'><Button bsPrefix='customize-step-btn'>1</Button></Link>
+                        <Link to='/board-grip'><Button bsPrefix='customize-step-btn'>2</Button></Link>
+                        <Link to='/trucks'><Button bsPrefix='customize-step-btn'>3</Button></Link>
+                        <Link to='/wheels'><Button bsPrefix='customize-step-btn'>4</Button></Link>
+                        <Button bsPrefix='active-customize-step-btn'>5</Button>
+                    </ButtonGroup>
+                    <div className='custom-board-image-div'>
+                        {!this.props.graphic
+                        ?(<div>
+                              <h5 className='custom-step-name'>Upload a Graphic</h5>
+                              <img src={this.props.design.image} alt='design' className='selected-board-top' />
+                              <img src={this.props.design.image} alt='design' className='selected-board-bottom' />
+                              <img src={this.props.grip.image} alt='grip' className='selected-board-top' />
+                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-front-${this.props.design.name}`} />
+                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-back-${this.props.design.name}`} />
+                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-front-${this.props.design.name}`} />
+                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-back-${this.props.design.name}`} />
+                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-front-${this.props.design.name}`} />
+                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-back-${this.props.design.name}`} />
+                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-front-${this.props.design.name}`} />
+                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-back-${this.props.design.name}`} />
+                        </div>)
+                        :(<div>
+                              <h5 className='custom-step-name'>Graphic</h5>
+                            <div>
+                                  <img src={this.props.design.image} alt='design' className='selected-board' />
+                                  <img src={this.props.graphic} alt='graphic' className='uploaded-graphic'/>
+                                  <img src={`https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_board_outline.png`} alt='outline' className='board-outline'/>
+                            </div>
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-front-${this.props.design.name}`} />
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-back-${this.props.design.name}`} />
+                            <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-front-${this.props.design.name}`} />
+                            <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-back-${this.props.design.name}`} />
+                        </div>)
+                        }
+                    </div>
+                    <div className='custom-board-buttons-div'>
+                        <ButtonGroup bsPrefix='custom-btn-group'>
+                            <Dropzone
+                                onDropAccepted={this.getSignedRequest}
+                                accept="image/*"
+                                multiple={false}>
+                                {({getRootProps, getInputProps}) => (
+                                <Button bsPrefix='custom-btn' {...getRootProps()}>
+                                    <input {...getInputProps()} />
+                                    {isUploading ? <span>Loading...</span> : <span>Upload Graphic</span>}
+                                </Button>
+                            )}
+                            </Dropzone>
+                            <Button bsPrefix='custom-btn'>Add to Cart</Button>
+                        </ButtonGroup>
+                    </div>
+                    <p>*Note that all images may not fit onto the the longboard surface. It is recommended that you use images that have been cropped to work with your
+                        selected longboard shape.
+                    </p>
+                    <AuthModal />
+                </div>)
+                }
             </div>
         )
     }
 }
 
+//bringing in the state from redux, as well as the updateGraphic action
 const mapStateToProps = reduxState => {
-    const {graphic, wheels, trucks, grip, design} = reduxState;
+    const {total, graphic, wheels, trucks, grip, design} = reduxState;
     return {
+        total,
         graphic,
         wheels,
         trucks,

@@ -24,7 +24,7 @@ class Boards extends Component {
     }
 
     handleGetSessionUser = () => {
-        axios.get('/auth/get-session-user')
+        axios.get('/auth/session-user')
         .then(res => {
             this.setState({
                 user: res.data
@@ -46,7 +46,7 @@ class Boards extends Component {
                 quantity: 1,
                 price
             }
-            axios.post('/api/add-to-cart-standard', orderItem)
+            axios.post('/api/standard-cart-item', orderItem)
             //add an alert to let the customer know their product was added
         } else {
             this.handleToggle()

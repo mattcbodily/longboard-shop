@@ -34,7 +34,7 @@ class Cart extends Component {
     }
 
     handleGetUser = () => {
-        axios.get('/auth/get-session-user')
+        axios.get('/auth/session-user')
         .then(res => {
             this.setState({
                 user: res.data
