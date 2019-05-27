@@ -3,22 +3,22 @@ const initialState = {
         name: '',
         size: '',
         image: '',
-        price: 0.00
+        id: null
     },
     grip: {
         name: '',
         image: '',
-        price: 0.00
+        id: null
     },
     trucks: {
         name: '',
         image: '',
-        price: 0.00
+        id: null        
     },
     wheels: {
         color: '',
         image: '',
-        price: 0.00
+        id: null        
     },
     graphic: '',
     total: 89.99
@@ -72,28 +72,32 @@ export default function reducer(state = initialState, action){
             let design = {
                 name: payload.name,
                 image: payload.image,
-                price: payload.price
+                price: payload.price,
+                id: payload.id
             }
             return {...state, design};
         case UPDATE_GRIP:
             let grip = {
                 name: payload.name,
                 image: payload.image,
-                price: payload.price
+                price: payload.price,
+                id: payload.id
             }
             return {...state, grip}
         case UPDATE_TRUCKS:
             let trucks = {
                 name: payload.name,
                 image: payload.image,
-                price: payload.price
+                price: payload.price,
+                id: payload.id
             }
             return {...state, trucks}
         case UPDATE_WHEELS:
             let wheels = {
                 color: payload.color,
                 image: payload.image,
-                price: payload.price
+                price: payload.price,
+                id: payload.id
             }
             return {...state, wheels}
         case UPDATE_GRAPHIC:

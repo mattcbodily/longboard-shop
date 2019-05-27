@@ -35,10 +35,11 @@ class Pictures extends Component {
 
     //handles login functionality
     handleLogin = async(data) => {
+        const {design, grip, trucks, wheels, graphic, total} = this.props;
         await this.setState({
             user: data
         })
-        this.handleAddToCart();
+        this.handleAddToCart(design.id, grip.id, trucks.id, wheels.id, graphic, total);
     }
 
     //toggle set up to show the authentication modal when value is true
@@ -52,7 +53,6 @@ class Pictures extends Component {
         if(this.state.user.user_id) {
             const orderItem = {
                 order_id: this.state.user.order_id,
-                quantity: 1,
                 design,
                 grip,
                 trucks,
@@ -60,8 +60,10 @@ class Pictures extends Component {
                 graphic,
                 total
             }
-            
-            //add an alert to let the customer know their product was added
+            axios.post('/api/custom-cart-item', orderItem)
+            .then(res => {
+                alert('Item added successfully')
+            })
         } else {
             this.handleToggle()
         }
@@ -116,6 +118,7 @@ class Pictures extends Component {
     
     //conditional rendering for the authentication modal, as well as for whether an image has been uploaded or not
     render(){
+        const {design, grip, trucks, wheels, graphic, total} = this.props;
         const{isUploading} = this.state;
         return (
             <div className='Design'>
@@ -174,7 +177,7 @@ class Pictures extends Component {
                                 </Button>
                             )}
                             </Dropzone>
-                            <Button bsPrefix='custom-btn'>Add to Cart</Button>
+                            <Button bsPrefix='custom-btn' onClick={() => this.handleAddToCart(design.id, grip.id, trucks.id, wheels.id, graphic, total)}>Add to Cart</Button>
                         </ButtonGroup>
                     </div>
                     <p>*Note that all images may not fit onto the the longboard surface. It is recommended that you use images that have been cropped to work with your
@@ -212,7 +215,7 @@ class Pictures extends Component {
                               <h5 className='custom-step-name'>Graphic</h5>
                             <div>
                                   <img src={this.props.design.image} alt='design' className='selected-board' />
-                                  <img src={this.props.graphic} alt='graphic' className='uploaded-graphic'/>
+                                  <img src={this.props.graphic} alt='graphic' className='uploaded-graphic' draggable={true}/>
                                   <img src={`https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_board_outline.png`} alt='outline' className='board-outline'/>
                             </div>
                             <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-front-${this.props.design.name}`} />
@@ -241,7 +244,9 @@ class Pictures extends Component {
                     <p>*Note that all images may not fit onto the the longboard surface. It is recommended that you use images that have been cropped to work with your
                         selected longboard shape.
                     </p>
-                    <AuthModal />
+                    <AuthModal 
+                        login={this.handleLogin}
+                        toggle={this.handleToggle}/>
                 </div>)
                 }
             </div>

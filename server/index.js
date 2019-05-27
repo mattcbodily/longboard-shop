@@ -73,7 +73,7 @@ app.get('/api/user-cart/:id', ctrl.getUserCart); //this is found in the cart com
 app.get('/api/order-history/:id', ctrl.getOrderHistory); ;//this is found in the user component, takes the user id
 
 app.post('/api/standard-cart-item', ctrl.addToCartStandardProduct); //found in the boards component, taking a req.body with the order_id, board_id, quantity, and price
-app.post('/api/custom-cart-item')
+app.post('/api/custom-cart-item', ctrl.addToCartCustomProduct); //found in the pictures component in the custom folder. Takes a req.body with order_id, design name, grip name, trucks name, wheels color, graphic url, and total
 app.put('/api/item-quantity/:id', ctrl.updateItemQuantity); //found in the cart display component
 
 app.delete('/api/cart-item/:id', ctrl.deleteCartItem); //this is found in the cart display component, taking the order item id in params

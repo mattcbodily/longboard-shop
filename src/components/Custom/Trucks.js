@@ -28,8 +28,8 @@ class Trucks extends Component {
         })
     }
 
-    handleSelectedItem = (e, name, image, price) => {
-        this.props.updateTrucks({name, image, price})
+    handleSelectedItem = (e, name, image, price, id) => {
+        this.props.updateTrucks({name, image, price, id})
     }
 
     render(){

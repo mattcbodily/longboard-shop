@@ -29,9 +29,14 @@ class Design extends Component {
         })
     }
 
-    handleSelectedItem = async(e, name, image, price) => {
-        await this.props.updateDesign({name, image, price})
-        this.props.updateGrip({name: this.props.grip.name, image: `https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_${this.props.grip.name}.png`, price: this.props.grip.price})
+    handleSelectedItem = async(e, name, image, price, id) => {
+        await this.props.updateDesign({name, image, price, id})
+        this.props.updateGrip({
+            name: this.props.grip.name, 
+            image: `https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_${this.props.grip.name}.png`, 
+            price: this.props.grip.price,
+            id: this.props.grip.id
+        })
     }
 
     render(){

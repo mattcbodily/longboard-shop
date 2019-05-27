@@ -48,8 +48,8 @@ module.exports = {
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
     addToCartCustomProduct: (req, res) => {
-        const {order_id, design, grip, trucks, wheels, graphic, total} = req.body;
-        req.app.get('db').cart.add_to_cart_custom_product(order_id, design, grip, trucks, wheels, graphic, total)
+        const {design, grip, trucks, wheels, graphic, total, order_id} = req.body;
+        req.app.get('db').cart.add_to_cart_custom_product(design, grip, trucks, wheels, graphic, total, order_id)
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },

@@ -28,8 +28,8 @@ class Wheels extends Component {
         })
     }
 
-    handleSelectedItem = (e, color, image, price) => {
-        this.props.updateWheels({color, image, price})
+    handleSelectedItem = (e, color, image, price, id) => {
+        this.props.updateWheels({color, image, price, id})
     }
 
     render(){

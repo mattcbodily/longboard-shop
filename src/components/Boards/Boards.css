@@ -135,4 +135,5 @@
     margin-left: -45%;
     border-radius: 10px;
     border: 1px solid lightgray;
+    z-index: 10;
 }

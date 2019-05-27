@@ -47,7 +47,9 @@ class Boards extends Component {
                 price
             }
             axios.post('/api/standard-cart-item', orderItem)
-            //add an alert to let the customer know their product was added
+            .then(res => {
+                alert('Item added successfully')
+            })
         } else {
             this.handleToggle()
         }

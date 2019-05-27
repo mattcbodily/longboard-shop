@@ -28,8 +28,8 @@ class BoardSize extends Component {
         })
     }
 
-    handleSelectedItem = (e, name, image, price) => {
-        this.props.updateGrip({name, image, price})
+    handleSelectedItem = (e, name, image, price, id) => {
+        this.props.updateGrip({name, image, price, id})
     }
 
     render(){
