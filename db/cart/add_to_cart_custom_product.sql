@@ -6,8 +6,3 @@ with custom_board as (
 )
 insert into order_item(order_id, custom_product, quantity, order_item_price)
 select $7, custom_id, 1, price from custom_board;
--- , order_item as (
---     insert into order_item(order_id, custom_product, quantity, order_item_price)
---     select $7, custom_id, 1, price from custom_board
---     returning *
--- )

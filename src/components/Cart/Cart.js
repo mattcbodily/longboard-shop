@@ -9,6 +9,7 @@ class Cart extends Component {
         super();
         this.state = {
             orderItems: [],
+            customOrderItems: [],
             user: {},
             total: 0.00
         }
@@ -25,11 +26,20 @@ class Cart extends Component {
                 orderItems: res.data
             })
         })
+        await axios.get(`/api/user-cart-custom/${this.state.user.user_id}`)
+        .then(res => {
+            this.setState({
+                customOrderItems: res.data
+            })
+        })
         let sum = this.state.orderItems.reduce((acc, curr) => {
             return acc + parseFloat(curr.order_item_price)
         }, 0)
+        let customSum = this.state.customOrderItems.reduce((acc, curr) => {
+            return acc + parseFloat(curr.order_item_price)
+        }, 0)
         this.setState({
-            total: Math.round(sum * 100) / 100
+            total: Math.round((sum + customSum) * 100) / 100
         })
     }
 
@@ -52,6 +62,14 @@ class Cart extends Component {
                     getCart={this.handleGetUserCart} />
             )
         })
+        const mappedCartCustomItems = this.state.customOrderItems.map((item, i) => {
+            return (
+                <CartDisplay 
+                    key={i}
+                    cart={item}
+                    getCart={this.handleGetUserCart} />
+            )
+        })
         return(
             <div className='cart'>
                 <h6>Your Total: ${this.state.total}</h6>
@@ -63,6 +81,7 @@ class Cart extends Component {
                         user={this.state.user.user_id} />
                 </div>
                 {mappedCart}
+                {mappedCartCustomItems}
             </div>
         )
     }
