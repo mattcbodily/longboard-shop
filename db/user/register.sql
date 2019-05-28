@@ -1,16 +1,8 @@
 insert into users (
     email,
-    password,
-    mailing_address,
-    city,
-    state,
-    zip_code
+    password
 ) values (
     $1,
-    $2,
-    $3,
-    $4,
-    $5,
-    $6
+    $2
 )
 returning *;

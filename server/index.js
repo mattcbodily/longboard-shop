@@ -69,6 +69,10 @@ app.get('/api/boards-price-filter-high', ctrl.filterHighestPrice); //found in th
 app.get('/api/boards-low-price-filter/:design', ctrl.filterLowestPriceByDesign); //found in the pintail design and drop design components, takes in the design name of the board
 app.get('/api/boards-high-price-filter/:design', ctrl.filterHighestPriceByDesign); //found in the pintail design and drop design components, takes in the design name of the board
 app.get('/api/selected-board/:title', ctrl.getSelectedBoard); //found in the boards component
+app.get('/api/selected-design/:id', ctrl.getSelectedBoardDesign); //found in the selected board component, takes design id, found in board on state
+app.get('/api/selected-grip/:id', ctrl.getSelectedBoardGrip); //found in the selected board component, takes grip id, found in board on state
+app.get('/api/selected-trucks/:id', ctrl.getSelectedBoardTrucks); //found in the selected board component, takes trucks id, found in board on state
+app.get('/api/selected-wheels/:id', ctrl.getSelectedBoardWheels); //found in the selected board component, takes wheels id, found in board on state
 app.get('/api/user-cart/:id', ctrl.getUserCart); //this is found in the cart component, takes the user id
 app.get('/api/order-history/:id', ctrl.getOrderHistory); //this is found in the user component, takes the user id
 

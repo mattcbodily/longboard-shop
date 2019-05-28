@@ -7,11 +7,7 @@ class Register extends Component {
         this.state = {
             email: '',
             password: '',
-            verPassword: '',
-            address: '',
-            city: '',
-            state: '',
-            zipcode: ''
+            verPassword: ''
         }
     }
 
@@ -22,18 +18,18 @@ class Register extends Component {
     }
 
     handleRegister = () => {
-        const {email, password, verPassword, address, city, state, zipcode} = this.state;
+        const {email, password, verPassword} = this.state;
         if(password !== verPassword){
             alert('Passwords Do Not Match')
         } else {
-            axios.post('/auth/register', {email, password, address, city, state, zipcode})
+            axios.post('/auth/register', {email, password})
             .then(res => {
                 this.props.history.push('/')
         })}
     }
 
     render(){
-        const {email, password, verPassword, mailingAddress, city, state, zipCode} = this.state;
+        const {email, password, verPassword} = this.state;
 
         return(
             <div className='user'>
@@ -60,31 +56,6 @@ class Register extends Component {
                         type='password' 
                         placeholder='Verify Password'
                         onChange={e => this.handleInput('verPassword', e.target.value)}/>
-                </div>
-                <div>
-                    <input
-                        value={mailingAddress} 
-                        placeholder='Shipping Address'
-                        onChange={e => this.handleInput('address', e.target.value)}/>
-                </div>
-                <div>
-                    <input
-                        value={city} 
-                        placeholder='City'
-                        onChange={e => this.handleInput('city', e.target.value)}/>
-                </div>
-                <div>
-                    <input
-                        value={state} 
-                        placeholder='State'
-                        maxLength='2'
-                        onChange={e => this.handleInput('state', e.target.value)}/>
-                </div>
-                <div>
-                    <input
-                        value={zipCode} 
-                        placeholder='Zip Code'
-                        onChange={e => this.handleInput('zipcode', e.target.value)}/>
                 </div>
                 <button onClick={this.handleRegister}>Register</button>
             </div>

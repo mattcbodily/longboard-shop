@@ -41,6 +41,30 @@ module.exports = {
         .then(board => res.status(200).send(board))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
+    getSelectedBoardDesign: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').standard_boards.get_selected_board_design(id)
+        .then(design => res.status(200).send(design))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    getSelectedBoardGrip: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').standard_boards.get_selected_board_grip(id)
+        .then(grip => res.status(200).send(grip))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    getSelectedBoardTrucks: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').standard_boards.get_selected_board_trucks(id)
+        .then(trucks => res.status(200).send(trucks))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
+    getSelectedBoardWheels: (req, res) => {
+        const {id} = req.params;
+        req.app.get('db').standard_boards.get_selected_board_wheels(id)
+        .then(wheels => res.status(200).send(wheels))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
     addToCartStandardProduct: (req, res) => {
         const {order_id, standard_product, quantity, price} = req.body;
         req.app.get('db').cart.add_to_cart_standard_product(order_id, standard_product, quantity, price)
