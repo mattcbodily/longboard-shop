@@ -14,7 +14,6 @@ class User extends Component {
         this.state = {
             user: {},
             orders: [],
-            customOrders: [],
             email: '',
             password: '',
             verPassword: '',
@@ -77,11 +76,6 @@ class User extends Component {
                 orders: res.data
             })
         })
-        axios.get(`/api/order-history-custom/${this.state.user.user_id}`)
-        .then(res =>
-            this.setState({
-                customOrders: res.data
-            }))
     }
 
     handleEmailUpdate = () => {
@@ -109,13 +103,6 @@ class User extends Component {
         const mappedOrders = this.state.orders.map((order, i) => {
             return (
                 <OrderHistory 
-                    key={i}
-                    order={order}/>
-            )
-        })
-        const mappedCustomOrders = this.state.customOrders.map((order, i) => {
-            return (
-                <OrderHistory
                     key={i}
                     order={order}/>
             )

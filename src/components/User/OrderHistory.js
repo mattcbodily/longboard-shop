@@ -5,7 +5,7 @@ class OrderHistory extends Component {
     render(){
         return(
             <div>
-                {this.props.order.standard_product
+                {!this.props.order.custom_product
                 ?(<div className='order-history'>
                     <div className='order-history-picture-div'>
                         <img src={testpicture} alt='test' className='order-item-picture'/>

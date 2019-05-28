@@ -45,7 +45,7 @@ class CartDisplay extends Component {
         return (
             <div>
                 {/* using the styling from users.css for display of the cart */}
-                {this.props.cart.standard_product
+                {!this.props.cart.custom
                 ?(<div className='order-history'>
                     <div className='order-history-picture-div'>
                         <img src={testpicture} alt='test' className='order-item-picture'/>

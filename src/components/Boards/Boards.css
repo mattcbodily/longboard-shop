@@ -66,27 +66,31 @@
 .boards-custom-btn1 {
     height: 32px;
     width: 48%;
-    background-color: lightgray;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    color: white;
     border: 1px solid gray;
     border-radius: 5px 0px 0px 5px;
+    border: .5px solid #011D6E;
 }
 
 .boards-custom-btn2 {
     height: 32px;
     width: 48%;
-    background-color: lightgray;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    color: white;
     border: 1px solid gray;
     border-radius: 0px 5px 5px 0px;
+    border: .5px solid #011D6E;
 }
 
 .selected-board-price {
     height: 40px;
     width: 27vw;
-    background-color: gray;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
     color: white;
     font-size: 17px;
     text-align: center;
-    border: 1px solid black;
+    border: .5px solid #011D6E;
     box-sizing: border-box;
     padding-top: 7px;
 }
@@ -94,24 +98,24 @@
 .selected-board-dropdownbutton {
     height: 40px;
     width: 23vw;
-    background-color: #343A40;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
     color: white;
-    border: 1px solid black;
+    border: .5px solid #011D6E;
 }
 
 .selected-board-btn {
     height: 40px;
     width: 50vw;
-    background-color: #343A40;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
     color: white;
-    border: 1px solid black;
+    border: .5px solid #011D6E;
 }
 
 .customize-board-btn {
     height: 40px;
     width: 100vw;
-    background-color: #343A40;
-    border: 1px solid black;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
+    border: .5px solid #011D6E;
     color: white;
 }
 
@@ -136,4 +140,27 @@
     border-radius: 10px;
     border: 1px solid lightgray;
     z-index: 10;
+}
+
+@media(min-width: 500px){
+    .Boards {
+        padding-top: 50px; 
+    }
+    .Filterby {
+        height: 35px;
+        padding-top: 4px;
+    }
+    .Filter-dropdownbutton {
+        height: 35px;
+    }
+    .boardsflex {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0px 55px;
+    }
+    .custom-card {
+        width: 300px;
+        margin: 10px 0px;
+    }
 }

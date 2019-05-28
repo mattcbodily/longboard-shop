@@ -70,9 +70,7 @@ app.get('/api/boards-low-price-filter/:design', ctrl.filterLowestPriceByDesign);
 app.get('/api/boards-high-price-filter/:design', ctrl.filterHighestPriceByDesign); //found in the pintail design and drop design components, takes in the design name of the board
 app.get('/api/selected-board/:title', ctrl.getSelectedBoard); //found in the boards component
 app.get('/api/user-cart/:id', ctrl.getUserCart); //this is found in the cart component, takes the user id
-app.get('/api/user-cart-custom/:id', ctrl.getUserCartCustomProducts); //this is found in the cart component, takes the user id
 app.get('/api/order-history/:id', ctrl.getOrderHistory); //this is found in the user component, takes the user id
-app.get('/api/order-history-custom/:id', ctrl.getOrderHistoryCustomProduct); //this is found in the user component, takes the user id
 
 app.post('/api/standard-cart-item', ctrl.addToCartStandardProduct); //found in the boards component, taking a req.body with the order_id, board_id, quantity, and price
 app.post('/api/custom-cart-item', ctrl.addToCartCustomProduct); //found in the pictures component in the custom folder. Takes a req.body with order_id, design name, grip name, trucks name, wheels color, graphic url, and total

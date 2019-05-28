@@ -39,7 +39,6 @@
 .shopping-cart {
     color: white;
     font-size: 20px;
-
 }
 
 .Dropdownmenu{
@@ -81,5 +80,45 @@
     100% {
         height: 100vh;
         width: 200px;
+    }
+}
+
+@media(min-width: 500px){
+    .Header {
+        height: 50px;
+        padding: 0px 14px;
+    }
+    .Bars {
+        font-size: 24px;
+        margin-right: 14px;
+        margin-top: 5px;
+    }
+    .Logotext:link {
+        font-size: 24px;
+    }
+    .user-icon {
+        font-size: 24px;
+    }
+    .shopping-cart {
+        font-size: 24px;
+        margin-left: 2px;
+    }
+    .Dropdownmenu {
+        width: 300px;
+        padding-top: 50px;
+    }
+    .Dropdownlinks {
+        font-size: 18px;
+        padding: 7px 0px;
+    }
+    @keyframes expand {
+        0% {
+            height: 100vh;
+            width: 0px;
+        }
+        100% {
+            height: 100vh;
+            width: 300px;
+        }
     }
 }

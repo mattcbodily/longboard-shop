@@ -4,6 +4,7 @@ h4 {
 
 .Landing {
     min-height: 100vh;
+    width: 100vw;
     box-sizing: border-box;
     padding-top: 40px;
 }
@@ -68,4 +69,58 @@ h4 {
     width: 100%;
     background-image: url("./jevgenij-voronov-63310-unsplash.jpg");
     background-size: cover;
+}
+
+@media(min-width: 500px){
+    .Carouselimage-one {
+        height: 45vh;
+        max-width: 100vw;
+    }
+    .Carouselimage-two {
+        height: 45vh;
+    }
+    .Carouselimage-three {
+        height: 45vh;
+    }
+    .custom-btn {
+        display: none;
+    }
+    .Landinglinks {
+        display: inline-block;
+        margin: 0px;
+        font-size: 18px;
+    }
+    .Landingblurb {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 5px 5px 0px 5px;
+    }
+    .Landingblurb-two {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-evenly;
+        padding: 5px 5px 0px 5px;
+    }
+    .Landingimage-one {
+        max-width: 55%;
+    }
+    .Landingimage-two {
+        max-width: 55%;
+    }
+    .Landingimage-three {
+        max-width: 55%;
+    }
+    .Landingimage-one h4 {
+        display: none;
+    }
+    .Landingimage-two h4 {
+        display: none;
+    }
+    .Landingimage-three h4 {
+        display: none;
+    }
+    .Landing-text {
+        max-height: 100%;
+        max-width: 50%;
+    }
 }

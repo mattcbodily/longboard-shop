@@ -59,12 +59,6 @@ module.exports = {
         .then(cartItems => res.status(200).send(cartItems))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
-    getUserCartCustomProducts: (req, res) => {
-        const {id} = req.params;
-        req.app.get('db').cart.get_cart_custom_items(id)
-        .then(cartItems => res.status(200).send(cartItems))
-        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
-    },
     updateItemQuantity: (req, res) => {
         const {id} = req.params;
         const {quantity, price} = req.body;
@@ -96,12 +90,6 @@ module.exports = {
     getOrderHistory: (req, res) => {
         const {id} = req.params;
         req.app.get('db').user.get_order_history(id)
-        .then(orders => res.status(200).send(orders))
-        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
-    },
-    getOrderHistoryCustomProduct: (req, res) => {
-        const {id} = req.params;
-        req.app.get('db').user.get_order_history_custom_product(id)
         .then(orders => res.status(200).send(orders))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
