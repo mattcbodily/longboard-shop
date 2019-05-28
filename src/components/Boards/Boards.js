@@ -99,8 +99,7 @@ class Boards extends Component {
         })
         return(
             <div>
-                {!this.state.showModal
-                ? (<div className='Boards'>
+                <div className='Boards'>
                     <div className='Filter-group'>
                     <ButtonGroup>
                         <div className='Filterby'>
@@ -121,34 +120,13 @@ class Boards extends Component {
                     <div className='boardsflex'>
                         {mappedBoards}
                     </div>
-                </div>) : (
-                <div className='Boards'>
-                    <div className='Filter-group'>
-                    <ButtonGroup>
-                    <div className='Filterby'>
-                        Filter by:
-                    </div>
-                    <DropdownButton alignRight title='Design' bsPrefix='Filter-dropdownbutton'>
-                        <div className='Dropdown-option-div'><Link to='/pintail-boards' className='Design-links'>Pintail</Link></div>
-                        <Dropdown.Divider />
-                        <div className='Dropdown-option-div'><Link to='/drop-boards' className='Design-links'>Drop</Link></div>
-                    </DropdownButton>
-                    <DropdownButton alignRight title='Price' bsPrefix='Filter-dropdownbutton'>
-                        <div onClick={this.handleFilterPriceHigh} className='Dropdown-option-div'>High to Low</div>
-                        <Dropdown.Divider />
-                        <div onClick={this.handleFilterPriceLow} className='Dropdown-option-div'>Low to High</div>
-                    </DropdownButton>
-                    </ButtonGroup>
-                    </div>
-                    <AuthModal
+                    {this.state.showModal
+                    ?(<AuthModal
                         user={this.state.user} 
                         login={this.handleLogin}
-                        toggle={this.handleToggle}/>
-                    <div className='boardsflex'>
-                        {mappedBoards}
-                    </div>
+                        toggle={this.handleToggle}/>)
+                    :(null)}
                 </div>
-                )}
             </div>
         )
     }

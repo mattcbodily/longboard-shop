@@ -122,8 +122,7 @@ class Pictures extends Component {
         const{isUploading} = this.state;
         return (
             <div className='Design'>
-                {!this.state.showModal
-                ?(<div>
+                <div>
                     <ButtonGroup>
                         <div className='customize-step-prompt'>
                             Step:
@@ -183,73 +182,13 @@ class Pictures extends Component {
                     <p>*Note that all images may not fit onto the the longboard surface. It is recommended that you use images that have been cropped to work with your
                         selected longboard shape.
                     </p>
-                </div>)
-                :(<div>
-                                        <ButtonGroup>
-                        <div className='customize-step-prompt'>
-                            Step:
-                        </div>
-                        <Link to='/customize'><Button bsPrefix='customize-step-btn'>1</Button></Link>
-                        <Link to='/board-grip'><Button bsPrefix='customize-step-btn'>2</Button></Link>
-                        <Link to='/trucks'><Button bsPrefix='customize-step-btn'>3</Button></Link>
-                        <Link to='/wheels'><Button bsPrefix='customize-step-btn'>4</Button></Link>
-                        <Button bsPrefix='active-customize-step-btn'>5</Button>
-                    </ButtonGroup>
-                    <div className='custom-board-image-div'>
-                        {!this.props.graphic
-                        ?(<div>
-                              <h5 className='custom-step-name'>Upload a Graphic</h5>
-                              <img src={this.props.design.image} alt='design' className='selected-board-top' />
-                              <img src={this.props.design.image} alt='design' className='selected-board-bottom' />
-                              <img src={this.props.grip.image} alt='grip' className='selected-board-top' />
-                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-front-${this.props.design.name}`} />
-                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-back-${this.props.design.name}`} />
-                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-front-${this.props.design.name}`} />
-                              <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-back-${this.props.design.name}`} />
-                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-front-${this.props.design.name}`} />
-                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-back-${this.props.design.name}`} />
-                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-front-${this.props.design.name}`} />
-                              <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-back-${this.props.design.name}`} />
-                        </div>)
-                        :(<div>
-                              <h5 className='custom-step-name'>Graphic</h5>
-                            <div>
-                                  <img src={this.props.design.image} alt='design' className='selected-board' />
-                                  <img src={this.props.graphic} alt='graphic' className='uploaded-graphic' draggable={true}/>
-                                  <img src={`https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_board_outline.png`} alt='outline' className='board-outline'/>
-                            </div>
-                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-front-${this.props.design.name}`} />
-                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-back-${this.props.design.name}`} />
-                            <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-front-${this.props.design.name}`} />
-                            <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-back-${this.props.design.name}`} />
-                        </div>)
-                        }
-                    </div>
-                    <div className='custom-board-buttons-div'>
-                        <ButtonGroup bsPrefix='custom-btn-group'>
-                            <Dropzone
-                                onDropAccepted={this.getSignedRequest}
-                                accept="image/*"
-                                multiple={false}>
-                                {({getRootProps, getInputProps}) => (
-                                <Button bsPrefix='custom-btn' {...getRootProps()}>
-                                    <input {...getInputProps()} />
-                                    {isUploading ? <span>Loading...</span> : <span>Upload Graphic</span>}
-                                </Button>
-                            )}
-                            </Dropzone>
-                            <Button bsPrefix='custom-btn'>Add to Cart</Button>
-                        </ButtonGroup>
-                    </div>
-                    <p>*Note that all images may not fit onto the the longboard surface. It is recommended that you use images that have been cropped to work with your
-                        selected longboard shape.
-                    </p>
-                    <AuthModal
-                        user={this.state.user} 
-                        login={this.handleLogin}
-                        toggle={this.handleToggle}/>
-                </div>)
-                }
+                </div>
+                {this.state.showModal
+                ?(<AuthModal
+                    user={this.state.user} 
+                    login={this.handleLogin}
+                    toggle={this.handleToggle}/>)
+                :(null)}
             </div>
         )
     }
