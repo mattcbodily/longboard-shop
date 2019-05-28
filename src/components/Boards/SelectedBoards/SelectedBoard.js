@@ -26,7 +26,7 @@ class SelectedBoard extends Component {
 
     componentDidMount(){
         this.handleGetBoard();
-        this.handleGetAllBoards();
+        this.handleGetBoardBar();
         this.handleGetSessionUser();
     }
 
@@ -39,7 +39,7 @@ class SelectedBoard extends Component {
         }) 
     }
 
-    handleGetAllBoards = () => {
+    handleGetBoardBar = () => {
         axios.get('/api/board-bar')
         .then(res => {
             this.setState({

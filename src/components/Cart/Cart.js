@@ -9,14 +9,26 @@ class Cart extends Component {
     constructor(){
         super();
         this.state = {
-            orderItems: [],
             user: {},
+            orderItems: [],
+            boards: [],
             total: 0.00
         }
     }
 
     componentDidMount(){
         this.handleGetUser();
+        this.handleGetBoardBar();
+    }
+
+    handleGetUser = () => {
+        axios.get('/auth/session-user')
+        .then(res => {
+            this.setState({
+                user: res.data
+            })
+            this.handleGetUserCart();
+        })
     }
 
     handleGetUserCart = async() => {
@@ -34,13 +46,12 @@ class Cart extends Component {
         })
     }
 
-    handleGetUser = () => {
-        axios.get('/auth/session-user')
+    handleGetBoardBar = () => {
+        axios.get('/api/board-bar')
         .then(res => {
             this.setState({
-                user: res.data
+                boards: res.data
             })
-            this.handleGetUserCart();
         })
     }
 
@@ -53,17 +64,30 @@ class Cart extends Component {
                     getCart={this.handleGetUserCart} />
             )
         })
+        const mapAllBoards = this.state.boards.map((board, i) => {
+            return (
+                <BoardBar 
+                    key={i}
+                    board={board} />
+            )
+        })
         return(
-            <div className='cart'>
-                <h6>Your Total: ${this.state.total}</h6>
-                <div onClick={this.handleCompleteOrder}>
-                    <Checkout 
-                        total={Math.round(this.state.total * 100)}
-                        getUser={this.handleGetUser} 
-                        order={this.state.user.order_id}
-                        user={this.state.user.user_id} />
+            <div className='cart-flex'>
+                <div className='cart'>
+                    <h6>Your Total: ${this.state.total}</h6>
+                    <div onClick={this.handleCompleteOrder}>
+                        <Checkout 
+                            total={Math.round(this.state.total * 100)}
+                            getUser={this.handleGetUser} 
+                            order={this.state.user.order_id}
+                            user={this.state.user.user_id} />
+                    </div>
+                    {mappedCart}
                 </div>
-                {mappedCart}
+                <div className='board-bar'>
+                    <p>Other Popular Boards</p>
+                    {mapAllBoards}
+                </div>
             </div>
         )
     }
