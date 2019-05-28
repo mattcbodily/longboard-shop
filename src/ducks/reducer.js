@@ -29,7 +29,6 @@ const UPDATE_GRIP = 'UPDATE_GRIP';
 const UPDATE_TRUCKS = 'UPDATE_TRUCKS';
 const UPDATE_WHEELS = 'UPDATE_WHEELS';
 const UPDATE_GRAPHIC = 'UPDATE_GRAPHIC';
-const SELECTED_BOARD = 'SELECTED_BOARD';
 
 export function updateDesign(designObj){
     return {

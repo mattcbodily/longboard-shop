@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import Carousel from 'react-bootstrap/Carousel';
@@ -7,20 +6,62 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import AuthModal from './AuthModal';
 import {updateDesign, updateGrip, updateTrucks, updateWheels} from './../../ducks/reducer';
 
 class SelectedBoard extends Component {
     constructor(props){
         super(props);
         this.state = {
+            user: {},
             board: [],
             designName: '',
-            qty: 1
+            qty: 1,
+            showModal: false
         }
     }
 
     componentDidMount(){
-        this.handleGetBoard()
+        this.handleGetBoard();
+        this.handleGetSessionUser();
+    }
+
+    handleGetSessionUser = () => {
+        axios.get('/auth/session-user')
+        .then(res => {
+            this.setState({
+                user: res.data
+            })
+        }) 
+    }
+
+    handleLogin = (data) => {
+        this.setState({
+            user: data
+        })
+    }
+
+    handleToggle = () => {
+        this.setState({
+            showModal: !this.state.showModal
+        })
+    }
+
+    handleAddToCart = (boardID, price) => {
+        if(this.state.user.user_id) {
+            const orderItem = {
+                order_id: this.state.user.order_id,
+                standard_product: boardID,
+                quantity: 1,
+                price
+            }
+            axios.post('/api/standard-cart-item', orderItem)
+            .then(res => {
+                alert('Item added successfully')
+            })
+        } else {
+            this.handleToggle()
+        }
     }
 
     handleGetBoard = () => {
@@ -43,24 +84,24 @@ class SelectedBoard extends Component {
         })
     }
 
-    handleGetGrip = () => {
-        axios.get(`/api/selected-grip/${this.state.board[0].longboard_grip}`)
+    handleGetGrip = async() => {
+        await axios.get(`/api/selected-grip/${this.state.board[0].longboard_grip}`)
         .then(res => {
             let grip = res.data[0]
             this.props.updateGrip({name: grip.part_name, image: `https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.state.designName}_${grip.part_name}.png`, price: grip.price, id: grip.id})
         })
     }
 
-    handleGetTrucks = () => {
-        axios.get(`/api/selected-trucks/${this.state.board[0].longboard_trucks}`)
+    handleGetTrucks = async() => {
+        await axios.get(`/api/selected-trucks/${this.state.board[0].longboard_trucks}`)
         .then(res => {
             let trucks = res.data[0]
             this.props.updateTrucks({name: trucks.part_name, image: trucks.part_image, price: trucks.price, id: trucks.id})
         })
     }
 
-    handleGetWheels = () => {
-        axios.get(`/api/selected-wheels/${this.state.board[0].longboard_wheels}`)
+    handleGetWheels = async() => {
+        await axios.get(`/api/selected-wheels/${this.state.board[0].longboard_wheels}`)
         .then(res => {
             let wheels = res.data[0]
             this.props.updateWheels({color: wheels.part_name, image: wheels.part_image, price: wheels.price, id: wheels.id})            
@@ -100,7 +141,7 @@ class SelectedBoard extends Component {
                     <Dropdown.Divider/>
                     <Dropdown.Item onClick={this.handleQtyUp}>2</Dropdown.Item>
                 </DropdownButton>
-                <Button bsPrefix='selected-board-btn'>Add to Cart</Button>
+                <Button bsPrefix='selected-board-btn' onClick={this.handleAddToCart}>Add to Cart</Button>
                 <Button bsPrefix='mobile-customize-board-btn' onClick={this.handleCustomize}>Customize</Button>
             </ButtonGroup>
             <Button bsPrefix='customize-board-btn'onClick={this.handleCustomize}>Customize</Button>
@@ -128,6 +169,12 @@ class SelectedBoard extends Component {
                     </Carousel.Item>
                 </Carousel>
                 {mappedBoard}
+                {this.state.showModal
+                ?(<AuthModal 
+                    user={this.state.user}
+                    login={this.handleLogin}
+                    toggle={this.handleToggle} />)
+                :(null)}
             </div>
         )
     }

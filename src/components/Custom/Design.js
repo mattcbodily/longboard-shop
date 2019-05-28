@@ -40,7 +40,6 @@ class Design extends Component {
     }
 
     render(){
-        console.log(this.props.design)
         const mappedParts = this.state.designs.map((design, i) => {
             return(
                 <PartDisplay 
