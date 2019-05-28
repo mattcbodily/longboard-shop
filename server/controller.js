@@ -49,7 +49,7 @@ module.exports = {
     },
     addToCartCustomProduct: (req, res) => {
         const {design, grip, trucks, wheels, graphic, total, order_id} = req.body;
-        req.app.get('db').cart.add_to_cart_custom_product(design, grip, trucks, wheels, graphic, total, order_id)
+        req.app.get('db').cart.add_to_cart_custom_product(design, grip, trucks, wheels, total, graphic, order_id)
         .then(res.sendStatus(200))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },

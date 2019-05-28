@@ -149,7 +149,6 @@ class User extends Component {
                 </div>
                 <h6>Your Order History</h6>
                 {mappedOrders}
-                {mappedCustomOrders}
             </div>) : (
                 <div>
                     <h6>Please sign in to view your order history</h6>

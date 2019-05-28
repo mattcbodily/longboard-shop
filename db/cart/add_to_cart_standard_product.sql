@@ -1,11 +1,13 @@
 insert into order_item (
     order_id,
-    standard_product,
+    product_id,
     quantity,
-    order_item_price
+    order_item_price,
+    custom_product
 ) values (
     $1,
     $2,
     $3,
-    $4
+    $4,
+    false
 );
