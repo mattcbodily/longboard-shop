@@ -6,8 +6,10 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import AuthModal from './AuthModal';
-import {updateDesign, updateGrip, updateTrucks, updateWheels} from './../../ducks/reducer';
+import AuthModal from '../AuthModal/AuthModal';
+import BoardBar from './BoardBar';
+import {updateDesign, updateGrip, updateTrucks, updateWheels} from '../../../ducks/reducer';
+import './SelectedBoard.css';
 
 class SelectedBoard extends Component {
     constructor(props){
@@ -15,6 +17,7 @@ class SelectedBoard extends Component {
         this.state = {
             user: {},
             board: [],
+            allBoards: [],
             designName: '',
             qty: 1,
             showModal: false
@@ -23,6 +26,7 @@ class SelectedBoard extends Component {
 
     componentDidMount(){
         this.handleGetBoard();
+        this.handleGetAllBoards();
         this.handleGetSessionUser();
     }
 
@@ -33,6 +37,15 @@ class SelectedBoard extends Component {
                 user: res.data
             })
         }) 
+    }
+
+    handleGetAllBoards = () => {
+        axios.get('/api/standard-boards')
+        .then(res => {
+            this.setState({
+                allBoards: res.data
+            })
+        })
     }
 
     handleLogin = (data) => {
@@ -155,26 +168,39 @@ class SelectedBoard extends Component {
             </div>
             )
         })
+        const mapAllBoards = this.state.allBoards.map((board, i) => {
+            return (
+                <BoardBar 
+                    key={i}
+                    board={board} />
+            )
+        })
         return(
-            <div className='selected-boards'>
-                <Carousel interval='60000'>
-                    <Carousel.Item>
-                        <div className='Carouselimage-one'/>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div className='Carouselimage-two'/>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <div className='Carouselimage-three'/>
-                    </Carousel.Item>
-                </Carousel>
-                {mappedBoard}
-                {this.state.showModal
-                ?(<AuthModal 
-                    user={this.state.user}
-                    login={this.handleLogin}
-                    toggle={this.handleToggle} />)
-                :(null)}
+            <div className='selected-boards-flex'>
+                <div className='selected-boards'>
+                    <Carousel interval='60000'>
+                        <Carousel.Item>
+                            <div className='selected-board-image-one'/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <div className='selected-board-image-two'/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <div className='selected-board-image-three'/>
+                        </Carousel.Item>
+                    </Carousel>
+                    {mappedBoard}
+                    {this.state.showModal
+                    ?(<AuthModal 
+                        user={this.state.user}
+                        login={this.handleLogin}
+                        toggle={this.handleToggle} />)
+                    :(null)}
+                </div>
+                <div className='board-bar'>
+                    <p>Other Popular Boards</p>
+                    {mapAllBoards}
+                </div>
             </div>
         )
     }

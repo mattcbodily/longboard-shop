@@ -5,7 +5,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import BoardsDisplay from './BoardsDisplay'
-import AuthModal from './AuthModal';
+import AuthModal from './AuthModal/AuthModal';
 import './Boards.css';
 
 class Boards extends Component {

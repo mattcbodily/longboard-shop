@@ -5,12 +5,6 @@
     text-align: left;
 }
 
-.selected-boards {
-    min-height: calc(100vh - 56px);
-    box-sizing: border-box;
-    padding-top: 40px;
-}
-
 .Filter-group {
     position: fixed;
 }
@@ -81,108 +75,6 @@
     border: 1px solid gray;
     border-radius: 0px 5px 5px 0px;
     border: .5px solid #011D6E;
-}
-
-.selected-board-price {
-    height: 40px;
-    width: 27vw;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
-    color: white;
-    font-size: 17px;
-    text-align: center;
-    border: .5px solid #011D6E;
-    box-sizing: border-box;
-    padding-top: 7px;
-}
-
-.selected-board-dropdownbutton {
-    height: 40px;
-    width: 23vw;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
-    color: white;
-    border: .5px solid #011D6E;
-}
-
-.selected-board-btn {
-    height: 40px;
-    width: 50vw;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
-    color: white;
-    border: .5px solid #011D6E;
-}
-
-.customize-board-btn {
-    height: 40px;
-    width: 100vw;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
-    border: .5px solid #011D6E;
-    color: white;
-}
-
-.mobile-customize-board-btn {
-    display: none;
-}
-
-.selected-board-description {
-    box-sizing: border-box;
-    padding-top: 10px;
-    text-align: center;
-}
-
-.authentication-modal {
-    height: 225px;
-    width: 90%;
-    background-color: whitesmoke;
-    position: fixed;
-    top: 28%;
-    left: 50%;
-    margin-left: -45%;
-    border-radius: 10px;
-    border: 2px solid slategray;
-    z-index: 10;
-    text-align: center;
-}
-
-.authentication-modal h6 {
-    margin: 20px 0px 25px 0px;
-}
-
-.authentication-modal input {
-    height: 32px;
-    width: 200px;
-    border: 1px solid gray;
-    border-radius: 20px;
-    margin-bottom: 7px;
-    padding: 0px 7px;
-    text-align: center;
-}
-
-.modal-button-one {
-    height: 30px;
-    width: 100px;
-    border: .5px solid #011D6E;
-    border-radius: 20px 0px 0px 20px;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
-    color: white;
-}
-
-.modal-button-one:hover {
-    background-image: none;
-    background-color: #011244;
-}
-
-.modal-button-two:hover {
-    background-image: none;
-    background-color: #011244;
-}
-
-.modal-button-two {
-    height: 30px;
-    width: 100px;
-    border: .5px solid #011D6E;
-    border-radius: 0px 20px 20px 0px;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
-    color: white;
 }
 
 @media(min-width: 500px){

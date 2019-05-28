@@ -5,7 +5,7 @@ import About from './components/About/About';
 import PintailDesign from './components/Boards/PintailDesign';
 import DropDesign from './components/Boards/DropDesign';
 import Boards from './components/Boards/Boards';
-import SelectedBoard from './components/Boards/SelectedBoard';
+import SelectedBoard from './components/Boards/SelectedBoards/SelectedBoard';
 import Design from './components/Custom/Design';
 import BoardGrip from './components/Custom/BoardGrip';
 import Trucks from './components/Custom/Trucks';

@@ -1,0 +1,154 @@
+.selected-boards {
+    min-height: calc(100vh - 56px);
+    box-sizing: border-box;
+    padding-top: 40px;
+}
+
+.selected-board-image-one {
+    height: 35vh;
+    width: 100%;
+    background-image: url("./../../Landing/drew-hays-161811-unsplash.jpg");
+    background-size: cover;
+}
+
+.selected-board-image-two {
+    height: 35vh;
+    width: 100%;
+    background-image: url("./../../Landing/sasha-bond-52826-unsplash.jpg");
+    background-size: cover;
+}
+
+.selected-board-image-three {
+    height: 35vh;
+    width: 100%;
+    background-image: url("./../../Landing/jevgenij-voronov-63310-unsplash.jpg");
+    background-size: cover;
+}
+
+.selected-board-price {
+    height: 40px;
+    width: 27vw;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    color: white;
+    font-size: 17px;
+    text-align: center;
+    border: .5px solid #011D6E;
+    box-sizing: border-box;
+    padding-top: 7px;
+}
+
+.selected-board-dropdownbutton {
+    height: 40px;
+    width: 23vw;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    color: white;
+    border: .5px solid #011D6E;
+}
+
+.selected-board-btn {
+    height: 40px;
+    width: 50vw;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
+    color: white;
+    border: .5px solid #011D6E;
+}
+
+.customize-board-btn {
+    height: 40px;
+    width: 100vw;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
+    border: .5px solid #011D6E;
+    color: white;
+}
+
+.mobile-customize-board-btn {
+    display: none;
+}
+
+.selected-board-description {
+    box-sizing: border-box;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.board-bar {
+    display: none;
+}
+
+@media(min-width: 750px){
+    .selected-boards-flex {
+        min-height: calc(100vh - 90px);
+        max-width: 100vw;    
+        display: flex;
+        box-sizing: border-box;
+        padding: 20px 10px;
+    }
+
+    .selected-boards {
+        min-height: calc(100vh - 90px);
+        width: 70vw;
+        margin-right: 15px;
+    }
+
+    .selected-board-image-one {
+        height: 35vh;
+        width: 70vw;
+        background-image: url("./../../Landing/drew-hays-161811-unsplash.jpg");
+        background-size: cover;
+        margin-bottom: 10px;
+    }
+
+    .selected-board-image-two {
+        height: 35vh;
+        width: 70vw;
+        background-image: url("./../../Landing/sasha-bond-52826-unsplash.jpg");
+        background-size: cover;
+        margin-bottom: 10px;
+    }
+    
+    .selected-board-image-three {
+        height: 35vh;
+        width: 70vw;
+        background-image: url("./../../Landing/jevgenij-voronov-63310-unsplash.jpg");
+        background-size: cover;
+        margin-bottom: 10px;
+    }
+
+    .selected-board-price {
+        width: 15vw;
+    }
+
+    .selected-board-dropdownbutton {
+        width: 15vw;
+    }
+
+    .selected-board-btn {
+        width: 20vw;
+    }
+
+    .customize-board-btn {
+        display: none;
+    }
+
+    .mobile-customize-board-btn{
+        height: 40px;
+        width: 20vw;
+        display: inline;
+        background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
+        border: .5px solid #011D6E;
+        color: white;
+    }
+
+    .board-bar {
+        height: calc(100vh - 90px);
+        box-sizing: border-box;
+        padding-top: 40px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 15px;
+    }
+    
+    .board-bar-image {
+        width: 20vw;
+    }
+}

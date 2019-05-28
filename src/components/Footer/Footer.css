@@ -12,3 +12,13 @@
     margin: 0px;
     color: white;
 }
+
+@media(min-width: 500px){
+    .Footer {
+        height: 50px;
+        padding-top: 11px;
+    }
+    .Copyright {
+        font-size: 18px;
+    }
+}

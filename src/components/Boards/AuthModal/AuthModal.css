@@ -1,0 +1,55 @@
+.authentication-modal {
+    height: 225px;
+    width: 90%;
+    background-color: whitesmoke;
+    position: fixed;
+    top: 28%;
+    left: 50%;
+    margin-left: -45%;
+    border-radius: 10px;
+    border: 2px solid slategray;
+    z-index: 10;
+    text-align: center;
+}
+
+.authentication-modal h6 {
+    margin: 20px 0px 25px 0px;
+}
+
+.authentication-modal input {
+    height: 32px;
+    width: 200px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    margin-bottom: 7px;
+    padding: 0px 7px;
+    text-align: center;
+}
+
+.modal-button-one {
+    height: 30px;
+    width: 100px;
+    border: .5px solid #011D6E;
+    border-radius: 20px 0px 0px 20px;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    color: white;
+}
+
+.modal-button-one:hover {
+    background-image: none;
+    background-color: #011244;
+}
+
+.modal-button-two:hover {
+    background-image: none;
+    background-color: #011244;
+}
+
+.modal-button-two {
+    height: 30px;
+    width: 100px;
+    border: .5px solid #011D6E;
+    border-radius: 0px 20px 20px 0px;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    color: white;
+}
