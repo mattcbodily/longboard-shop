@@ -63,6 +63,7 @@ app.put('/auth/update-password/:id', ac.updatePassword); //found in the user com
 
 //data endpoints
 app.get('/api/standard-boards', ctrl.getBoards); //found in the boards component
+app.get('/api/board-bar', ctrl.getBoardBar); //found in the selected board and cart component
 app.get('/api/boards-by-design/:design', ctrl.getBoardByDesign); //found in the pintail design and drop design components, takes the design name of the board
 app.get('/api/boards-price-filter-low', ctrl.filterLowestPrice); //found in the boards component
 app.get('/api/boards-price-filter-high', ctrl.filterHighestPrice); //found in the boards component

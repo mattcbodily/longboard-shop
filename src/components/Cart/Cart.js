@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import CartDisplay from './CartDisplay';
 import Checkout from './Checkout';
+import BoardBar from './../Boards/SelectedBoards/BoardBar';
 import './Cart.css';
 
 class Cart extends Component {

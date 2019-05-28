@@ -7,6 +7,11 @@ module.exports = {
         .then(boards => res.status(200).send(boards))
         .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
     },
+    getBoardBar: (req, res) => {
+        req.app.get('db').standard_boards.board_bar()
+        .then(boards => res.status(200).send(boards))
+        .catch(err => res.status(500).send({errorMessage: 'Error!'}, console.log(err)))
+    },
     getBoardByDesign: (req, res) => {
         const {design} = req.params;
         req.app.get('db').standard_boards.get_board_by_design(design)

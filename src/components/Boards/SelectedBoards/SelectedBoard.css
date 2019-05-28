@@ -133,7 +133,7 @@
     .mobile-customize-board-btn{
         height: 40px;
         width: 20vw;
-        display: inline;
+        display: initial;
         background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
         border: .5px solid #011D6E;
         color: white;

@@ -43,35 +43,32 @@ class CartDisplay extends Component {
 
     render(){
         return (
-            <div>
-                {/* using the styling from users.css for display of the cart */}
-                <div className='order-history'>
-                    <div className='order-history-picture-div'>
-                        {!this.props.cart.custom
-                        ?(<div>
-                            <img src={testpicture} alt='test' className='order-item-picture'/>
-                          </div>)
-                        :(<div>
-                            <img src={testpicture} alt='test' className='order-item-picture'/>
-                          </div>)
-                        }
+            <div className='user-cart'>
+                <div className='user-cart-picture-div'>
+                    {!this.props.cart.custom
+                    ?(<div>
+                        <img src={testpicture} alt='test' className='cart-item-picture'/>
+                      </div>)
+                    :(<div>
+                        <img src={testpicture} alt='test' className='cart-item-picture'/>
+                      </div>)
+                    }
+                </div>
+                <div className='cart-information'>
+                    <div className='cart-longboard-title'>
+                        <span className='cart-data'>{this.props.cart.longboard_title}</span>
+                        <FontAwesomeIcon icon="times" onClick={this.handleDeleteItem} />
                     </div>
-                    <div className='order-history-information'>
-                        <div className='order-history-longboard-title'>
-                            <span className='order-information'>{this.props.cart.longboard_title}</span>
-                            <FontAwesomeIcon icon="times" onClick={this.handleDeleteItem} />
+                    <div className='cart-flexed-information'>
+                        <div className='cart-price'>
+                            <p className='cart-data'>${this.props.cart.order_item_price}</p>
                         </div>
-                        <div className='order-history-flexed-information'>
-                            <div className='order-history-price'>
-                                <p className='order-information'>${this.props.cart.order_item_price}</p>
-                            </div>
-                            <div className='order-qty-date'>
-                                <DropdownButton alignRight title={`Qty: ${this.props.cart.quantity}`} bsPrefix='qty-dropdownbutton'>
-                                    <p onClick={this.handleQuantityDown}>1</p>
-                                    <Dropdown.Divider />
-                                    <p onClick={this.handleQuantityUp}>2</p>
-                                </DropdownButton>
-                            </div>
+                        <div className='cart-qty-div'>
+                            <DropdownButton alignRight title={`Qty: ${this.props.cart.quantity}`} bsPrefix='qty-dropdownbutton'>
+                                <p onClick={this.handleQuantityDown}>1</p>
+                                <Dropdown.Divider />
+                                <p onClick={this.handleQuantityUp}>2</p>
+                            </DropdownButton>
                         </div>
                     </div>
                 </div>

@@ -40,7 +40,7 @@ class SelectedBoard extends Component {
     }
 
     handleGetAllBoards = () => {
-        axios.get('/api/standard-boards')
+        axios.get('/api/board-bar')
         .then(res => {
             this.setState({
                 allBoards: res.data

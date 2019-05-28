@@ -12,9 +12,9 @@ class AuthModal extends Component {
         }
     }
     
-    handleLogin = () => {
+    handleLogin = async() => {
         const {email, password} = this.state;
-        axios.post('/auth/login', {email, password})
+        await axios.post('/auth/login', {email, password})
         .then(res => {
             this.props.login(res.data)
         })

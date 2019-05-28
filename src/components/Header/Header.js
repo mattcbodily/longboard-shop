@@ -25,7 +25,7 @@ class Header extends Component {
             <div>
             {!this.state.showDrawer
             ? (<div>
-                    <div className='Header'>
+                    <header className='Header'>
                         <div>
                             <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
                             <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>
@@ -34,10 +34,10 @@ class Header extends Component {
                             <Link to='/order-history' onClick={this.handleModalToggle}><FontAwesomeIcon icon="user" className="user-icon"/></Link>
                             <Link to='/cart'><FontAwesomeIcon icon="shopping-cart" className="shopping-cart"/></Link>
                         </div>
-                    </div>
+                    </header>
                 </div>) 
             : (<div>
-                    <div className='Header'>
+                    <header className='Header'>
                         <div>
                             <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
                             <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>
@@ -46,14 +46,14 @@ class Header extends Component {
                             <Link to='/order-history'><FontAwesomeIcon icon="user" className="user-icon"/></Link>
                             <Link to='/cart'><FontAwesomeIcon icon="shopping-cart" className="shopping-cart"/></Link>
                         </div>               
-                    </div>
-                    <div className='Dropdownmenu'>
+                    </header>
+                    <nav className='Dropdownmenu'>
                         <Link to='/' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Home</p></Link>
                         <Link to='/boards' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Our Boards</p></Link>
                         <Link to='/customize' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Build Your Own</p></Link>
                         <Link to='/order-history' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>Order History</p></Link>
                         <Link to='/about' onClick={() => this.handleToggle()} className="Headerlinks"><p className='Dropdownlinks'>About/Contact</p></Link>
-                    </div>
+                    </nav>
                 </div>
                 )
                 }
