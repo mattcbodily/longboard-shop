@@ -17,7 +17,11 @@ class AuthModal extends Component {
         .then(res => {
             this.props.login(res.data)
         })
-        this.props.toggle()
+        if(this.props.user.user_id){
+            this.props.toggle()
+        } else {
+            alert('Invalid credentials')
+        }
     }
 
     handleEmailInput(val){
@@ -51,8 +55,8 @@ class AuthModal extends Component {
                         value={this.state.password}
                         onChange={(e) => this.handlePasswordInput(e.target.value)}/>
                 </div>
-                <button onClick={this.handleLogin}>Login</button>
-                <button onClick={this.props.toggle}>Cancel</button>
+                <button className='modal-button-one' onClick={this.handleLogin}>Login</button>
+                <button className='modal-button-two' onClick={this.props.toggle}>Cancel</button>
             </div>
         )
     }

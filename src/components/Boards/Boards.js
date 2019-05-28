@@ -140,7 +140,8 @@ class Boards extends Component {
                     </DropdownButton>
                     </ButtonGroup>
                     </div>
-                    <AuthModal 
+                    <AuthModal
+                        user={this.state.user} 
                         login={this.handleLogin}
                         toggle={this.handleToggle}/>
                     <div className='boardsflex'>

@@ -244,7 +244,8 @@ class Pictures extends Component {
                     <p>*Note that all images may not fit onto the the longboard surface. It is recommended that you use images that have been cropped to work with your
                         selected longboard shape.
                     </p>
-                    <AuthModal 
+                    <AuthModal
+                        user={this.state.user} 
                         login={this.handleLogin}
                         toggle={this.handleToggle}/>
                 </div>)
