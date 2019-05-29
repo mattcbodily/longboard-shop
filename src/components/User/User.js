@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import axios from 'axios';
 import OrderHistory from './OrderHistory';
+import LoginAuthModal from './AuthModal/LoginAuthModal';
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faEdit, faTimes, faCheck} from '@fortawesome/free-solid-svg-icons';
@@ -54,19 +54,11 @@ class User extends Component {
         this.handleOrderHistory()  
     }
 
-    handleLogin = async() => {
-        const {email, password} = this.state;
-        await axios.post('/auth/login', {email, password})
-        .then(res => {
-            this.setState({
-                user: res.data
-            })
+    handleLogin = async(data) => {
+        await this.setState({
+            user: data
         })
         this.handleOrderHistory();
-        this.setState({
-            email: '',
-            password: ''
-        })
     }
 
     handleOrderHistory = () => {
@@ -111,6 +103,7 @@ class User extends Component {
             <div className='user'>
             {this.state.user.user_id
             ? (<div> 
+                <h6>Your Information</h6>
                 <div className='user-information'>
                     {!this.state.editEmail
                     ? ( <div>
@@ -121,9 +114,10 @@ class User extends Component {
                                 placeholder='Enter New Email'
                                 value={this.state.email}
                                 onChange={(e) => this.handleInput('email', e.target.value)}
-                                maxLength='250'/>
-                            <FontAwesomeIcon icon="check" onClick={this.handleEmailUpdate}/>
-                            <FontAwesomeIcon icon="times" onClick={this.handleEmailToggle}/>
+                                maxLength='250'
+                                className='edit-inputs' />
+                            <FontAwesomeIcon icon="check" onClick={this.handleEmailUpdate} className='edit-icons'/>
+                            <FontAwesomeIcon icon="times" onClick={this.handleEmailToggle} className='edit-icons'/>
                         </div>)}
                     {!this.state.editPassword
                     ? ( <div>
@@ -131,45 +125,31 @@ class User extends Component {
                         </div>)
                     : ( <div>
                             <input 
-                                placeholder='Enter New Password'
+                                placeholder='New Password'
                                 type='password'
                                 value={this.state.password}
                                 onChange={(e) => this.handleInput('password', e.target.value)}
-                                maxLength='40' />
+                                maxLength='40'
+                                className='edit-inputs' />
                             <input 
                                 placeholder='Verify Password'
                                 type='password'
                                 value={this.state.verPassword}
                                 onChange={(e) => this.handleInput('verPassword', e.target.value)}
-                                maxLength='40'/>
-                            <FontAwesomeIcon icon="check" onClick={this.handlePasswordUpdate}/>
-                            <FontAwesomeIcon icon="times" onClick={this.handlePasswordToggle}/>
+                                maxLength='40'
+                                className='edit-inputs' />
+                            <FontAwesomeIcon icon="check" onClick={this.handlePasswordUpdate} className='edit-icons'/>
+                            <FontAwesomeIcon icon="times" onClick={this.handlePasswordToggle} className='edit-icons'/>
                         </div>
                     )}
                 </div>
                 <h6>Your Order History</h6>
                 {mappedOrders}
             </div>) : (
-                <div>
-                    <h6>Please sign in to view your order history</h6>
-                    <p className='register-link'>Don't have an account? <Link to='/register'>Register here</Link></p>
-                    <div>
-                        <input 
-                            placeholder='Email'
-                            value={this.state.email}
-                            maxLength='250'
-                            onChange={(e) => this.handleInput('email', e.target.value)}/>
-                    </div>
-                    <div>
-                        <input 
-                            placeholder='Password'
-                            type='password'
-                            value={this.state.password}
-                            maxLength='40'
-                            onChange={(e) => this.handleInput('password', e.target.value)}/>
-                    </div>
-                    <button onClick={this.handleLogin}>Login</button>
-                </div>
+                <LoginAuthModal 
+                    user={this.state.user} 
+                    login={this.handleLogin}
+                    toggle={this.handleToggle}/>
             )}
             </div>
         )

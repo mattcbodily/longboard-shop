@@ -91,7 +91,7 @@
     }
 
     .selected-board-image-one {
-        height: 35vh;
+        height: 40vh;
         width: 70vw;
         background-image: url("./../../Landing/drew-hays-161811-unsplash.jpg");
         background-size: cover;
@@ -99,7 +99,7 @@
     }
 
     .selected-board-image-two {
-        height: 35vh;
+        height: 40vh;
         width: 70vw;
         background-image: url("./../../Landing/sasha-bond-52826-unsplash.jpg");
         background-size: cover;
@@ -107,7 +107,7 @@
     }
     
     .selected-board-image-three {
-        height: 35vh;
+        height: 40vh;
         width: 70vw;
         background-image: url("./../../Landing/jevgenij-voronov-63310-unsplash.jpg");
         background-size: cover;
@@ -139,6 +139,14 @@
         color: white;
     }
 
+    .bar-links:link {
+        text-decoration: none;
+    }
+
+    .bar-links:visited {
+        text-decoration: none;
+    }
+
     .board-bar {
         height: calc(100vh - 90px);
         box-sizing: border-box;
@@ -147,8 +155,18 @@
         flex-direction: column;
         margin-left: 15px;
     }
+
+    .board-bar-div {
+        margin-bottom: 20px;
+        border-bottom: 1px solid gray;
+    }
     
     .board-bar-image {
         width: 20vw;
+    }
+
+    .board-bar-info {
+        margin: 0px 0px 5px 0px;
+        color: black;
     }
 }

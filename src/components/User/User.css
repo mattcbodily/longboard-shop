@@ -10,8 +10,25 @@ h6 {
 }
 
 .user-information {
-    height: 100px;
-    background-color: gray;
+    height: 90px;
+    box-sizing: border-box;
+    padding-top: 10px;
+}
+
+.edit-inputs {
+    height: 25px;
+    width: 140px;
+    border: 1px solid gray;
+    border-radius: 20px;
+    margin-right: 5px;
+    margin-bottom: 7px;
+    padding: 0px 7px;
+    text-align: center;
+}
+
+.edit-icons {
+    font-size: 18px;
+    margin: 0px 5px;
 }
 
 .order-history {
@@ -74,4 +91,10 @@ h6 {
 
 .order-information {
     margin: 0px;
+}
+
+@media(min-width: 500px){
+    .user {
+        padding-top: 50px;
+    }
 }

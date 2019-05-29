@@ -86,6 +86,15 @@ class SelectedBoard extends Component {
         })
     }
 
+    handleBoardBarLink = (e, board) => {
+        axios.get(`/api/selected-board/${board}`)
+        .then(res => {
+            this.setState({
+                board: res.data
+            })
+        })
+    }
+
     handleGetDesign = async() => {
         await axios.get(`/api/selected-design/${this.state.board[0].longboard_design}`)
         .then(res => {
@@ -172,7 +181,8 @@ class SelectedBoard extends Component {
             return (
                 <BoardBar 
                     key={i}
-                    board={board} />
+                    board={board}
+                    getBoard={this.handleBoardBarLink} />
             )
         })
         return(

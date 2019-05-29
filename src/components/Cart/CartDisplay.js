@@ -44,20 +44,14 @@ class CartDisplay extends Component {
     render(){
         return (
             <div className='user-cart'>
-                <div className='user-cart-picture-div'>
                     {!this.props.cart.custom
-                    ?(<div>
-                        <img src={testpicture} alt='test' className='cart-item-picture'/>
-                      </div>)
-                    :(<div>
-                        <img src={testpicture} alt='test' className='cart-item-picture'/>
-                      </div>)
+                    ?(<img src={testpicture} alt='test' className='cart-item-picture'/>)
+                    :(<img src={testpicture} alt='test' className='cart-item-picture'/>)
                     }
-                </div>
                 <div className='cart-information'>
                     <div className='cart-longboard-title'>
-                        <span className='cart-data'>{this.props.cart.longboard_title}</span>
-                        <FontAwesomeIcon icon="times" onClick={this.handleDeleteItem} />
+                        <span>{this.props.cart.longboard_title}</span>
+                        <FontAwesomeIcon icon="times" onClick={this.handleDeleteItem} className='delete-cart-item'/>
                     </div>
                     <div className='cart-flexed-information'>
                         <div className='cart-price'>

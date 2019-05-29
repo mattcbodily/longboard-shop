@@ -55,6 +55,15 @@ class Cart extends Component {
         })
     }
 
+    handleBoardBarLink = (e, board) => {
+        axios.get(`/api/selected-board/${board}`)
+        .then(res => {
+            this.setState({
+                board: res.data
+            })
+        })
+    }
+
     render(){
         const mappedCart = this.state.orderItems.map((item, i) => {
             return (
@@ -68,7 +77,8 @@ class Cart extends Component {
             return (
                 <BoardBar 
                     key={i}
-                    board={board} />
+                    board={board}
+                    getBoard={this.handleBoardBarLink} />
             )
         })
         return(

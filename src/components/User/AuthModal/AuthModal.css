@@ -1,3 +1,11 @@
+.modal-background {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0%;
+    background-color: rgb(0,0,0,.6);
+}
+
 .authentication-modal {
     height: 225px;
     width: 90%;
@@ -40,10 +48,6 @@
     background-color: #011244;
 }
 
-.modal-button-two:hover {
-    background-image: none;
-    background-color: #011244;
-}
 
 .modal-button-two {
     height: 30px;
@@ -52,4 +56,23 @@
     border-radius: 0px 20px 20px 0px;
     background-image: linear-gradient(#002AA7, #02258C, #002AA7);
     color: white;
+}
+
+.modal-button-two:hover {
+    background-image: none;
+    background-color: #011244;
+}
+
+.login-modal-button {
+    height: 30px;
+    width: 200px;
+    border: .5px solid #011D6E;
+    border-radius: 20px;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    color: white;
+}
+
+.login-modal-button:hover {
+    background-image: none;
+    background-color: #011244;
 }
