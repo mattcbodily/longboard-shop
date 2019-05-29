@@ -4,8 +4,8 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
-import {updateWheels} from './../../ducks/reducer';
-import PartDisplay from './PartDisplay';
+import {updateWheels} from '../../../ducks/reducer';
+import PartDisplay from '../PartDisplay';
 
 class Wheels extends Component {
     constructor(props){

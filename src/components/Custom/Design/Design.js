@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import PartDisplay from './PartDisplay';
+import PartDisplay from '../PartDisplay';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
-import {updateDesign, updateGrip} from './../../ducks/reducer';
+import {updateDesign, updateGrip} from '../../../ducks/reducer';
 import './Design.css';
 
 class Design extends Component {

@@ -73,8 +73,9 @@ h5 {
     border-bottom: 2px solid gray;
     box-sizing: border-box;
     margin: 5px 0px;
+    padding: 0px 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 /* below are placeholders for the custom parts div placement */
@@ -85,9 +86,13 @@ h5 {
 }
 
 .custom-part-info {
-    height: 100px;
-    width: 55%;
-    border: 1px solid gray;
+    width: 100px;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.custom-part-info p {
+    font-size: 25px;
 }
 
 .selected-board {
@@ -324,8 +329,6 @@ h5 {
     z-index: 6;
 }
 
-/* working on these */
-
 .selected-trucks-front-Pintail {
     height: 30px;
     position: absolute;
@@ -419,4 +422,10 @@ h5 {
     margin-top: calc(-54% - 5px);
     margin-left: -150px;
     z-index: 5
+}
+
+@media(min-width: 500px){
+    .Design {
+        padding-top: 50px;
+    }
 }

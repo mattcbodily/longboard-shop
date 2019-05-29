@@ -6,7 +6,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
-import AuthModal from '../AuthModal/AuthModal';
+import AuthModal from './../../User/AuthModal/AuthModal';
 import BoardBar from './BoardBar';
 import {updateDesign, updateGrip, updateTrucks, updateWheels} from '../../../ducks/reducer';
 import './SelectedBoard.css';
