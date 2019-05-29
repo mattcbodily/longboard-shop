@@ -143,7 +143,7 @@ class User extends Component {
                         </div>
                     )}
                 </div>
-                <h6>Your Order History</h6>
+                <h6 className='order-history-header'>Your Order History</h6>
                 {mappedOrders}
             </div>) : (
                 <LoginAuthModal 

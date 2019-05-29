@@ -4,7 +4,7 @@ import testpicture from './../Boards/the-nigmatic-263109-unsplash.jpg';
 class OrderHistory extends Component {
     render(){
         return(
-            <div>
+            <div className='order'>
                 <div className='order-history'>
                     <div className='order-history-picture-div'>
                         {!this.props.order.custom_product
@@ -28,7 +28,7 @@ class OrderHistory extends Component {
                                 <div className='order-history-qty'>
                                     <p>Qty: {this.props.order.quantity}</p>
                                 </div>
-                                <div>
+                                <div className='order-history-date'>
                                     <p>{this.props.order.date}</p>
                                 </div>
                             </div>

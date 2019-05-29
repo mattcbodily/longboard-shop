@@ -3,6 +3,7 @@ h6 {
     margin: 0px;
 }
 
+
 .user {
     min-height: calc(100vh - 40px);
     box-sizing: border-box;
@@ -31,6 +32,10 @@ h6 {
     margin: 0px 5px;
 }
 
+.order-history-header {
+    margin-bottom: 10px;
+}
+
 .order-history {
     display: flex;
     justify-content: space-between;
@@ -40,20 +45,14 @@ h6 {
     border-bottom: 1px solid gray;
 }
 
-.order-history-picture-div {
-    height: 90px;
-    width: 35%;
-    background-color: gray;
-}
-
 .order-item-picture {
     height: 90px;
-    width: 100%;
+    width: 140px;
 }
 
 .order-history-information {
     height: 90px;
-    width: 60%;
+    width: 350px;
     display: flex;
     flex-direction: column;
 }
@@ -61,7 +60,7 @@ h6 {
 .order-history-longboard-title {
     height: 35%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .order-history-flexed-information {
@@ -73,6 +72,11 @@ h6 {
     height: 100%;
     width: 50%;
     border-right: 1px solid black;
+}
+
+.order-history-price p {
+    margin-top: 14px;
+    margin-left: 5px;
 }
 
 .order-qty-date {
@@ -96,5 +100,90 @@ h6 {
 @media(min-width: 500px){
     .user {
         padding-top: 50px;
+    }
+
+    .order-history-header {
+        margin-bottom: 15px;
+    }
+
+    .order {
+        display: flex;
+        justify-content: center;
+        width: 100vw;
+    }
+
+    .order-history {
+        min-width: 500px;
+    }
+
+    .order-item-picture {
+        height: 115px;
+        width: 200px;
+    }
+
+    .order-history-information {
+        height: 115px;
+    }
+
+    .order-history-longboard-title {
+        height: 30px;
+    }
+
+    .order-history-price p {
+        margin-top: 21px;
+        margin-left: 25px;
+        font-size: 19px;
+    }
+
+    .order-qty-date {
+        margin-right: 25px;
+    }
+
+    .order-history-qty {
+        box-sizing: border-box;
+        padding-top: 5px;
+    }
+
+    .order-history-date {
+        box-sizing: border-box;
+        padding-top: 5px;
+    }
+
+    .order-qty-date p {
+        font-size: 17px;
+        margin: 0px;
+    }
+}
+
+@media(min-width: 750px){
+    h6 {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    .order-history-header {
+        margin-bottom: 20px;
+        font-size: 22px;
+    }
+
+    .order-history {
+        min-width: 700px;
+    }
+
+    .order-history-longboard-title {
+        height: 40px;
+    }
+
+    .order-item-picture {
+        height: 140px;
+        width: 240px;
+    }
+
+    .order-history-information {
+        height: 140px;
+    }
+
+    .order-history-price p {
+        margin-top: 30px;
     }
 }

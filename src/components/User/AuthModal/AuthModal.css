@@ -1,3 +1,8 @@
+.register {
+    height: calc(100vh - 40px);
+    padding-top: 40px;
+}
+
 .modal-background {
     height: 100vh;
     width: 100vw;
@@ -7,7 +12,7 @@
 }
 
 .authentication-modal {
-    height: 225px;
+    height: 215px;
     width: 90%;
     background-color: whitesmoke;
     position: fixed;
@@ -21,7 +26,7 @@
 }
 
 .authentication-modal h6 {
-    margin: 20px 0px 25px 0px;
+    margin: 10px 0px 20px 0px;
 }
 
 .authentication-modal input {
@@ -75,4 +80,11 @@
 .login-modal-button:hover {
     background-image: none;
     background-color: #011244;
+}
+
+@media(min-width: 500px){
+    .authentication-modal {
+        width: 320px;
+        margin-left: -160px;
+    }
 }
