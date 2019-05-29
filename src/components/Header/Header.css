@@ -122,3 +122,9 @@
         }
     }
 }
+
+@media(min-width: 1000px){
+    .Header {
+        padding: 0px 25px;
+    }
+}

@@ -46,7 +46,7 @@
 
 .custom-card {
     height: 335px;
-    width: 90%;
+    max-width: 310px;
     text-align: center;
     border: 1px solid lightgray; 
     border-radius: 10px;

@@ -90,6 +90,9 @@ h4 {
         margin: 0px;
         font-size: 18px;
     }
+}
+
+@media(min-width: 750px){
     .Landingblurb {
         display: flex;
         justify-content: space-evenly;
@@ -122,5 +125,60 @@ h4 {
     .Landing-text {
         max-height: 100%;
         max-width: 50%;
+    }
+}
+
+@media(min-width: 1000px) {
+    .Landing {
+        padding-bottom: 10px;
+    }
+    .Carouselimage-one {
+        height: 60vh;
+    }
+    .Carouselimage-two {
+        height: 60vh;
+    }
+    .Carouselimage-three {
+        height: 60vh;
+    }
+    .Landingblurb {
+        justify-content: space-evenly;
+        padding: 5px 5px 0px 5px;
+    }
+    .Landingblurb-two {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-evenly;
+        padding: 5px 5px 0px 5px;
+    }
+    .Landingimage-one {
+        height: 350px;
+        max-width: 60%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .Landingimage-two {
+        height: 350px;
+        max-width: 60%;
+    }
+    .Landingimage-three {
+        height: 350px;
+        max-width: 60%;
+    }
+    .Landingimage-one h4 {
+        display: none;
+    }
+    .Landingimage-two h4 {
+        display: none;
+    }
+    .Landingimage-three h4 {
+        display: none;
+    }
+    .Landing-text {
+        max-height: 100%;
+        max-width: 35%;
+        font-size: 19px;
+        text-align: center;
+        margin-top: 15px;
     }
 }
