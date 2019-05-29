@@ -43,8 +43,8 @@ h4 {
 }
 
 .custom-btn:hover {
-    background-color: #2A2A2A;
-    outline-color: #2A2A2A;
+    background-image: none;
+    background-color: #011244;
 }
 
 .Landinglinks {

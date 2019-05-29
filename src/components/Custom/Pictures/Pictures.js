@@ -8,6 +8,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import AuthModal from '../../User/AuthModal/AuthModal';
 import {updateGraphic} from '../../../ducks/reducer';
+import './Pictures.css';
 
 class Pictures extends Component {
     constructor(props){
@@ -170,13 +171,13 @@ class Pictures extends Component {
                                 accept="image/*"
                                 multiple={false}>
                                 {({getRootProps, getInputProps}) => (
-                                <Button bsPrefix='custom-btn' {...getRootProps()}>
+                                <Button bsPrefix='custom-board-btn' {...getRootProps()}>
                                     <input {...getInputProps()} />
                                     {isUploading ? <span>Loading...</span> : <span>Upload Graphic</span>}
                                 </Button>
                             )}
                             </Dropzone>
-                            <Button bsPrefix='custom-btn' onClick={() => this.handleAddToCart(design.id, grip.id, trucks.id, wheels.id, graphic, total)}>Add to Cart</Button>
+                            <Button bsPrefix='custom-board-btn' onClick={() => this.handleAddToCart(design.id, grip.id, trucks.id, wheels.id, graphic, total)}>Add to Cart</Button>
                         </ButtonGroup>
                     </div>
                     <p>*Note that all images may not fit onto the the longboard surface. It is recommended that you use images that have been cropped to work with your

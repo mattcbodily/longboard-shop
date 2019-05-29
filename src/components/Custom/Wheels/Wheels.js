@@ -6,6 +6,7 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
 import {updateWheels} from '../../../ducks/reducer';
 import PartDisplay from '../PartDisplay';
+import './Wheels.css';
 
 class Wheels extends Component {
     constructor(props){

@@ -1,0 +1,118 @@
+.board-outline {
+    height: 300px;
+    width: 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -54%;
+    margin-left: -30px;
+    z-index: 6;
+}
+
+.selected-trucks-front-Pintail {
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: calc(-54% + 8px);
+    margin-right: -26px;
+    z-index: 6;
+}
+
+.selected-trucks-back-Pintail {
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: calc(-54% + 235px);
+    margin-right: -26px;
+    z-index: 6;
+    transform: rotate(180deg)
+}
+
+.selected-trucks-front-Drop {
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: calc(-54% + 18px);
+    margin-right: -26px;
+    z-index: 6;
+}
+
+.selected-trucks-back-Drop {
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: calc(-54% + 257px);
+    margin-right: -26px;
+    z-index: 6;
+    transform: rotate(180deg)
+}
+
+.selected-wheels-front-Pintail {
+    height: 28px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: calc(-54% + 10px);
+    margin-right: -42px;
+    z-index: 6;
+}
+
+.selected-wheels-back-Pintail {
+    height: 28px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: calc(-54% + 235px);
+    margin-right: -41px;
+    z-index: 6;
+    transform: rotate(180deg)
+}
+
+.selected-wheels-front-Drop {
+    height: 28px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: calc(-54% + 19px);
+    margin-right: -41px;
+    z-index: 6;
+}
+
+.selected-wheels-back-Drop {
+    height: 28px;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    margin-top: calc(-54% + 257px);
+    margin-right: -41px;
+    z-index: 6;
+    transform: rotate(180deg)
+}
+
+.custom-board-btn {
+    height: 38px;
+    width: 50%;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    color: white;
+    border: .5px solid #011D6E;
+}
+
+.custom-board-btn:hover {
+    background-image: none;
+    background-color: #011244;
+}
+
+.uploaded-graphic {
+    max-height: 300px;
+    max-width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: calc(-54% - 5px);
+    margin-left: -150px;
+    z-index: 5
+}
