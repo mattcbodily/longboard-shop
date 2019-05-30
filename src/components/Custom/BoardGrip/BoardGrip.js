@@ -54,21 +54,24 @@ class BoardSize extends Component {
                     <Link to='/wheels'><Button bsPrefix='customize-step-btn'>4</Button></Link>
                     <Link to='/graphics'><Button bsPrefix='customize-step-btn'>5</Button></Link>
                 </ButtonGroup>
-                <div className='custom-board-image-div'>
-                    {this.props.grip.name
-                    ?  (<div>
-                          <h5 className='custom-step-name'>{this.props.grip.name}</h5>
-                          <img src={this.props.design.image} alt='design' className='selected-board'/>
-                          <img src={`https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_${this.props.grip.name}.png`} alt='grip' className='selected-grip'/>
-                        </div>)
-                    :  (<div>
-                          <h5 className='custom-step-name'>Select a Grip</h5>
-                          <img src={this.props.design.image} alt='design' className='selected-board'/>
-                        </div>)
-                    }
-                </div>
-                <div className='custom-board-parts-div'>
-                    {mappedParts}
+                <div className='custom-flex-div'>
+                    <div className='custom-board-image-div'>
+                        {this.props.grip.name
+                        ?  (<div>
+                              <h5 className='custom-step-name'>{this.props.grip.name}</h5>
+                              <img src={this.props.design.image} alt='design' className='selected-board'/>
+                              <img src={`https://s3-us-west-1.amazonaws.com/old-dog-new-trick-longboards-bucket/${this.props.design.name}_${this.props.grip.name}.png`} alt='grip' className='selected-grip'/>
+                            </div>)
+                        :  (<div>
+                              <h5 className='custom-step-name'>Select a Grip</h5>
+                              <img src={this.props.design.image} alt='design' className='selected-board'/>
+                            </div>)
+                        }
+                    </div>
+                    <div className='custom-board-parts-div'>
+                        <h6>Select a Part</h6>
+                        {mappedParts}
+                    </div>
                 </div>
             </div>
         )

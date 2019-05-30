@@ -54,36 +54,39 @@ class Wheels extends Component {
                     <Button bsPrefix='active-customize-step-btn'>4</Button>
                     <Link to='/graphics'><Button bsPrefix='customize-step-btn'>5</Button></Link>
                 </ButtonGroup>
-                <div className='custom-board-image-div'>
-                    {!this.props.wheels.color
-                    ?(<div>
-                        <h5 className='custom-step-name'>Select Wheels</h5>
-                        <img src={this.props.design.image} alt='design' className='selected-board-top' />
-                        <img src={this.props.design.image} alt='design' className='selected-board-bottom' />
-                        <img src={this.props.grip.image} alt='grip' className='selected-board-top' />
-                        <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-front-${this.props.design.name}`} />
-                        <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-back-${this.props.design.name}`} />
-                        <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-front-${this.props.design.name}`} />
-                        <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-back-${this.props.design.name}`} />
-                      </div>)
-                    :(<div>
-                        <h5 className='custom-step-name'>{this.props.wheels.color} Wheels</h5>
-                        <img src={this.props.design.image} alt='design' className='selected-board-top' />
-                        <img src={this.props.design.image} alt='design' className='selected-board-bottom' />
-                        <img src={this.props.grip.image} alt='grip' className='selected-board-top' />
-                        <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-front-${this.props.design.name}`} />
-                        <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-back-${this.props.design.name}`} />
-                        <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-front-${this.props.design.name}`} />
-                        <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-back-${this.props.design.name}`} />
-                        <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-front-${this.props.design.name}`} />
-                        <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-back-${this.props.design.name}`} />
-                        <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-front-${this.props.design.name}`} />
-                        <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-back-${this.props.design.name}`} />
-                      </div>)
-                    }
-                </div>
-                <div className='custom-board-parts-div'>
-                    {mappedParts}
+                <div className='custom-flex-div'>
+                    <div className='custom-board-image-div'>
+                        {!this.props.wheels.color
+                        ?(<div>
+                            <h5 className='custom-step-name'>Select Wheels</h5>
+                            <img src={this.props.design.image} alt='design' className='selected-board-top' />
+                            <img src={this.props.design.image} alt='design' className='selected-board-bottom' />
+                            <img src={this.props.grip.image} alt='grip' className='selected-board-top' />
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-front-${this.props.design.name}`} />
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-back-${this.props.design.name}`} />
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-front-${this.props.design.name}`} />
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-back-${this.props.design.name}`} />
+                        </div>)
+                        :(<div>
+                            <h5 className='custom-step-name'>{this.props.wheels.color} Wheels</h5>
+                            <img src={this.props.design.image} alt='design' className='selected-board-top' />
+                            <img src={this.props.design.image} alt='design' className='selected-board-bottom' />
+                            <img src={this.props.grip.image} alt='grip' className='selected-board-top' />
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-front-${this.props.design.name}`} />
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-top-back-${this.props.design.name}`} />
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-front-${this.props.design.name}`} />
+                            <img src={this.props.trucks.image} alt='trucks' className={`selected-trucks-bottom-back-${this.props.design.name}`} />
+                            <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-front-${this.props.design.name}`} />
+                            <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-top-back-${this.props.design.name}`} />
+                            <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-front-${this.props.design.name}`} />
+                            <img src={this.props.wheels.image} alt='wheels' className={`selected-wheels-bottom-back-${this.props.design.name}`} />
+                        </div>)
+                        }
+                    </div>
+                    <div className='custom-board-parts-div'>
+                        <h6>Select a Color</h6>
+                        {mappedParts}
+                    </div>
                 </div>
             </div>
         )
