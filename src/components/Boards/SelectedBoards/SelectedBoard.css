@@ -53,7 +53,7 @@
     border: .5px solid #011D6E;
 }
 
-.customize-board-btn {
+.mobile-customize-board-btn {
     height: 40px;
     width: 100vw;
     background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
@@ -61,7 +61,7 @@
     color: white;
 }
 
-.mobile-customize-board-btn {
+.customize-board-btn {
     display: none;
 }
 
@@ -126,11 +126,11 @@
         width: 20vw;
     }
 
-    .customize-board-btn {
+    .mobile-customize-board-btn {
         display: none;
     }
 
-    .mobile-customize-board-btn{
+    .customize-board-btn{
         height: 40px;
         width: 20vw;
         display: initial;
@@ -168,5 +168,89 @@
     .board-bar-info {
         margin: 0px 0px 5px 0px;
         color: black;
+    }
+}
+
+@media(min-width: 1000px){
+    .selected-boards {
+        padding-top: 45px;
+        margin-right: 30px;
+    }
+
+    .selected-board-image-one {
+        height: 405px;
+        width: 75vw;
+    }
+
+    .selected-board-image-two {
+        height: 405px;
+        width: 75vw;
+    }
+
+    .selected-board-image-three {
+        height: 405px;
+        width: 75vw;
+    }
+
+    .board-bar {
+        width: 18vw;
+    }
+
+    .board-bar-image {
+        width: 18vw;
+    }
+}
+
+@media(min-width: 1200px){
+    .desktop-view {
+        display: inline-block;
+    }
+
+    .selected-boards-flex {
+        max-width: 1200px;
+        justify-content: center;
+    }
+
+    .selected-boards {
+        max-width: 840px
+    }
+
+    .selected-board-image-one {
+        height: 45vh;
+        width: 850px;
+    }
+
+    .selected-board-image-two {
+        height: 405px;
+        width: 850px;
+    }
+
+    .selected-board-image-three {
+        height: 405px;
+        width: 850px;
+    }
+
+    .selected-board-price {
+        width: 180px;
+    }
+
+    .selected-board-dropdownbutton {
+        width: 180px;
+    }
+
+    .selected-board-btn {
+        width: 240px;
+    }
+
+    .customize-board-btn{
+        width: 240px;
+    }
+
+    .board-bar {
+        width: 210px;
+    }
+
+    .board-bar-image {
+        width: 210px;
     }
 }

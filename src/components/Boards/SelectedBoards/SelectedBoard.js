@@ -164,9 +164,9 @@ class SelectedBoard extends Component {
                     <Dropdown.Item onClick={this.handleQtyUp}>2</Dropdown.Item>
                 </DropdownButton>
                 <Button bsPrefix='selected-board-btn' onClick={this.handleAddToCart}>Add to Cart</Button>
-                <Button bsPrefix='mobile-customize-board-btn' onClick={this.handleCustomize}>Customize</Button>
+                <Button bsPrefix='customize-board-btn' onClick={this.handleCustomize}>Customize</Button>
             </ButtonGroup>
-            <Button bsPrefix='customize-board-btn'onClick={this.handleCustomize}>Customize</Button>
+            <Button bsPrefix='mobile-customize-board-btn'onClick={this.handleCustomize}>Customize</Button>
             <div className='selected-board-description'>
                 <h6>{board.longboard_title}</h6>
                 <p>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
@@ -186,30 +186,32 @@ class SelectedBoard extends Component {
             )
         })
         return(
-            <div className='selected-boards-flex'>
-                <div className='selected-boards'>
-                    <Carousel interval='60000'>
-                        <Carousel.Item>
-                            <div className='selected-board-image-one'/>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className='selected-board-image-two'/>
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <div className='selected-board-image-three'/>
-                        </Carousel.Item>
-                    </Carousel>
-                    {mappedBoard}
-                    {this.state.showModal
-                    ?(<AuthModal 
-                        user={this.state.user}
-                        login={this.handleLogin}
-                        toggle={this.handleToggle} />)
-                    :(null)}
-                </div>
-                <div className='board-bar'>
-                    <p>Other Popular Boards</p>
-                    {mapAllBoards}
+            <div className='desktop-view'>
+                <div className='selected-boards-flex'>
+                    <div className='selected-boards'>
+                        <Carousel interval='60000'>
+                            <Carousel.Item>
+                                <div className='selected-board-image-one'/>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <div className='selected-board-image-two'/>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <div className='selected-board-image-three'/>
+                            </Carousel.Item>
+                        </Carousel>
+                        {mappedBoard}
+                        {this.state.showModal
+                        ?(<AuthModal 
+                            user={this.state.user}
+                            login={this.handleLogin}
+                            toggle={this.handleToggle} />)
+                        :(null)}
+                    </div>
+                    <div className='board-bar'>
+                        <p>Other Popular Boards</p>
+                        {mapAllBoards}
+                    </div>
                 </div>
             </div>
         )

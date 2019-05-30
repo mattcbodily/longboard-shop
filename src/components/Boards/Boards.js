@@ -101,7 +101,7 @@ class Boards extends Component {
             <div>
                 <div className='Boards'>
                     <div className='Filter-group'>
-                    <ButtonGroup>
+                    <ButtonGroup bsPrefix='filter-btn-group'>
                         <div className='Filterby'>
                             Filter by:
                         </div>

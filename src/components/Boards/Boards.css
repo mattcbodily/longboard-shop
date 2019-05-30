@@ -9,6 +9,12 @@
     position: fixed;
 }
 
+.filter-btn-group {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .Filterby {
     height: 30px;
     width: 34vw;
@@ -81,21 +87,60 @@
     .Boards {
         padding-top: 50px; 
     }
+
     .Filterby {
         height: 35px;
         padding-top: 4px;
     }
+
     .Filter-dropdownbutton {
         height: 35px;
     }
+
     .boardsflex {
         flex-direction: row;
         flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 0px 55px;
+        justify-content: space-evenly;
+        padding: 0px 0px;
     }
+
     .custom-card {
         width: 300px;
-        margin: 10px 0px;
+        margin: 10px 10px;
+    }
+}
+
+@media(min-width: 1000px){
+    .Boards {
+        padding-top: 55px;
+    }
+}
+
+@media(min-width: 1200px){
+    .Boards {
+        width: 1200px;
+        display: inline-block;
+    }
+
+    .Filter-group {
+        width: 1200px;
+    }
+
+    .Filterby {
+        width: 365px;
+    }
+
+    .Filter-dropdownbutton {
+        width: 365px;
+    }
+
+    .boardsflex {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .custom-card {
+        width: 290px;
+        margin: 10px 30px;
     }
 }
