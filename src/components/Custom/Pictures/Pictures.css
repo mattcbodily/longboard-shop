@@ -1,5 +1,6 @@
 .custom-graphic-container {
     height: calc(100vh - 120px);
+    background-color: #F7F7F7;
 }
 
 .custom-graphic-container h6 {

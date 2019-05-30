@@ -7,6 +7,7 @@ h4 {
     max-width: 100vw;
     box-sizing: border-box;
     padding-top: 40px;
+    background-color: #F7F7F7;
 }
 
 .Carouselimage-one {
@@ -189,11 +190,11 @@ h4 {
     }
 }
 
-@media(min-width: 1200px){
+@media(min-width: 1250px){
     .Landing {
-        max-width: 1200px;
+        max-width: 1250px;
         display: inline-block;
-        padding-top: 70px;
+        padding: 70px 50px 0px 50px;
     }
     .Landingblurb {
         max-width: 1200px;

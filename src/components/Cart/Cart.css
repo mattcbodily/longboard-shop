@@ -1,3 +1,7 @@
+.cart-desktop-view {
+    background-color: #F7F7F7;
+}
+
 .cart {
     min-height: calc(100vh - 40px);
     box-sizing: border-box;
@@ -141,7 +145,10 @@
 
 @media(min-width: 1000px){
     .cart-desktop-view {
+        width: 100%;
         display: inline-block;
+        padding-left: 50px;
+        padding-right: 50px;
     }
 
     .cart-flex {
@@ -151,5 +158,11 @@
 
     .cart {
         margin-right: 20px;
+    }
+}
+
+@media(min-width: 1250px){
+    .cart-desktop-view {
+        width: 1250px;
     }
 }

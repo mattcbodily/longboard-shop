@@ -2,4 +2,13 @@
     min-height: 100vh;
     box-sizing: border-box;
     padding: 40px 0px;
+    background-color: #F7F7F7;
+}
+
+@media(min-width: 1250px){
+    .About {
+        width: 1250px;
+        display: inline-block;
+        padding: 60px 50px 0px 50px;
+    }
 }

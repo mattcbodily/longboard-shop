@@ -8,6 +8,7 @@ h6 {
     min-height: calc(100vh - 40px);
     box-sizing: border-box;
     padding-top: 40px;
+    background-color: #F7F7F7;
 }
 
 .user-information {
@@ -185,5 +186,16 @@ h6 {
 
     .order-history-price p {
         margin-top: 30px;
+    }
+}
+
+@media(min-width: 1250px){
+    .user {
+        width: 1250px;
+        display: inline-block;
+    }
+    
+    .order {
+        width: 1250px;
     }
 }

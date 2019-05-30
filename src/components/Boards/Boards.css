@@ -3,6 +3,7 @@
     box-sizing: border-box;
     padding-top: 40px;
     text-align: left;
+    background-color: #F7F7F7;
 }
 
 .Filter-group {
@@ -73,6 +74,15 @@
     border: .5px solid #011D6E;
 }
 
+.boards-custom-btn1:hover {
+    background-image: none;
+    background-color: #001C6F;
+}
+
+.boards-custom-btn1:active {
+    background-color: #02258C;
+}
+
 .boards-custom-btn2 {
     height: 32px;
     width: 48%;
@@ -81,6 +91,15 @@
     border: 1px solid gray;
     border-radius: 0px 5px 5px 0px;
     border: .5px solid #011D6E;
+}
+
+.boards-custom-btn2:hover {
+    background-image: none;
+    background-color: #001C6F;
+}
+
+.boards-custom-btn2:active {
+    background-color: #02258C;
 }
 
 @media(min-width: 500px){
@@ -116,14 +135,14 @@
     }
 }
 
-@media(min-width: 1200px){
+@media(min-width: 1250px){
     .Boards {
-        width: 1200px;
+        width: 1250px;
         display: inline-block;
     }
 
     .Filter-group {
-        width: 1200px;
+        width: 1250px;
     }
 
     .Filterby {

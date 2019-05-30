@@ -33,6 +33,10 @@ h5 {
     border: 1px solid rgb(186, 186, 186);
 }
 
+.customize-step-btn:hover {
+    background-color: gray;
+}
+
 .custom-board-image-div {
     height: 60vh;
     box-sizing: border-box;
@@ -73,15 +77,18 @@ h5 {
     background-color: #F7F7F7;
     border-bottom: 2px solid gray;
     box-sizing: border-box;
-    margin: 5px 0px;
-    padding: 0px 30px;
+    padding: 5px 30px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.custom-board-parts-card:hover {
-    background-color: gray;
+.custom-parts-card:hover {
+    background-color: #D2D2D2;
+}
+
+.custom-parts-card:active {
+    background-color: #F7F7F7;
 }
 /* below are placeholders for the custom parts div placement */
 
@@ -149,6 +156,7 @@ h5 {
         display: flex;
         width: 1000px;
         border: 1px solid rgb(186, 186, 186);
+        background-color: #F7F7F7;
     }
 
     .custom-board-image-div {
