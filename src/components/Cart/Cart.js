@@ -82,21 +82,23 @@ class Cart extends Component {
             )
         })
         return(
-            <div className='cart-flex'>
-                <div className='cart'>
-                    <h6>Your Total: ${this.state.total}</h6>
-                    <div onClick={this.handleCompleteOrder}>
-                        <Checkout 
-                            total={Math.round(this.state.total * 100)}
-                            getUser={this.handleGetUser} 
-                            order={this.state.user.order_id}
-                            user={this.state.user.user_id} />
+            <div className='cart-desktop-view'>
+                <div className='cart-flex'>
+                    <div className='cart'>
+                        <h6>Your Total: ${this.state.total}</h6>
+                        <div onClick={this.handleCompleteOrder}>
+                            <Checkout 
+                                total={Math.round(this.state.total * 100)}
+                                getUser={this.handleGetUser} 
+                                order={this.state.user.order_id}
+                                user={this.state.user.user_id} />
+                        </div>
+                        {mappedCart}
                     </div>
-                    {mappedCart}
-                </div>
-                <div className='board-bar'>
-                    <p>Other Popular Boards</p>
-                    {mapAllBoards}
+                    <div className='board-bar'>
+                        <p>Other Popular Boards</p>
+                        {mapAllBoards}
+                    </div>
                 </div>
             </div>
         )

@@ -128,6 +128,7 @@
 @media(min-width: 750px){
     .cart-flex {
         display: flex;
+        justify-content: center;
         box-sizing: border-box;
         padding-top: 50px;
     }
@@ -135,5 +136,20 @@
     .cart {
         padding-top: 10px;
         width: 70vw;
+    }
+}
+
+@media(min-width: 1000px){
+    .cart-desktop-view {
+        display: inline-block;
+    }
+
+    .cart-flex {
+        padding-top: 60px;
+        max-width: 1000px;
+    }
+
+    .cart {
+        margin-right: 20px;
     }
 }

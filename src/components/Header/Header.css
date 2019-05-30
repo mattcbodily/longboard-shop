@@ -23,6 +23,10 @@
     color: #02154E;
 }
 
+.Bars:active {
+    color: white;
+}
+
 .Logotext:link {
     text-decoration: none;
     color: white;
@@ -39,6 +43,10 @@
     color: #02154E;
 }
 
+.Logotext:active {
+    color: white;
+}
+
 .user-icon {
     color: white;
     font-size: 20px;
@@ -49,6 +57,10 @@
     color: #02154E;
 }
 
+.user-icon:active {
+    color: white;
+}
+
 .shopping-cart {
     color: white;
     font-size: 20px;
@@ -56,6 +68,10 @@
 
 .shopping-cart:hover {
     color:#02154E;
+}
+
+.shopping-cart:active {
+    color: white;
 }
 
 .Dropdownmenu{
