@@ -1,6 +1,7 @@
 .Header {
     height: 40px;
-    width: 100vw;
+    min-width: 100vw;
+    max-width: 100vw;
     box-sizing: border-box;
     background-color: #02258C;
     position: fixed;
@@ -18,6 +19,10 @@
     font-size: 20px;
 }
 
+.Bars:hover {
+    color: #02154E;
+}
+
 .Logotext:link {
     text-decoration: none;
     color: white;
@@ -30,15 +35,27 @@
     color: white;
 }
 
+.Logotext:hover {
+    color: #02154E;
+}
+
 .user-icon {
     color: white;
     font-size: 20px;
     margin-right: 10px;
 }
 
+.user-icon:hover {
+    color: #02154E;
+}
+
 .shopping-cart {
     color: white;
     font-size: 20px;
+}
+
+.shopping-cart:hover {
+    color:#02154E;
 }
 
 .Dropdownmenu{
@@ -61,6 +78,7 @@
     color: white;
     border-bottom: 1px solid white;
     white-space: nowrap;
+    transition: font-size .1s linear;
 }
 
 .Registermodal {
@@ -125,6 +143,35 @@
 
 @media(min-width: 1000px){
     .Header {
+        height: 55px;
         padding: 0px 25px;
+    }
+
+    .Bars {
+        font-size: 28px;
+        margin-right: 25px;
+    }
+
+    .Logotext:link {
+        font-size: 28px;
+    }
+
+    .user-icon {
+        font-size: 28px;
+    }
+
+    .shopping-cart {
+        font-size: 28px;
+        margin-right: 15px;
+        margin-left: 10px;
+    }
+
+    .Dropdownmenu {
+        padding-top: 55px;
+    }
+
+    .Dropdownlinks:hover {
+        font-size: 22px;
+        text-decoration: none;
     }
 }
