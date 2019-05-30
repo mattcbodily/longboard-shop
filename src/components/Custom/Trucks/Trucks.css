@@ -171,59 +171,59 @@
 @media(min-width: 1000px){
     .selected-board-top {
         margin-top: -200px;
-        margin-left: -300px;
+        margin-left: -305px;
     }
 
     .selected-board-bottom {
         margin-top: -200px;
-        margin-right: 20px;
+        margin-right: 25px;
     }
     
     .selected-trucks-top-front-Pintail {
         height: 39px;
         margin-top: -185px;
-        margin-left: -294px;
+        margin-left: -299px;
     }
 
     .selected-trucks-top-back-Pintail {
         height: 39px;
         margin-top: 115px;
-        margin-left: -294px;
+        margin-left: -299px;
     }
 
     .selected-trucks-bottom-front-Pintail {
         height: 39px;
         margin-top: -185px;
-        margin-right: 26px;
+        margin-right: 31px;
     }
 
     .selected-trucks-bottom-back-Pintail {
         height: 39px;
         margin-top: 115px;
-        margin-right: 25px;
+        margin-right: 30px;
     }
 
     .selected-trucks-top-front-Drop {
         height: 39px;
         margin-top: -175px;
-        margin-left: -295px;
+        margin-left: -300px;
     }
 
     .selected-trucks-top-back-Drop {
         height: 39px;
         margin-top: 141px;
-        margin-left: -295px;
+        margin-left: -300px;
     }
 
     .selected-trucks-bottom-front-Drop {
         height: 39px;
         margin-top: -175px;
-        margin-right: 27px;
+        margin-right: 32px;
     }
 
     .selected-trucks-bottom-back-Drop {
         height: 39px;
         margin-top: 141px;
-        margin-right: 27px;
+        margin-right: 32px;
     }
 }

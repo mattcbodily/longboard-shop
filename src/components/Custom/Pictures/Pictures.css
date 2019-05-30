@@ -1,96 +1,13 @@
-.board-outline {
-    height: 300px;
-    width: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-top: -54%;
-    margin-left: -30px;
-    z-index: 6;
+.custom-graphic-container {
+    height: calc(100vh - 120px);
 }
 
-.selected-trucks-front-Pintail {
-    height: 30px;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    margin-top: calc(-54% + 8px);
-    margin-right: -26px;
-    z-index: 6;
+.custom-graphic-container h6 {
+    display: none;
 }
 
-.selected-trucks-back-Pintail {
-    height: 30px;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    margin-top: calc(-54% + 235px);
-    margin-right: -26px;
-    z-index: 6;
-    transform: rotate(180deg)
-}
-
-.selected-trucks-front-Drop {
-    height: 30px;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    margin-top: calc(-54% + 18px);
-    margin-right: -26px;
-    z-index: 6;
-}
-
-.selected-trucks-back-Drop {
-    height: 30px;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    margin-top: calc(-54% + 257px);
-    margin-right: -26px;
-    z-index: 6;
-    transform: rotate(180deg)
-}
-
-.selected-wheels-front-Pintail {
-    height: 28px;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    margin-top: calc(-54% + 10px);
-    margin-right: -42px;
-    z-index: 6;
-}
-
-.selected-wheels-back-Pintail {
-    height: 28px;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    margin-top: calc(-54% + 235px);
-    margin-right: -41px;
-    z-index: 6;
-    transform: rotate(180deg)
-}
-
-.selected-wheels-front-Drop {
-    height: 28px;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    margin-top: calc(-54% + 19px);
-    margin-right: -41px;
-    z-index: 6;
-}
-
-.selected-wheels-back-Drop {
-    height: 28px;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    margin-top: calc(-54% + 257px);
-    margin-right: -41px;
-    z-index: 6;
-    transform: rotate(180deg)
+.custom-image {
+    height: 55vh;
 }
 
 .custom-board-btn {
@@ -103,16 +20,82 @@
 
 .custom-board-btn:hover {
     background-image: none;
-    background-color: #011244;
+    background-color: #001C6F;
 }
 
 .uploaded-graphic {
-    max-height: 300px;
-    max-width: 300px;
+    height: 300px;
+    width: 300px;
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: calc(-54% - 5px);
+    margin-top: calc(-54% - 10px);
     margin-left: -150px;
     z-index: 5
+}
+
+@media(min-width: 500px){
+    .uploaded-graphic {
+        height: 350px;
+        width: 350px;
+        margin-top: -270px;
+        margin-left: -175px;
+    }
+}
+
+@media(min-width: 750px){
+    .uploaded-graphic {
+        height: 400px;
+        width: 400px;
+        margin-left: -200px;
+        margin-top: -340px;
+    }
+}
+
+@media(min-width: 1000px){
+    .custom-graphic-container {
+        height: calc(100vh - 132px);
+        display: flex;
+    }
+
+    .custom-image {
+        height: calc(100vh - 350px);
+        width: 680px;
+    }
+
+    .custom-board-buttons-div {
+        width: 320px;
+        box-sizing: border-box;
+        padding-top: 160px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .custom-graphic-container h5 {
+        display: none;
+    }
+
+    .custom-board-buttons-div h6 {
+        display: initial;
+        margin-right: 50px;
+    }
+
+    .custom-board-btn {
+        width: 250px;
+        margin: 5px 50px 0px 0px;
+        border-radius: 20px;
+    }
+
+    .custom-graphic-container p {
+        width: 250px;
+        margin-top: 20px;
+        margin-left: 10px;
+        text-align: center;
+    }
+
+    .uploaded-graphic {
+        top: 500px;
+        margin-top: -300px;
+        margin-left: -450px;
+    }
 }
