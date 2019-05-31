@@ -154,6 +154,17 @@ class SelectedBoard extends Component {
         const mappedBoard = this.state.board.map((board, i) => {
             return(
                 <div key={i}>
+                    <Carousel interval='60000'>
+                        <Carousel.Item>
+                            <img src={board.longboard_picture} alt='longboard' className='selected-board-image-one'/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img src={board.longboard_picture} alt='longboard' className='selected-board-image-two'/>
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img src={board.longboard_picture} alt='longboard' className='selected-board-image-three'/>
+                        </Carousel.Item>
+                    </Carousel>
                 <ButtonGroup>
                 <div className='selected-board-price'>
                     ${(board.price * this.state.qty)}
@@ -169,10 +180,7 @@ class SelectedBoard extends Component {
             <Button bsPrefix='mobile-customize-board-btn'onClick={this.handleCustomize}>Customize</Button>
             <div className='selected-board-description'>
                 <h6>{board.longboard_title}</h6>
-                <p>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
-                beef ribs pancetta tongue. Rump pork chop tail alcatra pork chuck pork belly ham hock beef ribs jowl bresaola 
-                chicken beef sirloin t-bone. Boudin sausage kielbasa, andouille pig strip steak tail kevin. Corned beef chicken doner 
-                strip steak ball tip jowl.</p>
+                <p>{board.extended_description}</p>
             </div>
             </div>
             )
@@ -189,17 +197,6 @@ class SelectedBoard extends Component {
             <div className='desktop-view'>
                 <div className='selected-boards-flex'>
                     <div className='selected-boards'>
-                        <Carousel interval='60000'>
-                            <Carousel.Item>
-                                <div className='selected-board-image-one'/>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <div className='selected-board-image-two'/>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <div className='selected-board-image-three'/>
-                            </Carousel.Item>
-                        </Carousel>
                         {mappedBoard}
                         {this.state.showModal
                         ?(<AuthModal 

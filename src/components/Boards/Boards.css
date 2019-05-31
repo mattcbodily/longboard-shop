@@ -59,6 +59,7 @@
     border: 1px solid lightgray; 
     border-radius: 10px;
     margin-bottom: 10px;
+    background-color: white;
 }
 
 .card-btn-group {

@@ -13,19 +13,19 @@ class Landing extends Component {
                     <Carousel.Item>
                         <div className='Carouselimage-one'/>
                     <Carousel.Caption>
-                        <h6>O.D.N.T Longboards</h6>
+                        {/* <h6 className='carousel-prompts'>O.D.N.T Longboards</h6> */}
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className='Carouselimage-two'/>
                     <Carousel.Caption>
-                        <h6>Handmade boards that fit your style</h6>
+                        {/* <h6 className='carousel-prompts'>Handmade boards that fit your style</h6> */}
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className='Carouselimage-three'/>
                     <Carousel.Caption>
-                        <h6>Customize a board today</h6>
+                        {/* <h6 className='carousel-prompts'>Customize a board today</h6> */}
                     </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>

@@ -137,7 +137,9 @@ class Pictures extends Component {
                     <div className='custom-graphic-container'>
                         <h5>Add a Graphic</h5>
                         <div className='custom-image'>
-                            <img src={this.props.graphic} alt='graphic' className='uploaded-graphic'/>
+                            {this.props.graphic
+                            ?(<img src={this.props.graphic} alt='graphic' className='uploaded-graphic'/>)
+                            : null}
                         </div>
                         <div className='custom-board-buttons-div'>
                             <h6>Add a Graphic</h6>

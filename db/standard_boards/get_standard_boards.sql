@@ -1,2 +1,2 @@
-select longboard_id, longboard_title, price, longboard_description from longboards
+select longboard_id, longboard_title, longboard_picture, price, longboard_description from longboards
 where custom = false;

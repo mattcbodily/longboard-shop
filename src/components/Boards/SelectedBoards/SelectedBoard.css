@@ -4,30 +4,9 @@
 }
 
 .selected-boards {
-    min-height: calc(100vh - 56px);
+    min-height: calc(100vh - 60px);
     box-sizing: border-box;
     padding-top: 40px;
-}
-
-.selected-board-image-one {
-    height: 35vh;
-    width: 100%;
-    background-image: url("./../../Landing/drew-hays-161811-unsplash.jpg");
-    background-size: cover;
-}
-
-.selected-board-image-two {
-    height: 35vh;
-    width: 100%;
-    background-image: url("./../../Landing/sasha-bond-52826-unsplash.jpg");
-    background-size: cover;
-}
-
-.selected-board-image-three {
-    height: 35vh;
-    width: 100%;
-    background-image: url("./../../Landing/jevgenij-voronov-63310-unsplash.jpg");
-    background-size: cover;
 }
 
 .selected-board-price {
@@ -249,6 +228,7 @@
 
 @media(min-width: 1250px){
     .desktop-view {
+        min-height: calc(100vh - 90px);
         display: inline-block;
         padding: 10px 50px;
     }

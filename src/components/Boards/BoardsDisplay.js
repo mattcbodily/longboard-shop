@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import testpicture from './the-nigmatic-263109-unsplash.jpg';
 
 class BoardsDisplay extends Component {
     handleAddToCart = () => {
@@ -12,9 +11,9 @@ class BoardsDisplay extends Component {
     render(){
         return (
              <Card bsPrefix='custom-card'>
-                <Card.Img variant="top" src={testpicture} style={{height: '165px', borderRadius: '10px 10px 0px 0px'}} />
+                <Card.Img variant="top" src={this.props.board.longboard_picture} style={{height: '165px', borderRadius: '10px 10px 0px 0px'}} />
                 <Card.Body>
-                    <Card.Title>{this.props.board.longboard_title}, {this.props.board.price}</Card.Title>
+                    <Card.Title>{this.props.board.longboard_title}, ${this.props.board.price}</Card.Title>
                     <Card.Text>
                         {this.props.board.longboard_description}
                     </Card.Text>
