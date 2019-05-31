@@ -47,6 +47,10 @@
     color: white;
 }
 
+.expanded-logo {
+    display: none;
+}
+
 .user-icon {
     color: white;
     font-size: 20px;
@@ -170,6 +174,10 @@
 
     .Logotext:link {
         font-size: 28px;
+    }
+
+    .expanded-logo {
+        display: initial;
     }
 
     .user-icon {

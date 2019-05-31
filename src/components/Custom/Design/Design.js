@@ -64,12 +64,9 @@ class Design extends Component {
                     <div className='custom-board-image-div'>
                         {this.props.design.name
                             ? (<div>
-                                <h5 className='custom-step-name'>{this.props.design.name} Design</h5>
                                 <img src={this.props.design.image} alt='design' className={`selected-board`}/>
-                            </div>)
-                            :  (<div>
-                                    <h5 className='custom-step-name'>Select a Design</h5>
                                 </div>)
+                            :  null
                             }
                     </div>
                     <div className='custom-board-parts-div'>
