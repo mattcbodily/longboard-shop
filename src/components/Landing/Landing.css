@@ -48,28 +48,70 @@ h4 {
     background-color: #001C6F;
 }
 
+.custom-btn:active {
+    background-image: none;
+    background-color: #02258C;
+}
+
 .Landinglinks {
     display: none;
 }
 
 .Landingimage-one {
-    height: 175px;
+    height: 200px;
     width: 100%;
     background-image: url("./drew-hays-161811-unsplash.jpg");
 }
 
 .Landingimage-two {
-    height: 175px;
+    height: 200px;
     width: 100%;
     background-image: url("./sasha-bond-52826-unsplash.jpg");
     background-size: cover;
 }
 
 .Landingimage-three {
-    height: 175px;
+    height: 200px;
     width: 100%;
     background-image: url("./jevgenij-voronov-63310-unsplash.jpg");
     background-size: cover;
+}
+
+.large-screen-blurb {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.large-screen-prompt {
+    display: none;
+    padding: 0px;
+}
+
+.get-started-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.get-started-btn {
+    height: 38px;
+    width: 300px;
+    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    color: white;
+    border: .5px solid #011D6E;
+    border-radius: 20px;
+    margin: 0px 0px 10px 0px;
+}
+
+.get-started-btn:hover {
+    background-image: none;
+    background-color: #001C6F;
+}
+
+.get-started-btn:active {
+    background-image: none;
+    background-color: #02258C;
 }
 
 @media(min-width: 500px){
@@ -125,9 +167,18 @@ h4 {
     .Landingimage-three h4 {
         display: none;
     }
+
+    .large-screen-blurb {
+        max-width: 50%;
+    }
+
+    .large-screen-prompt {
+        display: initial;
+    }
+
     .Landing-text {
         max-height: 100%;
-        max-width: 50%;
+        width: 100%;
     }
 }
 
@@ -163,27 +214,40 @@ h4 {
         max-width: 60%;
         background-repeat: no-repeat;
         background-size: cover;
+        margin-right: 30px;
     }
     .Landingimage-two {
         height: 350px;
         max-width: 60%;
+        margin-left: 30px;
     }
+
     .Landingimage-three {
         height: 350px;
         max-width: 60%;
+        margin-right: 30px;
     }
+
     .Landingimage-one h4 {
         display: none;
     }
+
     .Landingimage-two h4 {
         display: none;
     }
+
     .Landingimage-three h4 {
         display: none;
     }
+    
+    .large-screen-blurb {
+        width: 40%;
+        padding: 55px 0px 0px 0px;
+    }
+
     .Landing-text {
         max-height: 100%;
-        max-width: 35%;
+        max-width: 100%;
         font-size: 19px;
         text-align: center;
         margin-top: 15px;

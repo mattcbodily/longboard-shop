@@ -13,19 +13,19 @@ class Landing extends Component {
                     <Carousel.Item>
                         <div className='Carouselimage-one'/>
                     <Carousel.Caption>
-                        <h3>First slide label</h3>
+                        <h6>O.D.N.T Longboards</h6>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className='Carouselimage-two'/>
                     <Carousel.Caption>
-                        <h3>Second slide label</h3>
+                        <h6>Handmade boards that fit your style</h6>
                     </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className='Carouselimage-three'/>
                     <Carousel.Caption>
-                        <h3>Third slide label</h3>
+                        <h6>Customize a board today</h6>
                     </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
@@ -38,28 +38,36 @@ class Landing extends Component {
                     <div className='Landingimage-one'>
                         <h4>About Us</h4>
                     </div>
-                    <p className='Landing-text'>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
-                    beef ribs pancetta tongue. Rump pork chop tail alcatra pork chuck pork belly ham hock beef ribs jowl bresaola 
-                    chicken beef sirloin t-bone. Boudin sausage kielbasa, andouille pig strip steak tail kevin. Corned beef chicken doner 
-                    strip steak ball tip jowl.</p>
+                    <div className='large-screen-blurb'>
+                        <h4 className='large-screen-prompt'>About Us</h4>
+                        <p className='Landing-text'>Old Dog New Trick Longboards prides itself in building handmade, quality longboards that 
+                        anybody can ride. O.D.N.T. Longboards started in Arizona, building longboards of all makes, and continues to do so to 
+                        this day.</p>
+                    </div>
                 </div>
                 <div className='Landingblurb-two'>
                     <div className='Landingimage-two'>
                         <h4>Why Our Boards?</h4>
                     </div>
-                    <p className='Landing-text'>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
-                    beef ribs pancetta tongue. Rump pork chop tail alcatra pork chuck pork belly ham hock beef ribs jowl bresaola 
-                    chicken beef sirloin t-bone. Boudin sausage kielbasa, andouille pig strip steak tail kevin. Corned beef chicken doner 
-                    strip steak ball tip jowl.</p>
+                    <div className='large-screen-blurb'>
+                        <h4 className='large-screen-prompt'>Why Our Boards</h4>
+                        <p className='Landing-text'>The reason to choose our boards is simple: they are handmade. Handmade longboards provide 
+                        a quality and feel that machine made boards don't offer. Our customers love the quality they get from our boards, which 
+                        is why they will always be handmade, made to fit you and your lifestyle.</p>
+                    </div>
                 </div>                
                 <div className='Landingblurb'>
                     <div className='Landingimage-three'>
                         <h4>Get Started</h4>
                     </div>
-                    <p className='Landing-text'>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
-                    beef ribs pancetta tongue. Rump pork chop tail alcatra pork chuck pork belly ham hock beef ribs jowl bresaola 
-                    chicken beef sirloin t-bone. Boudin sausage kielbasa, andouille pig strip steak tail kevin. Corned beef chicken doner 
-                    strip steak ball tip jowl.</p>
+                    <div className='large-screen-blurb'>
+                        <h4 className='large-screen-prompt'>Get Started</h4>
+                        <p className='Landing-text'>Now that you've read about us, let's get started!</p>
+                        <div className='get-started-button-container'>
+                        <Link to='/boards'><Button bsPrefix='get-started-btn'>Shop our Boards</Button></Link>
+                        <Link to='/customize'><Button bsPrefix='get-started-btn'>Build your own</Button></Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

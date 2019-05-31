@@ -24,6 +24,11 @@
     background-color: #001C6F;
 }
 
+.custom-board-btn:active {
+    background-image: none;
+    background-color: #02258C;
+}
+
 .uploaded-graphic {
     height: 300px;
     width: 300px;
