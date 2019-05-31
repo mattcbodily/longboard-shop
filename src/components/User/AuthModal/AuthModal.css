@@ -15,7 +15,7 @@
 .authentication-modal {
     height: 215px;
     width: 90%;
-    background-color: whitesmoke;
+    background-color: #F6F7F8;
     position: fixed;
     top: 28%;
     left: 50%;
@@ -24,6 +24,7 @@
     border: 2px solid slategray;
     z-index: 10;
     text-align: center;
+    box-shadow: 5px 5px 5px #1D1D26;
 }
 
 .authentication-modal h6 {
@@ -43,59 +44,59 @@
 .modal-button-one {
     height: 30px;
     width: 100px;
-    border: .5px solid #011D6E;
+    border: .5px solid #004A86;
     border-radius: 20px 0px 0px 20px;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    background-image: linear-gradient(#0073D1, #005FAC, #0073D1);
     color: white;
 }
 
 .modal-button-one:hover {
     background-image: none;
-    background-color: #001C6F;
+    background-color: #005499;
 }
 
 .modal-button-one:active {
     background-image: none;
-    background-color: #02258C;
+    background-color: #005FAC;
 }
 
 
 .modal-button-two {
     height: 30px;
     width: 100px;
-    border: .5px solid #011D6E;
+    border: .5px solid #004A86;
     border-radius: 0px 20px 20px 0px;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    background-image: linear-gradient(#0073D1, #005FAC, #0073D1);
     color: white;
 }
 
 .modal-button-two:hover {
     background-image: none;
-    background-color: #001C6F;
+    background-color: #005499;
 }
 
 .modal-button-two:active {
     background-image: none;
-    background-color: #02258C;
+    background-color: #005FAC;
 }
 
 .login-modal-button {
     height: 30px;
     width: 200px;
-    border: .5px solid #011D6E;
+    border: .5px solid #004A86;
     border-radius: 20px;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    background-image: linear-gradient(#0073D1, #005FAC, #0073D1);
     color: white;
 }
 
 .login-modal-button:hover {
     background-image: none;
-    background-color: #001C6F;
+    background-color: #005499;
 }
 
 .login-modal-button:active {
     background-image: none;
-    background-color: #02258C;
+    background-color: #005FAC;
 }
 
 @media(min-width: 500px){

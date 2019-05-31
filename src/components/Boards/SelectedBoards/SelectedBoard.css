@@ -1,5 +1,6 @@
 .desktop-view {
-    background-color: #F7F7F7;
+    background-color: #F6F7F8;
+    box-shadow: 10px 0px 10px #1D1D26, -10px 0px 10px #1D1D26;
 }
 
 .selected-boards {
@@ -32,11 +33,11 @@
 .selected-board-price {
     height: 40px;
     width: 27vw;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    background-image: linear-gradient(#0073D1, #005FAC, #0073D1);
     color: white;
     font-size: 17px;
     text-align: center;
-    border: .5px solid #011D6E;
+    border: .5px solid #004A86;
     box-sizing: border-box;
     padding-top: 7px;
 }
@@ -44,55 +45,55 @@
 .selected-board-dropdownbutton {
     height: 40px;
     width: 23vw;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    background-image: linear-gradient(#0073D1, #005FAC, #0073D1);
     color: white;
-    border: .5px solid #011D6E;
+    border: .5px solid #004A86;
 }
 
 .selected-board-dropdownbutton:hover {
     background-image: none;
-    background-color: #001C6F;
+    background-color: #005499;
 }
 
 .selected-board-dropdownbutton:active {
     background-image: none;
-    background-color: #02258C;
+    background-color: #005FAC;
 }
 
 .selected-board-btn {
     height: 40px;
     width: 50vw;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
+    background-image: linear-gradient(#0073D1, #005FAC, #0073D1);    
     color: white;
-    border: .5px solid #011D6E;
+    border: .5px solid #004A86;
 }
 
 .selected-board-btn:hover {
     background-image: none;
-    background-color: #001C6F;
+    background-color: #005499;
 }
 
 .selected-board-btn:active {
     background-image: none;
-    background-color: #02258C;
+    background-color: #005FAC;
 }
 
 .mobile-customize-board-btn {
     height: 40px;
     width: 100vw;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
-    border: .5px solid #011D6E;
+    background-image: linear-gradient(#0073D1, #005FAC, #0073D1);  
+    border: .5px solid #004A86;
     color: white;
 }
 
 .mobile-customize-board-btn:hover {
     background-image: none;
-    background-color: #001C6F;
+    background-color: #005499;
 }
 
 .mobile-customize-board-btn:active {
     background-image: none;
-    background-color: #02258C;
+    background-color: #005FAC;
 }
 
 .customize-board-btn {
@@ -101,12 +102,12 @@
 
 .customize-board-btn:hover {
     background-image: none;
-    background-color: #001C6F;
+    background-color: #005499;
 }
 
 .customize-board-btn:active {
     background-image: none;
-    background-color: #02258C;
+    background-color: #005FAC;
 }
 
 .selected-board-description {
@@ -178,8 +179,8 @@
         height: 40px;
         width: 20vw;
         display: initial;
-        background-image: linear-gradient(#002AA7, #02258C, #002AA7);    
-        border: .5px solid #011D6E;
+        background-image: linear-gradient(#0073D1, #005FAC, #0073D1);    
+        border: .5px solid #005499;
         color: white;
     }
 
@@ -298,5 +299,11 @@
 
     .board-bar-image {
         width: 210px;
+    }
+}
+
+@media(min-width: 1350px){
+    .selected-boards-flex {
+        width: 1350px;
     }
 }

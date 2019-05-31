@@ -1,6 +1,6 @@
 .custom-graphic-container {
     height: calc(100vh - 120px);
-    background-color: #F7F7F7;
+    background-color: #F6F7F8;
 }
 
 .custom-graphic-container h6 {
@@ -14,19 +14,19 @@
 .custom-board-btn {
     height: 38px;
     width: 50%;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    background-image: linear-gradient(#0073D1, #005FAC, #0073D1);
     color: white;
-    border: .5px solid #011D6E;
+    border: .5px solid #0069BE;
 }
 
 .custom-board-btn:hover {
     background-image: none;
-    background-color: #001C6F;
+    background-color: #005499;
 }
 
 .custom-board-btn:active {
     background-image: none;
-    background-color: #02258C;
+    background-color: #005FAC;
 }
 
 .uploaded-graphic {

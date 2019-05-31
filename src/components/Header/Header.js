@@ -40,7 +40,7 @@ class Header extends Component {
                     <header className='Header'>
                         <div>
                             <FontAwesomeIcon icon="bars" className="Bars" onClick={() => this.handleToggle()} />
-                            <Link to='/' className='Logotext'><span>O.D.N.T</span></Link>
+                            <Link to='/' className='Logotext'><span>O.D.N.T</span><span className='expanded-logo'> Longboards</span></Link>
                         </div>
                         <div>
                             <Link to='/order-history'><FontAwesomeIcon icon="user" className="user-icon"/></Link>

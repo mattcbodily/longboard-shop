@@ -1,5 +1,6 @@
 .cart-desktop-view {
-    background-color: #F7F7F7;
+    background-color: #F6F7F8;
+    box-shadow: 10px 0px 10px #1D1D26, -10px 0px 10px #1D1D26;
 }
 
 .cart {
@@ -164,5 +165,12 @@
 @media(min-width: 1250px){
     .cart-desktop-view {
         width: 1250px;
+    }
+}
+
+@media(min-width: 1350px){
+    .cart-desktop-view {
+        width: 1350px;
+        padding: 0px 0px 0px 160px;
     }
 }

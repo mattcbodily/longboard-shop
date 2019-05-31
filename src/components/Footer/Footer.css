@@ -3,7 +3,8 @@
     max-width: 100vw;
     box-sizing: border-box;
     padding-top: 8px;
-    background-color: #02258C;
+    /* background-color: #02258C; */
+    background-color: #1D1D26;
     position: relative;
     z-index: 20;
 }

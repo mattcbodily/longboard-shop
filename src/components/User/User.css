@@ -8,7 +8,8 @@ h6 {
     min-height: calc(100vh - 40px);
     box-sizing: border-box;
     padding-top: 40px;
-    background-color: #F7F7F7;
+    background-color: #F6F7F8;
+    box-shadow: 10px 0px 10px #1D1D26, -10px 0px 10px #1D1D26;
 }
 
 .user-information {
@@ -197,5 +198,15 @@ h6 {
     
     .order {
         width: 1250px;
+    }
+}
+
+@media(min-width: 1350px){
+    .user {
+        width: 1350px;
+    }
+
+    .order {
+        width: 1350px;
     }
 }

@@ -7,7 +7,8 @@ h4 {
     max-width: 100vw;
     box-sizing: border-box;
     padding-top: 40px;
-    background-color: #F7F7F7;
+    background-color: #F6F7F8;
+    box-shadow: 10px 0px 10px #1D1D26, -10px 0px 10px #1D1D26;
 }
 
 .Carouselimage-one {
@@ -38,19 +39,19 @@ h4 {
 .custom-btn {
     height: 38px;
     width: 50%;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    background-image: linear-gradient(#0073D1, #005FAC, #0073D1);
     color: white;
-    border: .5px solid #011D6E;
+    border: .5px solid #004A86;
 }
 
 .custom-btn:hover {
     background-image: none;
-    background-color: #001C6F;
+    background-color: #005499;
 }
 
 .custom-btn:active {
     background-image: none;
-    background-color: #02258C;
+    background-color: #005FAC;
 }
 
 .Landinglinks {
@@ -97,21 +98,21 @@ h4 {
 .get-started-btn {
     height: 38px;
     width: 300px;
-    background-image: linear-gradient(#002AA7, #02258C, #002AA7);
+    background-image: linear-gradient(#0073D1, #005FAC, #0073D1);
     color: white;
-    border: .5px solid #011D6E;
+    border: .5px solid #0069BE;
     border-radius: 20px;
     margin: 0px 0px 10px 0px;
 }
 
 .get-started-btn:hover {
     background-image: none;
-    background-color: #001C6F;
+    background-color: #005499;
 }
 
 .get-started-btn:active {
     background-image: none;
-    background-color: #02258C;
+    background-color: #005FAC;
 }
 
 @media(min-width: 500px){
@@ -269,5 +270,12 @@ h4 {
         max-width: 1200px;
         padding: 5px 0px;
         justify-content: space-between;
+    }
+}
+
+@media(min-width: 1350px){
+    .Landing {
+        max-width: 1350px;
+        padding: 70px 100px 0px 100px;
     }
 }

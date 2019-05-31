@@ -2,7 +2,8 @@
     min-height: 100vh;
     box-sizing: border-box;
     padding: 40px 0px;
-    background-color: #F7F7F7;
+    background-color: #F6F7F8;
+    box-shadow: 10px 0px 10px #1D1D26, -10px 0px 10px #1D1D26;
 }
 
 @media(min-width: 1250px){
@@ -10,5 +11,11 @@
         width: 1250px;
         display: inline-block;
         padding: 60px 50px 0px 50px;
+    }
+}
+
+@media(min-width: 1350px){
+    .About {
+        width: 1350px;
     }
 }
