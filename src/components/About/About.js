@@ -10,10 +10,10 @@ const About = () => {
                 </div>
                 <div className='large-screen-blurb'>
                     <h4 className='large-screen-prompt'>How we Started</h4>
-                    <p className='Landing-text'>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
-                    beef ribs pancetta tongue. Rump pork chop tail alcatra pork chuck pork belly ham hock beef ribs jowl bresaola 
-                    chicken beef sirloin t-bone. Boudin sausage kielbasa, andouille pig strip steak tail kevin. Corned beef chicken doner 
-                    strip steak ball tip jowl.</p>
+                    <p className='Landing-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit, leo at eleifend 
+                    volutpat, ipsum lorem mollis sapien, a rutrum arcu sapien eget nisl. Nunc diam nunc, ullamcorper eget orci non, porta 
+                    laoreet odio. In nec sem luctus, dignissim ex a, vulputate sapien. Morbi congue leo eu diam rutrum, eu viverra mi 
+                    vehicula.</p>
                 </div>    
             </div>
             <div className='Landingblurb-two'>
@@ -22,10 +22,10 @@ const About = () => {
                 </div>
                 <div className='large-screen-blurb'>
                     <h4 className='large-screen-prompt'>About Aaron</h4>
-                    <p className='Landing-text'>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
-                    beef ribs pancetta tongue. Rump pork chop tail alcatra pork chuck pork belly ham hock beef ribs jowl bresaola 
-                    chicken beef sirloin t-bone. Boudin sausage kielbasa, andouille pig strip steak tail kevin. Corned beef chicken doner 
-                    strip steak ball tip jowl.</p>
+                    <p className='Landing-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit, leo at eleifend 
+                    volutpat, ipsum lorem mollis sapien, a rutrum arcu sapien eget nisl. Nunc diam nunc, ullamcorper eget orci non, porta 
+                    laoreet odio. In nec sem luctus, dignissim ex a, vulputate sapien. Morbi congue leo eu diam rutrum, eu viverra mi 
+                    vehicula.</p>
                 </div>
             </div>                
             <div className='Landingblurb'>
@@ -34,10 +34,10 @@ const About = () => {
                 </div>
                 <div className='large-screen-blurb'>
                     <h4 className='large-screen-prompt'>Contact Us</h4>
-                    <p className='Landing-text'>Tri-tip spare ribs frankfurter sausage pork loin biltong doner pork belly venison alcatra salami ball tip 
-                    beef ribs pancetta tongue. Rump pork chop tail alcatra pork chuck pork belly ham hock beef ribs jowl bresaola 
-                    chicken beef sirloin t-bone. Boudin sausage kielbasa, andouille pig strip steak tail kevin. Corned beef chicken doner 
-                    strip steak ball tip jowl.</p>
+                    <p className='Landing-text'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam hendrerit, leo at eleifend 
+                    volutpat, ipsum lorem mollis sapien, a rutrum arcu sapien eget nisl. Nunc diam nunc, ullamcorper eget orci non, porta 
+                    laoreet odio. In nec sem luctus, dignissim ex a, vulputate sapien. Morbi congue leo eu diam rutrum, eu viverra mi 
+                    vehicula.</p>
                 </div>
             </div>
         </div>
