@@ -58,13 +58,11 @@ class Trucks extends Component {
                     <div className='custom-board-image-div'>
                         {!this.props.trucks.name
                         ? (<div>
-                            <h5 className='custom-step-name'>Select Trucks</h5>
                             <img src={this.props.design.image} alt='design' className='selected-board-top' />
                             <img src={this.props.design.image} alt='design' className='selected-board-bottom' />
                             <img src={this.props.grip.image} alt='grip' className='selected-board-top' />
                         </div>)
                         : (<div>
-                            <h5 className='custom-step-name'>{this.props.trucks.name} Trucks</h5>
                             <img src={this.props.design.image} alt='design' className='selected-board-top' />
                             <img src={this.props.design.image} alt='design' className='selected-board-bottom' />
                             <img src={this.props.grip.image} alt='grip' className='selected-board-top' />
