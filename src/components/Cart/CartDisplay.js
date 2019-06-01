@@ -45,7 +45,7 @@ class CartDisplay extends Component {
         return (
             <div className='user-cart'>
                     {!this.props.cart.custom
-                    ?(<img src={testpicture} alt='test' className='cart-item-picture'/>)
+                    ?(<img src={this.props.cart.longboard_picture} alt='test' className='cart-item-picture'/>)
                     :(<img src={testpicture} alt='test' className='cart-item-picture'/>)
                     }
                 <div className='cart-information'>

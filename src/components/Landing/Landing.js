@@ -12,21 +12,12 @@ class Landing extends Component {
                 <Carousel interval='10000'>
                     <Carousel.Item>
                         <div className='Carouselimage-one'/>
-                    <Carousel.Caption>
-                        {/* <h6 className='carousel-prompts'>O.D.N.T Longboards</h6> */}
-                    </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className='Carouselimage-two'/>
-                    <Carousel.Caption>
-                        {/* <h6 className='carousel-prompts'>Handmade boards that fit your style</h6> */}
-                    </Carousel.Caption>
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className='Carouselimage-three'/>
-                    <Carousel.Caption>
-                        {/* <h6 className='carousel-prompts'>Customize a board today</h6> */}
-                    </Carousel.Caption>
                     </Carousel.Item>
                 </Carousel>
                 <ButtonGroup bsPrefix='custom-btn-group'>

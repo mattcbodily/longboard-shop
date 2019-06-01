@@ -6,7 +6,6 @@ import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
-import testpicture from './the-nigmatic-263109-unsplash.jpg';
 import './Boards.css';
 
 class Boards extends Component {
@@ -52,7 +51,7 @@ class Boards extends Component {
         const mappedBoards = this.state.boards.map((board, i) => {
             return(
                 <Card bsPrefix='custom-card' key={i}>
-                    <Card.Img variant="top" src={testpicture} style={{height: '165px', borderRadius: '10px 10px 0px 0px'}} />
+                    <Card.Img variant="top" src={board.longboard_picture} style={{height: '165px', borderRadius: '10px 10px 0px 0px'}} />
                     <Card.Body>
                         <Card.Title>{board.longboard_title}, {board.price}</Card.Title>
                         <Card.Text>

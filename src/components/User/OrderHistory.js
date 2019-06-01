@@ -9,7 +9,7 @@ class OrderHistory extends Component {
                     <div className='order-history-picture-div'>
                         {!this.props.order.custom_product
                         ?(<div>
-                            <img src={testpicture} alt='test' className='order-item-picture'/>
+                            <img src={this.props.order.longboard_picture} alt='test' className='order-item-picture'/>
                           </div>)
                         :(<div>
                             <img src={testpicture} alt='test' className='order-item-picture'/>
