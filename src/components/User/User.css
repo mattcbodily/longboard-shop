@@ -6,6 +6,7 @@ h6 {
 
 .user {
     min-height: calc(100vh - 40px);
+    width: 100%;
     box-sizing: border-box;
     padding-top: 40px;
     background-color: #F6F7F8;

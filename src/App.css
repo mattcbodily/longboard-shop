@@ -4,4 +4,6 @@
   text-align: center;
   background-color: #4D5359;
   font-family: 'Rubik', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
 }

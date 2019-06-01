@@ -1,12 +1,14 @@
 .desktop-view {
     background-color: #F6F7F8;
     box-shadow: 10px 0px 10px #1D1D26, -10px 0px 10px #1D1D26;
+    box-sizing: border-box;
 }
 
 .selected-boards {
     min-height: calc(100vh - 60px);
     box-sizing: border-box;
     padding-top: 40px;
+    width: 100%;
 }
 
 .selected-board-price {

@@ -1,5 +1,6 @@
 .About{
     min-height: 100vh;
+    width: 100%;
     box-sizing: border-box;
     padding: 40px 0px;
     background-color: #F6F7F8;

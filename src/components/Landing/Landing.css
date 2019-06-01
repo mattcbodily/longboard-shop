@@ -4,7 +4,7 @@ h4 {
 
 .Landing {
     min-height: 100vh;
-    max-width: 100vw;
+    width: 100%;
     box-sizing: border-box;
     padding-top: 40px;
     background-color: #F6F7F8;

@@ -1,6 +1,6 @@
 .Footer {
     height: 40px;
-    width: 100vw;
+    width: 100%;
     box-sizing: border-box;
     padding-top: 8px;
     background-color: #1D1D26;
@@ -28,5 +28,6 @@
     .Footer {
         height: 55px;
         padding-top: 13px;
+        max-width: 100vw;
     }
 }

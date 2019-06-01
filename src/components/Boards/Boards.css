@@ -1,5 +1,6 @@
 .Boards {
     min-height: calc(100vh - 40px);
+    width: 100%;
     box-sizing: border-box;
     padding-top: 40px;
     text-align: left;
