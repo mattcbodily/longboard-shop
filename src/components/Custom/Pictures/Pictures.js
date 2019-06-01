@@ -22,6 +22,7 @@ class Pictures extends Component {
 
     componentDidMount(){
         this.handleGetUser();
+        this.handleNoSelectedParts();
     }
 
     //grabs the user from sessions, if one is logged in
@@ -116,6 +117,12 @@ class Pictures extends Component {
             }
           });
       };
+
+    handleNoSelectedParts = () => {
+        if(!this.props.design.name || !this.props.grip.name || !this.props.trucks.name || !this.props.wheels.color){
+            this.props.history.push('/customize')
+        }
+    }
     
     //conditional rendering for the authentication modal, as well as for whether an image has been uploaded or not
     render(){

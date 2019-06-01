@@ -57,7 +57,7 @@
 
 .modal-button-one:active {
     background-image: none;
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 
@@ -77,7 +77,7 @@
 
 .modal-button-two:active {
     background-image: none;
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 .login-modal-button {
@@ -96,7 +96,7 @@
 
 .login-modal-button:active {
     background-image: none;
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 @media(min-width: 500px){

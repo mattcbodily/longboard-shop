@@ -36,7 +36,7 @@
 
 .selected-board-dropdownbutton:active {
     background-image: none;
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 .selected-board-btn {
@@ -54,7 +54,7 @@
 
 .selected-board-btn:active {
     background-image: none;
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 .mobile-customize-board-btn {
@@ -72,7 +72,7 @@
 
 .mobile-customize-board-btn:active {
     background-image: none;
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 .customize-board-btn {
@@ -86,7 +86,7 @@
 
 .customize-board-btn:active {
     background-image: none;
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 .selected-board-description {

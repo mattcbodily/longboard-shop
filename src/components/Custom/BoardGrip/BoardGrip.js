@@ -17,7 +17,8 @@ class BoardSize extends Component {
     }
 
     componentDidMount(){
-        this.handleGetGrips()
+        this.handleGetGrips();
+        this.handleNoDesign();
     }
 
     handleGetGrips = () => {
@@ -31,6 +32,36 @@ class BoardSize extends Component {
 
     handleSelectedItem = (e, name, image, price, id) => {
         this.props.updateGrip({name, image, price, id})
+    }
+
+    handleNoDesign = () => {
+        if(!this.props.design.name){
+            this.props.history.push('/customize')
+        }
+    }
+
+    handleTrucksLink = () => {
+        if(this.props.design.name && this.props.grip.name){
+            this.props.history.push('/trucks')
+        } else {
+            alert('Please select parts from previous steps first')
+        }
+    }
+
+    handleWheelsLink = () => {
+        if(this.props.design.name && this.props.grip.name && this.props.trucks.name){
+            this.props.history.push('/wheels')
+        } else {
+            alert('Please select parts from previous steps first')
+        }
+    }
+
+    handleGraphicLink = () => {
+        if(this.props.design.name && this.props.grip.name && this.props.trucks.name && this.props.wheels.color){
+            this.props.history.push('/graphics')
+        } else {
+            alert('Please select parts from previous steps first')
+        }
     }
 
     render(){
@@ -48,12 +79,18 @@ class BoardSize extends Component {
                     <div className='customize-step-prompt'>
                         Step:
                     </div>
-                    <Link to='/customize'><Button bsPrefix='customize-step-btn'>1</Button><Button bsPrefix='desktop-customize-step-btn'>Design</Button></Link>
+                    <Link to='/customize'>
+                        <Button bsPrefix='customize-step-btn'>1</Button>
+                        <Button bsPrefix='desktop-customize-step-btn'>Design</Button>
+                    </Link>
                     <Button bsPrefix='active-customize-step-btn'>2</Button>
                     <Button bsPrefix='active-desktop-customize-step-btn'>Grip</Button>
-                    <Link to='/trucks'><Button bsPrefix='customize-step-btn'>3</Button><Button bsPrefix='desktop-customize-step-btn'>Trucks</Button></Link>
-                    <Link to='/wheels'><Button bsPrefix='customize-step-btn'>4</Button><Button bsPrefix='desktop-customize-step-btn'>Wheels</Button></Link>
-                    <Link to='/graphics'><Button bsPrefix='customize-step-btn'>5</Button><Button bsPrefix='desktop-customize-step-btn'>Graphics</Button></Link>
+                    <Button bsPrefix='customize-step-btn' onClick={this.handleTrucksLink}>3</Button>
+                    <Button bsPrefix='desktop-customize-step-btn' onClick={this.handleTrucksLink}>Trucks</Button>
+                    <Button bsPrefix='customize-step-btn' onClick={this.handleWheelsLink}>4</Button>
+                    <Button bsPrefix='desktop-customize-step-btn' onClick={this.handleWheelsLink}>Wheels</Button>
+                    <Button bsPrefix='customize-step-btn' onClick={this.handleGraphicLink}>5</Button>
+                    <Button bsPrefix='desktop-customize-step-btn' onClick={this.handleGraphicLink}>Graphics</Button>
                 </ButtonGroup>
                 <div className='custom-flex-div'>
                     <div className='custom-board-image-div'>
@@ -78,10 +115,12 @@ class BoardSize extends Component {
 }
 
 const mapStateToProps = reduxState => {
-    const {grip, design} = reduxState
+    const {grip, design, trucks, wheels} = reduxState
     return {
         grip,
-        design
+        design,
+        trucks,
+        wheels
     }
 }
 

@@ -51,7 +51,7 @@ h4 {
 
 .custom-btn:active {
     background-image: none;
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 .Landinglinks {
@@ -112,7 +112,7 @@ h4 {
 
 .get-started-btn:active {
     background-image: none;
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 @media(min-width: 500px){

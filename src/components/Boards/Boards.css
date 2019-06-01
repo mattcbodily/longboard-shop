@@ -82,7 +82,7 @@
 }
 
 .boards-custom-btn1:active {
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 .boards-custom-btn2 {
@@ -101,7 +101,7 @@
 }
 
 .boards-custom-btn2:active {
-    background-color: #005FAC;
+    background-color: #5C99CA;
 }
 
 @media(min-width: 500px){

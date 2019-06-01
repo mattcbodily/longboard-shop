@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import PartDisplay from '../PartDisplay';
@@ -39,6 +38,38 @@ class Design extends Component {
         })
     }
 
+    handleGripLink = () => {
+        if(this.props.design.name){
+            this.props.history.push('/board-grip')
+        } else {
+            alert('Please select parts from previous steps first')
+        }
+    }
+
+    handleTrucksLink = () => {
+        if(this.props.design.name && this.props.grip.name){
+            this.props.history.push('/trucks')
+        } else {
+            alert('Please select parts from previous steps first')
+        }
+    }
+
+    handleWheelsLink = () => {
+        if(this.props.design.name && this.props.grip.name && this.props.trucks.name){
+            this.props.history.push('/wheels')
+        } else {
+            alert('Please select parts from previous steps first')
+        }
+    }
+
+    handleGraphicLink = () => {
+        if(this.props.design.name && this.props.grip.name && this.props.trucks.name && this.props.wheels.color){
+            this.props.history.push('/graphics')
+        } else {
+            alert('Please select parts from previous steps first')
+        }
+    }
+
     render(){
         const mappedParts = this.state.designs.map((design, i) => {
             return(
@@ -56,10 +87,14 @@ class Design extends Component {
                     </div>
                     <Button bsPrefix='active-customize-step-btn'>1</Button>
                     <Button bsPrefix='active-desktop-customize-step-btn'>Design</Button>
-                    <Link to='/board-grip'><Button bsPrefix='customize-step-btn'>2</Button><Button bsPrefix='desktop-customize-step-btn'>Grip</Button></Link>
-                    <Link to='/trucks'><Button bsPrefix='customize-step-btn'>3</Button><Button bsPrefix='desktop-customize-step-btn'>Trucks</Button></Link>
-                    <Link to='/wheels'><Button bsPrefix='customize-step-btn'>4</Button><Button bsPrefix='desktop-customize-step-btn'>Wheels</Button></Link>
-                    <Link to='/graphics'><Button bsPrefix='customize-step-btn'>5</Button><Button bsPrefix='desktop-customize-step-btn'>Graphics</Button></Link>
+                    <Button bsPrefix='customize-step-btn' onClick={this.handleGripLink}>2</Button>
+                    <Button bsPrefix='desktop-customize-step-btn' onClick={this.handleGripLink}>Grip</Button>
+                    <Button bsPrefix='customize-step-btn' onClick={this.handleTrucksLink}>3</Button>
+                    <Button bsPrefix='desktop-customize-step-btn' onClick={this.handleTrucksLink}>Trucks</Button>
+                    <Button bsPrefix='customize-step-btn' onClick={this.handleWheelsLink}>4</Button>
+                    <Button bsPrefix='desktop-customize-step-btn' onClick={this.handleWheelsLink}>Wheels</Button>
+                    <Button bsPrefix='customize-step-btn' onClick={this.handleGraphicLink}>5</Button>
+                    <Button bsPrefix='desktop-customize-step-btn' onClick={this.handleGraphicLink}>Graphics</Button>
                 </ButtonGroup>
                 <div className='custom-flex-div'>
                     <div className='custom-board-image-div'>
@@ -81,10 +116,12 @@ class Design extends Component {
 }
 
 const mapStateToProps = reduxState => {
-    const {design, grip} = reduxState
+    const {design, grip, trucks, wheels} = reduxState
     return {
         design,
-        grip
+        grip,
+        trucks,
+        wheels
     }
 }
 
