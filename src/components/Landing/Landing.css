@@ -1,5 +1,5 @@
 h4 {
-    padding-top: 70px;
+    /* padding-top: 70px; */
 }
 
 .Landing {
@@ -62,6 +62,9 @@ h4 {
     height: 200px;
     width: 100%;
     background-image: url("./drew-hays-161811-unsplash.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Landingimage-two {
@@ -69,6 +72,9 @@ h4 {
     width: 100%;
     background-image: url("./sasha-bond-52826-unsplash.jpg");
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .Landingimage-three {
@@ -76,6 +82,21 @@ h4 {
     width: 100%;
     background-image: url("./jevgenij-voronov-63310-unsplash.jpg");
     background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blurb-prompt-container {
+    height: 40px;
+    width: 215px;
+    background-color: rgb(0, 0, 0, .6);
+    border-radius: 20px;
+}
+
+.blurb-prompt-container h4 {
+    color: rgb(255, 255, 255, 1);
+    margin-top: 5px;
 }
 
 .large-screen-blurb {
@@ -158,6 +179,9 @@ h4 {
     }
     .Landingimage-three {
         max-width: 55%;
+    }
+    .blurb-prompt-container {
+        display: none;
     }
     .Landingimage-one h4 {
         display: none;

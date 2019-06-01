@@ -27,7 +27,9 @@ class Landing extends Component {
                 <p className='Landinglinks'>Ready to get started? <Link to='/boards'>View our boards</Link> or <Link to='/customize'>build your own</Link></p>
                 <div className='Landingblurb'>
                     <div className='Landingimage-one'>
-                        <h4>About Us</h4>
+                        <div className='blurb-prompt-container'>
+                            <h4>About Us</h4>
+                        </div>
                     </div>
                     <div className='large-screen-blurb'>
                         <h4 className='large-screen-prompt'>About Us</h4>
@@ -38,7 +40,9 @@ class Landing extends Component {
                 </div>
                 <div className='Landingblurb-two'>
                     <div className='Landingimage-two'>
-                        <h4>Why Our Boards?</h4>
+                        <div className='blurb-prompt-container'>
+                            <h4>Why our Boards?</h4>
+                        </div>
                     </div>
                     <div className='large-screen-blurb'>
                         <h4 className='large-screen-prompt'>Why Our Boards</h4>
@@ -49,7 +53,9 @@ class Landing extends Component {
                 </div>                
                 <div className='Landingblurb'>
                     <div className='Landingimage-three'>
-                        <h4>Get Started</h4>
+                        <div className='blurb-prompt-container'>
+                            <h4>Get Started</h4>
+                        </div>
                     </div>
                     <div className='large-screen-blurb'>
                         <h4 className='large-screen-prompt'>Get Started</h4>
