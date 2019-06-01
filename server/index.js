@@ -10,6 +10,8 @@ const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, S3_BUCKET, AWS_ACCESS_KEY
 const app = express();
 app.use(json());
 
+app.use( express.static( `${__dirname}/../build` ) );
+
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
