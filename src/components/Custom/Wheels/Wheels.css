@@ -3,7 +3,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: calc(-54% + 12px);
+    margin-top: -169px;
     margin-left: -110px;
     z-index: 1;
 }
@@ -13,7 +13,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: calc(-54% + 234px);
+    margin-top: 55px;
     margin-left: -112px;
     z-index: 1;
     transform: rotate(180deg)
@@ -24,7 +24,7 @@
     position: absolute;
     top: 50%;
     right: 50%;
-    margin-top: calc(-54% + 12px);
+    margin-top: -169px;
     margin-right: -112px;
     z-index: 3;
 }
@@ -34,7 +34,7 @@
     position: absolute;
     top: 50%;
     right: 50%;
-    margin-top: calc(-54% + 234px);
+    margin-top: 55px;
     margin-right: -111px;
     z-index: 3;
     transform: rotate(180deg)
@@ -45,7 +45,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: calc(-54% + 19px);
+    margin-top: -161px;
     margin-left: -110.5px;
     z-index: 1;
 }
@@ -55,7 +55,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: calc(-54% + 257px);
+    margin-top: 77px;
     margin-left: -111px;
     z-index: 1;
     transform: rotate(180deg)
@@ -66,7 +66,7 @@
     position: absolute;
     top: 50%;
     right: 50%;
-    margin-top: calc(-54% + 19px);
+    margin-top: -161px;
     margin-right: -111px;
     z-index: 3;
 }
@@ -76,7 +76,7 @@
     position: absolute;
     top: 50%;
     right: 50%;
-    margin-top: calc(-54% + 257px);
+    margin-top: 77px;
     margin-right: -111px;
     z-index: 3;
     transform: rotate(180deg)

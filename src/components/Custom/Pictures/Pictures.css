@@ -35,7 +35,7 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: calc(-54% - 10px);
+    margin-top: -170px;
     margin-left: -150px;
     z-index: 5
 }
