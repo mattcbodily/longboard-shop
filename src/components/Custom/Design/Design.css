@@ -127,7 +127,7 @@ h5 {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -54%;
+    margin-top: -200px;
     margin-left: -30px;
     z-index: 2;
 }
