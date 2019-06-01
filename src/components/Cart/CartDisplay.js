@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import testpicture from './../Boards/the-nigmatic-263109-unsplash.jpg';
+import testPicture from './../Boards/the-nigmatic-263109-unsplash.jpg';
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faTimes} from '@fortawesome/free-solid-svg-icons';
@@ -44,9 +44,9 @@ class CartDisplay extends Component {
     render(){
         return (
             <div className='user-cart'>
-                    {!this.props.cart.custom
-                    ?(<img src={this.props.cart.longboard_picture} alt='test' className='cart-item-picture'/>)
-                    :(<img src={testpicture} alt='test' className='cart-item-picture'/>)
+                    {!this.props.cart.custom_product
+                    ?(<img src={this.props.cart.longboard_picture} alt='longboard' className='cart-item-picture'/>)
+                    :(<img src={testPicture} alt='test' className='cart-item-picture'/>)
                     }
                 <div className='cart-information'>
                     <div className='cart-longboard-title'>
