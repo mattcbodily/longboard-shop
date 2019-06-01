@@ -37,7 +37,6 @@
     left: 50%;
     margin-top: -170px;
     margin-left: -150px;
-    z-index: 5
 }
 
 @media(min-width: 500px){

@@ -19,7 +19,7 @@
     position: fixed;
     top: 28%;
     left: 50%;
-    z-index: 20;
+    z-index: 100;
     margin-left: -45%;
     border-radius: 10px;
     border: 2px solid slategray;
