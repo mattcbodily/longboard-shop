@@ -9,7 +9,6 @@ class BoardsDisplay extends Component {
         this.props.addToCart(this.props.board.longboard_id, this.props.board.price);
     }
     render(){
-        console.log(this.props)
         return (
              <Card bsPrefix='custom-card'>
                 <Card.Img variant="top" src={this.props.board.longboard_picture} style={{height: '165px', borderRadius: '10px 10px 0px 0px'}} />
