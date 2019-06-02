@@ -4,20 +4,44 @@ import axios from 'axios';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import BoardsDisplay from './BoardsDisplay';
+import AuthModal from './../User/AuthModal/AuthModal';
 import './Boards.css';
 
 class Boards extends Component {
     constructor(props){
         super(props);
         this.state = {
-            boards: []
+            user: {},
+            boards: [],
+            showModal: false
         }
     }
 
     componentDidMount(){
+        this.handleGetSessionUser();
         this.handleGetBoards();
+    }
+
+    handleGetSessionUser = () => {
+        axios.get('/auth/session-user')
+        .then(res => {
+            this.setState({
+                user: res.data
+            })
+        }) 
+    }
+
+    handleToggle = () => {
+        this.setState({
+            showModal: !this.state.showModal
+        })
+    }
+
+    handleLogin = (data) => {
+        this.setState({
+            user: data
+        })
     }
 
     handleGetBoards = () => {
@@ -47,22 +71,30 @@ class Boards extends Component {
         })
     }
 
+    handleAddToCart = (boardID, price) => {
+        if(this.state.user.user_id) {
+            const orderItem = {
+                order_id: this.state.user.order_id,
+                standard_product: boardID,
+                quantity: 1,
+                price
+            }
+            axios.post('/api/standard-cart-item', orderItem)
+            .then(res => {
+                alert('Item added successfully')
+            })
+        } else {
+            this.handleToggle()
+        }
+    }
+
     render(){
         const mappedBoards = this.state.boards.map((board, i) => {
             return(
-                <Card bsPrefix='custom-card' key={i}>
-                    <Card.Img variant="top" src={board.longboard_picture} style={{height: '165px', borderRadius: '10px 10px 0px 0px'}} />
-                    <Card.Body>
-                        <Card.Title>{board.longboard_title}, {board.price}</Card.Title>
-                        <Card.Text>
-                            {board.longboard_description}
-                        </Card.Text>
-                        <ButtonGroup bsPrefix='card-btn-group'>
-                            <Link to={`/board/${board.longboard_title}`}><Button bsPrefix='boards-custom-btn1'>More Info</Button></Link>
-                            <Button bsPrefix='boards-custom-btn2'>Add to Cart</Button>
-                        </ButtonGroup>
-                    </Card.Body>
-                </Card>
+                <BoardsDisplay 
+                    key={i}
+                    board={board}
+                    addToCart={this.handleAddToCart}/>
             )
         })
         return(
@@ -87,6 +119,12 @@ class Boards extends Component {
                 <div className='boardsflex'>
                     {mappedBoards}
                 </div>
+                {this.state.showModal
+                ?(<AuthModal
+                    user={this.state.user} 
+                    login={this.handleLogin}
+                    toggle={this.handleToggle}/>)
+                :(null)}
             </div>
         )
     }
