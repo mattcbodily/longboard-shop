@@ -196,7 +196,8 @@ h5 {
     }
 
     .custom-board-parts-div {
-        height: 90%;
+        min-height: calc(100vh - 132px);
+        max-height: calc(100vh - 132px);
         width: 340px;
     }
 
